@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="大家好，我是丘梓陽，可以叫我梓陽！我是一位前端工程師，仍然是一名菜鳥。前端技術發展迅速，唯有不停學習。我還是強調是基礎必須要打得穩，才可以往前走，沒有所謂捷徑，不可能一步登天。所有🔥框架或其他技術，都是基於原始的。我希望透過我學習一步一步把它紀錄下來。">
+<meta name="description" content="來了解什麼是離線應用，在沒網路情況下，頁面內容還是會顯示">
 <meta name="keywords" content="service-worker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="serviceWorker 使用">
 <meta property="og:url" content="http://yoursite.com/2018/05/05/serviceWorker-使用/index.html">
 <meta property="og:site_name" content="前端">
-<meta property="og:description" content="大家好，我是丘梓陽，可以叫我梓陽！我是一位前端工程師，仍然是一名菜鳥。前端技術發展迅速，唯有不停學習。我還是強調是基礎必須要打得穩，才可以往前走，沒有所謂捷徑，不可能一步登天。所有🔥框架或其他技術，都是基於原始的。我希望透過我學習一步一步把它紀錄下來。">
+<meta property="og:description" content="來了解什麼是離線應用，在沒網路情況下，頁面內容還是會顯示">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-05-04T18:50:09.000Z">
+<meta property="og:image" content="https://cdn-images-1.medium.com/max/800/1*rvWvJn7ClHWiysYfMb3kxA.jpeg">
+<meta property="og:updated_time" content="2018-05-06T16:37:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="serviceWorker 使用">
-<meta name="twitter:description" content="大家好，我是丘梓陽，可以叫我梓陽！我是一位前端工程師，仍然是一名菜鳥。前端技術發展迅速，唯有不停學習。我還是強調是基礎必須要打得穩，才可以往前走，沒有所謂捷徑，不可能一步登天。所有🔥框架或其他技術，都是基於原始的。我希望透過我學習一步一步把它紀錄下來。">
+<meta name="twitter:description" content="來了解什麼是離線應用，在沒網路情況下，頁面內容還是會顯示">
+<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/800/1*rvWvJn7ClHWiysYfMb3kxA.jpeg">
 
 
 
@@ -300,8 +302,24 @@
       
 
       
-        <p>大家好，我是丘梓陽，可以叫我梓陽！我是一位前端工程師，仍然是一名菜鳥。前端技術發展迅速，唯有不停學習。我還是強調是基礎必須要打得穩，才可以往前走，沒有所謂捷徑，不可能一步登天。所有🔥框架或其他技術，都是基於原始的。<br>我希望透過我學習一步一步把它紀錄下來。<br><a id="more"></a></p>
-<h1 id="出發"><a href="#出發" class="headerlink" title="出發"></a>出發</h1>
+        <p>來了解什麼是離線應用，在沒網路情況下，頁面內容還是會顯示</p>
+<a id="more"></a>
+<p><img src="https://cdn-images-1.medium.com/max/800/1*rvWvJn7ClHWiysYfMb3kxA.jpeg" alt=""></p>
+<h3 id="如何解決傳統-Web-App的缺點"><a href="#如何解決傳統-Web-App的缺點" class="headerlink" title="如何解決傳統 Web App的缺點"></a>如何解決傳統 Web App的缺點</h3><ul>
+<li>無法離線使用</li>
+</ul>
+<p>當client 發出網路請求，如果失敗了，我們可以在緩存中獲取備份內容。但是如果連結很慢的話，用戶依然看不到頁面裡內容，這種體驗相當差。</p>
+<p><em>我們可以這樣做：</em></p>
+<blockquote>
+<p>採取<strong>offline first</strong><br>是指用戶在設備上已有內容，先採取緩存方式</p>
+</blockquote>
+<p>使用這種緩存方法，我們依然可以請求網路，但我們不會等待這過程，我們會從緩存中獲取內容。並且再最終從網路獲取內容後更新頁面。<br>當我們從網路獲取最新內容後，可以更新用戶所看到內容，并將最新內容保存到緩存中，供下次使用。</p>
+<p>使用這種再沒有網路情況下，依然可以看內容，總比沒顯示好很多。</p>
+<h3 id="介紹Service-Worker"><a href="#介紹Service-Worker" class="headerlink" title="介紹Service Worker"></a>介紹Service Worker</h3><p>Service Worker是在後台啟動一條服務worker線程。它無法訪問DOM，但可以控制頁面，控制是指browser發出請求時會攔截請求，但可以正常將請求發送。<br>就是說Worker的工作是把一些資源緩存下來，然後攔截請求，先看緩存庫裡有沒有，如果有就先從緩存庫取出，如果沒有就正常的請求。</p>
+<p>即使離線或斷網了，依然可以訪問，</p>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>離線優先做法，會先從緩存取出，然後響應頁面裡內容。如果緩存中沒有，就會請求網路獲取。</p>
+<p>學習資源<br><a href="https://developers.google.com/web/fundamentals/primers/service-workers/" target="_blank" rel="noopener">google service worker</a><br><a href="https://jakearchibald.github.io/isserviceworkerready/" target="_blank" rel="noopener">Service Worker 官網</a></p>
+
       
     </div>
     
@@ -484,7 +502,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#出發"><span class="nav-number">1.</span> <span class="nav-text">出發</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解決傳統-Web-App的缺點"><span class="nav-number">1.</span> <span class="nav-text">如何解決傳統 Web App的缺點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#介紹Service-Worker"><span class="nav-number">2.</span> <span class="nav-text">介紹Service Worker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#總結"><span class="nav-number">3.</span> <span class="nav-text">總結</span></a></li></ol></div>
             
 
           </div>
