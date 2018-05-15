@@ -88,7 +88,7 @@
 <meta property="og:description" content="來了解前端工程化及構建工具什麼是工程化？在軟體工程開發中，工程化是必不可少的體系。前端崛起，前端迅速發展，來滿足大眾各個體驗需求。 對於後端開發者來說，工程化是理所當然，而前端只是UI效果和用戶交互效果，沒有複雜業務邏，也不需操作資料庫，因此無需工程化。 但是他們有所不知，現在前端工程化必要性。不只是做UI效果交互作用或頁面很炫，隨著用戶體驗漸漸要求很高，需要大量優化來改善用戶體驗，例如頁面渲染">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://i.imgur.com/ZrJrjXx.png?1">
-<meta property="og:updated_time" content="2018-05-15T18:17:48.000Z">
+<meta property="og:updated_time" content="2018-05-15T18:33:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端工程化及構建工具">
 <meta name="twitter:description" content="來了解前端工程化及構建工具什麼是工程化？在軟體工程開發中，工程化是必不可少的體系。前端崛起，前端迅速發展，來滿足大眾各個體驗需求。 對於後端開發者來說，工程化是理所當然，而前端只是UI效果和用戶交互效果，沒有複雜業務邏，也不需操作資料庫，因此無需工程化。 但是他們有所不知，現在前端工程化必要性。不只是做UI效果交互作用或頁面很炫，隨著用戶體驗漸漸要求很高，需要大量優化來改善用戶體驗，例如頁面渲染">
@@ -323,11 +323,14 @@
 <li>有良好的插件社區支持 （構建工具本身作用不大，依賴於插件）</li>
 <li>有很多附加功能 (模組和可扩展)</li>
 </ol>
-<p>目前最流行是Grunt和Gulp，這兩個工具。<br>Grunt是滿足以上需求，它具有強大插件生態系統。但是Gulp出現後，比起Grunt速度效能好很多。Gulp就是為速度而生，可以并行執行任務。</p>
+<p>我以這兩種Grunt和Gulp工具來了解前端構建工具。<br>Grunt是滿足以上需求，它具有強大插件生態系統。但是Gulp出現後，比起Grunt速度效能好很多。Gulp就是為速度而生，可以并行執行任務。</p>
+<blockquote>
+<p>當然還有其他構建打包工具如：強大（webpackjs，Parceljs， Rollupjs，但這些對於我來說太複雜了，目前只有初步了解及使用。其實它們具有構建功能，但本質上，是一種靜態模組打包器。</p>
+</blockquote>
 <p><strong>先大概描述這兩個差異（Grunt和Gulp）</strong></p>
 <ul>
 <li>使用Grunt，更關注是以配置方式來執行任務</li>
-<li>使用Gulp，更關注是以程式方式來執行任務，看起來比較直白。</li>
+<li>使用Gulp，更關注是以程式方式來執行任務，看起來比較直白像是在寫程式。</li>
 <li>Gulp速度比Grunt好原因：<pre><code>* Grunt是以磁盤來操作，構建效率很低。
 * Grunt是按順序執行任務
 * Gulp是并行執行任務，所有任務完成後停止
