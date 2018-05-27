@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="build tools,工程化,gulp," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="大家好，我是丘梓陽，可以叫我梓陽！我是一位前端工程師，仍然是一名菜鳥。前端技術發展迅速，唯有不停學習。我還是強調是基礎必須要打得穩，才可以往前走，沒有所謂捷徑，不可能一步登天。所有🔥框架或其他技術，都是基於原始的。我希望透過我學習一步一步把它紀錄下來。">
+<meta name="description" content="我將會挑幾個常用插件來學習，主要是通過實戰來了解Gulp的應用。在開發過程中，根據自己項目需求去尋找對應插件使用，來滿足需求及提高開發效率。">
+<meta name="keywords" content="build tools,工程化,gulp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="新Blog，會紀錄我學習過程及分享">
-<meta property="og:url" content="http://yoursite.com/2018/04/22/newBlog/index.html">
+<meta property="og:title" content="gulp實戰筆記">
+<meta property="og:url" content="http://yoursite.com/2018/05/17/gulp實戰筆記/index.html">
 <meta property="og:site_name" content="前端">
-<meta property="og:description" content="大家好，我是丘梓陽，可以叫我梓陽！我是一位前端工程師，仍然是一名菜鳥。前端技術發展迅速，唯有不停學習。我還是強調是基礎必須要打得穩，才可以往前走，沒有所謂捷徑，不可能一步登天。所有🔥框架或其他技術，都是基於原始的。我希望透過我學習一步一步把它紀錄下來。">
+<meta property="og:description" content="我將會挑幾個常用插件來學習，主要是通過實戰來了解Gulp的應用。在開發過程中，根據自己項目需求去尋找對應插件使用，來滿足需求及提高開發效率。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-04-21T17:18:15.000Z">
+<meta property="og:updated_time" content="2018-05-27T13:49:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="新Blog，會紀錄我學習過程及分享">
-<meta name="twitter:description" content="大家好，我是丘梓陽，可以叫我梓陽！我是一位前端工程師，仍然是一名菜鳥。前端技術發展迅速，唯有不停學習。我還是強調是基礎必須要打得穩，才可以往前走，沒有所謂捷徑，不可能一步登天。所有🔥框架或其他技術，都是基於原始的。我希望透過我學習一步一步把它紀錄下來。">
+<meta name="twitter:title" content="gulp實戰筆記">
+<meta name="twitter:description" content="我將會挑幾個常用插件來學習，主要是通過實戰來了解Gulp的應用。在開發過程中，根據自己項目需求去尋找對應插件使用，來滿足需求及提高開發效率。">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/22/newBlog/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/17/gulp實戰筆記/"/>
 
 
 
 
 
-  <title>新Blog，會紀錄我學習過程及分享 | 前端</title>
+  <title>gulp實戰筆記 | 前端</title>
   
 
 
@@ -232,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/22/newBlog/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/17/gulp實戰筆記/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="DecadeHew">
@@ -249,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">新Blog，會紀錄我學習過程及分享</h1>
+          <h1 class="post-title" itemprop="name headline">gulp實戰筆記</h1>
         
 
         <div class="post-meta">
@@ -261,8 +262,8 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-04-22T01:06:33+08:00">
-                2018-04-22
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-05-17T21:47:21+08:00">
+                2018-05-17
               </time>
             
 
@@ -299,8 +300,69 @@
       
 
       
-        <p>大家好，我是丘梓陽，可以叫我梓陽！我是一位前端工程師，仍然是一名菜鳥。前端技術發展迅速，唯有不停學習。我還是強調是基礎必須要打得穩，才可以往前走，沒有所謂捷徑，不可能一步登天。所有🔥框架或其他技術，都是基於原始的。<br>我希望透過我學習一步一步把它紀錄下來。<br><a id="more"></a></p>
-<h1 id="出發"><a href="#出發" class="headerlink" title="出發"></a>出發</h1>
+        <p>我將會挑幾個常用插件來學習，主要是通過實戰來了解Gulp的應用。在開發過程中，根據自己項目需求去尋找對應插件使用，來滿足需求及提高開發效率。</p>
+<a id="more"></a>
+<h1 id="目錄"><a href="#目錄" class="headerlink" title="目錄"></a>目錄</h1><ul>
+<li>前置作業</li>
+<li>Gulp全局安裝</li>
+<li>開始</li>
+<li>代碼說明</li>
+</ul>
+<h2 id="前置作業"><a href="#前置作業" class="headerlink" title="前置作業"></a>前置作業</h2><p><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">nodejs環境</a> (包含npm安裝包)<br><a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md" target="_blank" rel="noopener">安裝Gulp</a></p>
+<h2 id="Gulp全局安裝"><a href="#Gulp全局安裝" class="headerlink" title="Gulp全局安裝"></a>Gulp全局安裝</h2><p><code>npm install gulp-cli -g</code></p>
+<h2 id="開始"><a href="#開始" class="headerlink" title="開始"></a>開始</h2><ul>
+<li><p>在項目中，先初始化創建package.json。<br><code>npm init</code></p>
+</li>
+<li><p>安裝Gulp依賴包<br><code>npm gulp -save-dev</code></p>
+</li>
+<li><p>切換項目中目錄下，創建gulpfile.js來編寫你的任務</p>
+<ul>
+<li>首先指定構建內容，通過gulp插件來完成構建，最終輸出指定目錄裡。</li>
+<li>使用前，需要安裝這兩個gulp插件(npm i gulp-sass, npm i gulp-autoprefixer)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const gulp = require(&apos;gulp&apos;);</span><br><span class="line">const sass = require(&apos;gulp-sass&apos;);</span><br><span class="line">const autoprefixer = require(&apos;gulp-autoprefixer&apos;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;default&apos;, function() &#123;</span><br><span class="line">	console.log(&apos;hello world&apos;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;styles&apos;, function() &#123;</span><br><span class="line">	gulp.src(&apos;sass/**/*.scss&apos;)</span><br><span class="line">		.pipe(sass())</span><br><span class="line">		.pipe(autoprefixer(&#123;</span><br><span class="line">			browsers: [&apos;last 2 version&apos;]</span><br><span class="line">		&#125;))</span><br><span class="line">		.pipe(gulp.dest(&apos;./css&apos;))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="代碼說明"><a href="#代碼說明" class="headerlink" title="代碼說明"></a>代碼說明</h2><ul>
+<li>定義gulp任務及執行</li>
+</ul>
+<blockquote>
+<p>gulp.task(“任務名稱”, func)<br>我們可以用任務名稱來執行任務 ，再terminal輸入gulp taskname</p>
+</blockquote>
+<ul>
+<li>指定gulp任務內容</li>
+</ul>
+<blockquote>
+<p>gulp.src(*<em>/</em>.js).pipe(plugin1()).pipe(plugin2())</p>
+</blockquote>
+<blockquote>
+<p>gulp.src(內容來源)方法會返回Stream物件，可以通過pipe方法將內容傳遞給插件。所有插件都接受pipe傳來數據，處理數據可允許鏈式方式去呼叫。</p>
+</blockquote>
+<blockquote>
+<p>說白點：從文件來源裡取出處理，通過pipe方法將文件來源裡數據傳給對應插件。此插件就會幫我們處理。例如sass文件，browser讀不懂，我們就使用工具來幫我們編譯sass轉換成純css，然後將處理完數據，給予指定目錄去輸出。</p>
+</blockquote>
+<ul>
+<li>輸出指定目錄</li>
+</ul>
+<blockquote>
+<p>.pipe(gulp.dest(指定目錄))<br>處理完後，從pipe傳過來值給予指定位置輸出。</p>
+</blockquote>
+<h2 id="Gulp-流-Streams"><a href="#Gulp-流-Streams" class="headerlink" title="Gulp 流 (Streams)"></a>Gulp 流 (Streams)</h2><p>Gulp會將輸入文件轉換成一個內存流，因此I/O只在所有任務開始或最後完成。也就是說所有操作在內存中進行，不需要操作磁盤，大大提升構建速度。</p>
+<h2 id="額外學習"><a href="#額外學習" class="headerlink" title="額外學習"></a>額外學習</h2><ol>
+<li>Sass</li>
+</ol>
+<h3 id="Sass"><a href="#Sass" class="headerlink" title="Sass"></a>Sass</h3><p>寫css是最煩事情，例如重覆，無法使用變數或像編程一樣寫法。前端技術迅速發展，除了解決開發效率外，帶來給我們便利。</p>
+<blockquote>
+<p>據我所知css預處理有三個（stylus，less，sass，postcss）。可以通過編寫再編譯成純css，可供browser解析。</p>
+</blockquote>
+<p>參考來源：</p>
+<ul>
+<li><a href="https://gulpjs.com/" target="_blank" rel="noopener">Gulp官網</a></li>
+<li><a href="https://jaysoo.ca/2014/01/27/gruntjs-vs-gulpjs/" target="_blank" rel="noopener">Gulp vs Grunt Streams</a></li>
+<li><a href="https://developers.google.com/web/tools/setup/setup-preprocessors?hl=zh-tw" target="_blank" rel="noopener">設置 CSS 與 JS 預處理器</a></li>
+<li><a href="https://www.google.com.tw/search?ei=3Tj8WueqEcb18QWM_57ABg&amp;q=css%E9%A0%90%E8%99%95%E7%90%86%E5%99%A8&amp;oq=%E9%A0%90%E8%99%95%E7%90%86+stylus&amp;gs_l=psy-ab.1.0.0i71k1l2.0.0.0.82411.0.0.0.0.0.0.0.0..0.0....0...1c..64.psy-ab..0.0.0....0.Qw-97kM1FPI" target="_blank" rel="noopener">css預處理器</a></li>
+</ul>
+
       
     </div>
     
@@ -315,6 +377,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/build-tools/" rel="tag"># build tools</a>
+          
+            <a href="/tags/工程化/" rel="tag"># 工程化</a>
+          
+            <a href="/tags/gulp/" rel="tag"># gulp</a>
+          
+        </div>
+      
 
       
       
@@ -324,15 +396,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/05/15/前端工程化及構建工具/" rel="next" title="前端工程化及構建工具">
+                <i class="fa fa-chevron-left"></i> 前端工程化及構建工具
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/05/serviceWorker-使用/" rel="prev" title="離線應用">
-                離線應用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -477,7 +549,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#出發"><span class="nav-number">1.</span> <span class="nav-text">出發</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目錄"><span class="nav-number">1.</span> <span class="nav-text">目錄</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#前置作業"><span class="nav-number">1.1.</span> <span class="nav-text">前置作業</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gulp全局安裝"><span class="nav-number">1.2.</span> <span class="nav-text">Gulp全局安裝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#開始"><span class="nav-number">1.3.</span> <span class="nav-text">開始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代碼說明"><span class="nav-number">1.4.</span> <span class="nav-text">代碼說明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gulp-流-Streams"><span class="nav-number">1.5.</span> <span class="nav-text">Gulp 流 (Streams)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#額外學習"><span class="nav-number">1.6.</span> <span class="nav-text">額外學習</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sass"><span class="nav-number">1.6.1.</span> <span class="nav-text">Sass</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
