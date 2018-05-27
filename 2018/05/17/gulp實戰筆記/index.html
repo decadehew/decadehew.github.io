@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="前端">
 <meta property="og:description" content="我將會挑幾個常用插件來學習，主要是通過實戰來了解Gulp的應用。在開發過程中，根據自己項目需求去尋找對應插件使用，來滿足需求及提高開發效率。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-05-27T13:49:16.000Z">
+<meta property="og:updated_time" content="2018-05-27T13:57:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gulp實戰筆記">
 <meta name="twitter:description" content="我將會挑幾個常用插件來學習，主要是通過實戰來了解Gulp的應用。在開發過程中，根據自己項目需求去尋找對應插件使用，來滿足需求及提高開發效率。">
@@ -324,13 +324,13 @@
 </li>
 </ul>
 <h2 id="代碼說明"><a href="#代碼說明" class="headerlink" title="代碼說明"></a>代碼說明</h2><ul>
-<li>定義gulp任務及執行</li>
+<li><strong>定義gulp任務及執行</strong></li>
 </ul>
 <blockquote>
-<p>gulp.task(“任務名稱”, func)<br>我們可以用任務名稱來執行任務 ，再terminal輸入gulp taskname</p>
+<p>gulp.task(“任務名稱”, func)<br>我們可以用任務名稱來執行任務 ，在terminal輸入gulp taskname</p>
 </blockquote>
 <ul>
-<li>指定gulp任務內容</li>
+<li><strong>指定gulp任務內容</strong></li>
 </ul>
 <blockquote>
 <p>gulp.src(*<em>/</em>.js).pipe(plugin1()).pipe(plugin2())</p>
@@ -342,7 +342,7 @@
 <p>說白點：從文件來源裡取出處理，通過pipe方法將文件來源裡數據傳給對應插件。此插件就會幫我們處理。例如sass文件，browser讀不懂，我們就使用工具來幫我們編譯sass轉換成純css，然後將處理完數據，給予指定目錄去輸出。</p>
 </blockquote>
 <ul>
-<li>輸出指定目錄</li>
+<li><strong>輸出指定目錄</strong></li>
 </ul>
 <blockquote>
 <p>.pipe(gulp.dest(指定目錄))<br>處理完後，從pipe傳過來值給予指定位置輸出。</p>
