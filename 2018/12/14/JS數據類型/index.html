@@ -87,10 +87,13 @@
 <meta property="og:site_name" content="前端">
 <meta property="og:description" content="ECMAScript中有7種數據類型：number, string, boolean, undefined, null, symbol(ES6)">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2018-12-14T14:50:41.226Z">
+<meta property="og:image" content="https://i.loli.net/2018/12/14/5c13d03b54576.png">
+<meta property="og:image" content="https://i.loli.net/2018/12/15/5c13d8b5d1006.png">
+<meta property="og:updated_time" content="2018-12-14T16:32:04.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS數據類型">
 <meta name="twitter:description" content="ECMAScript中有7種數據類型：number, string, boolean, undefined, null, symbol(ES6)">
+<meta name="twitter:image" content="https://i.loli.net/2018/12/14/5c13d03b54576.png">
 
 
 
@@ -317,8 +320,13 @@
 <p>JS會自動把二，八，十六進制轉換十進制</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 二進制 (前導0b)</span><br><span class="line">const BinNum = 0b10 //2</span><br><span class="line"></span><br><span class="line">// 十進制 (沒有前導)</span><br><span class="line">const num = 10</span><br><span class="line"></span><br><span class="line">// 八進制 (前綴0o或0O的數值，前導0，只用到0~7數值)</span><br><span class="line">// 如果字面值的數字超出範圍，會導致第一位數字忽略，後面數值將會以十進制數字進行解析</span><br><span class="line">const hexNum = 070 //56</span><br><span class="line">const hexNum1 = 079 //79</span><br><span class="line"></span><br><span class="line">// 十六進制 (前綴0x或0X，0~9 | A~F)</span><br><span class="line">const hexNum = 0xF //15</span><br></pre></td></tr></table></figure>
-<h3 id="數值範圍"><a href="#數值範圍" class="headerlink" title="數值範圍"></a>數值範圍</h3><h3 id="數值轉換"><a href="#數值轉換" class="headerlink" title="數值轉換"></a>數值轉換</h3><h3 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h3><h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<h3 id="數值範圍"><a href="#數值範圍" class="headerlink" title="數值範圍"></a>數值範圍</h3><p>由於內存限制，ECMAScript不能保存世界上數值。<br>ECMAScript能夠表示最小數值保存在<strong>Number.MIN_VALUE</strong>在大多數browser中，這個值<strong>5e-324</strong><br><img src="https://i.loli.net/2018/12/14/5c13d03b54576.png" alt=""><br>ECMAScript能夠表示最小數值保存在<strong>Number.MAX_VALUE</strong>在大多數browser中，這個值<strong>1.7976931348623157e+308</strong><br><img src="https://i.loli.net/2018/12/15/5c13d8b5d1006.png" alt=""></p>
+<blockquote>
+<p>如果在計算中結果超過JS數值範圍，那麼這個值將自動轉成特殊<strong>Infinity</strong>值。具體說明，如果這個值是負會轉成<strong>-Infinity</strong>(負無窮)，如果這個值是正會轉成<strong>Infinity</strong>(正無窮)。</p>
+</blockquote>
+<h3 id="數值轉換"><a href="#數值轉換" class="headerlink" title="數值轉換"></a>數值轉換</h3><h3 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h3><h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
 <li><a href="https://wangdoc.com/javascript/types/index.html" target="_blank" rel="noopener">阮一峰</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures" target="_blank" rel="noopener">MDN</a></li>
 <li>JavaScript高級程序設計</li>
 <li>jirengu 方方老師</li>
 </ul>
