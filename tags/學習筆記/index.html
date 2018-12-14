@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="service-worker,browser," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,20 +79,16 @@
 
 
 
-<meta name="description" content="來了解什麼是離線應用，在沒網路情況下，頁面內容還是會顯示">
-<meta name="keywords" content="service-worker,browser">
-<meta property="og:type" content="article">
-<meta property="og:title" content="離線應用">
-<meta property="og:url" content="http://yoursite.com/2018/05/05/serviceWorker-使用/index.html">
+<meta name="description" content="學習及分享">
+<meta property="og:type" content="website">
+<meta property="og:title" content="前端">
+<meta property="og:url" content="http://yoursite.com/tags/學習筆記/index.html">
 <meta property="og:site_name" content="前端">
-<meta property="og:description" content="來了解什麼是離線應用，在沒網路情況下，頁面內容還是會顯示">
+<meta property="og:description" content="學習及分享">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https://cdn-images-1.medium.com/max/800/1*rvWvJn7ClHWiysYfMb3kxA.jpeg">
-<meta property="og:updated_time" content="2018-05-15T18:11:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="離線應用">
-<meta name="twitter:description" content="來了解什麼是離線應用，在沒網路情況下，頁面內容還是會顯示">
-<meta name="twitter:image" content="https://cdn-images-1.medium.com/max/800/1*rvWvJn7ClHWiysYfMb3kxA.jpeg">
+<meta name="twitter:title" content="前端">
+<meta name="twitter:description" content="學習及分享">
 
 
 
@@ -122,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/05/serviceWorker-使用/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/學習筆記/"/>
 
 
 
 
 
-  <title>離線應用 | 前端</title>
+  <title>標籤: 學習筆記 | 前端</title>
   
 
 
@@ -147,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -221,169 +217,54 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>學習筆記<small>標籤</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/05/serviceWorker-使用/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="DecadeHew">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="前端">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
-        
-          <h1 class="post-title" itemprop="name headline">離線應用</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+            <a class="post-title-link" href="/2018/12/14/JS數據類型/" itemprop="url">
               
-                <span class="post-meta-item-text">發表於</span>
+                <span itemprop="name">JS數據類型</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-05-05T02:45:22+08:00">
-                2018-05-05
-              </time>
-            
+            </a>
+        
+      </h2>
 
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-12-14T22:46:23+08:00"
+              content="2018-12-14" >
+          12-14
+        </time>
+      </div>
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>來了解什麼是離線應用，在沒網路情況下，頁面內容還是會顯示</p>
-<a id="more"></a>
-<p><img src="https://cdn-images-1.medium.com/max/800/1*rvWvJn7ClHWiysYfMb3kxA.jpeg" alt=""></p>
-<h3 id="如何解決傳統-Web-App的缺點"><a href="#如何解決傳統-Web-App的缺點" class="headerlink" title="如何解決傳統 Web App的缺點"></a>如何解決傳統 Web App的缺點</h3><ul>
-<li>無法離線使用</li>
-</ul>
-<p>當client 發出網路請求，如果失敗了，我們可以在緩存中獲取備份內容。但是如果連結很慢的話，用戶依然看不到頁面裡內容，這種體驗相當差。</p>
-<p><em>我們可以這樣做：</em></p>
-<blockquote>
-<p>採取<strong>offline first</strong><br>是指用戶在設備上已有內容，先採取緩存方式</p>
-</blockquote>
-<p>使用這種緩存方法，我們依然可以請求網路，但我們不會等待這過程，我們會從緩存中獲取內容。並且再最終從網路獲取內容後更新頁面。<br>當我們從網路獲取最新內容後，可以更新用戶所看到內容，并將最新內容保存到緩存中，供下次使用。</p>
-<p>使用這種再沒有網路情況下，依然可以看內容，總比沒顯示好很多。</p>
-<h3 id="介紹Service-Worker"><a href="#介紹Service-Worker" class="headerlink" title="介紹Service Worker"></a>介紹Service Worker</h3><p>Service Worker是在後台啟動一條服務worker線程。它無法訪問DOM，但可以控制頁面，控制是指browser發出請求時會攔截請求，但可以正常將請求發送。<br>就是說Worker的工作是把一些資源緩存下來，然後攔截請求，先看緩存庫裡有沒有，如果有就先從緩存庫取出，如果沒有就正常的請求。</p>
-<p>即使離線或斷網了，依然可以訪問，</p>
-<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>離線優先做法，會先從緩存取出，然後響應頁面裡內容。如果緩存中沒有，就會請求網路獲取。</p>
-<p>學習資源<br><a href="https://developers.google.com/web/fundamentals/primers/service-workers/" target="_blank" rel="noopener">google service worker</a><br><a href="https://jakearchibald.github.io/isserviceworkerready/" target="_blank" rel="noopener">Service Worker 官網</a></p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/service-worker/" rel="tag"># service-worker</a>
-          
-            <a href="/tags/browser/" rel="tag"># browser</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/04/22/newBlog/" rel="next" title="新Blog，會紀錄我學習過程及分享">
-                <i class="fa fa-chevron-left"></i> 新Blog，會紀錄我學習過程及分享
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/15/前端工程化及構建工具/" rel="prev" title="前端工程化及構建工具">
-                前端工程化及構建工具 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
       
     </div>
+
   </div>
+  
+  
+  
+
+  
 
 
           </div>
@@ -391,10 +272,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -415,17 +292,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目錄
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            本站概覽
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -498,22 +366,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#如何解決傳統-Web-App的缺點"><span class="nav-number">1.</span> <span class="nav-text">如何解決傳統 Web App的缺點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#介紹Service-Worker"><span class="nav-number">2.</span> <span class="nav-text">介紹Service Worker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#總結"><span class="nav-number">3.</span> <span class="nav-text">總結</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -654,10 +506,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
