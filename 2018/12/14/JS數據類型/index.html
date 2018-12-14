@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/12/14/5c13d03b54576.png">
 <meta property="og:image" content="https://i.loli.net/2018/12/15/5c13d8b5d1006.png">
 <meta property="og:image" content="https://i.loli.net/2018/12/15/5c13e2aaeb6b8.png">
-<meta property="og:updated_time" content="2018-12-14T17:54:28.774Z">
+<meta property="og:updated_time" content="2018-12-14T18:02:07.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS數據類型">
 <meta name="twitter:description" content="最新ECMAScript標準定義中有7種數據類型： 基本類型 Number, String Boolean undefined null Symbol(ES6)  複雜類型 Object">
@@ -328,7 +328,7 @@
 <li>Object 物件/(我會以對象來描述)</li>
 <li>Symbol 符號</li>
 </ul>
-<h2 id="Number-數值"><a href="#Number-數值" class="headerlink" title="Number 數值"></a>Number 數值</h2><p>ECMAScript 標準，JavaScript 中只有一种數值類型：基於 IEEE 754 标准的双精度 64 位二进制格式的浮點數形式存儲。<br>當我們需要運算整數時，JS會自動把64位浮點數轉成32位整數，然後再進行運算。</p>
+<h2 id="Number-數值"><a href="#Number-數值" class="headerlink" title="Number 數值"></a>Number 數值</h2><p>ECMAScript 標準，JavaScript 中只有一种數值類型：基於 IEEE 754 標準的双精度 64 位二进制格式的浮點數形式存儲。<br>當我們需要運算整數時，JS會自動把64位浮點數轉成32位整數，然後再進行運算。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 1和1.0是相同</span><br><span class="line">1 === 1.0 // true</span><br></pre></td></tr></table></figure>
 <p>JS底層根本沒有整數，所有數字都是浮點數</p>
 <h3 id="最基本數值字面格式："><a href="#最基本數值字面格式：" class="headerlink" title="最基本數值字面格式："></a>最基本數值字面格式：</h3><p>數值類型是使用國際標準IEEE754格式來表示整數和小數點，為了支持各種數值類型，ECMA-262定義了不同數值字面格式。</p>
@@ -337,7 +337,7 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 二進制 (前導0b)</span><br><span class="line">const BinNum = 0b10 //2</span><br><span class="line"></span><br><span class="line">// 十進制 (沒有前導)</span><br><span class="line">const num = 10</span><br><span class="line"></span><br><span class="line">// 八進制 (前綴0o或0O的數值，前導0，只用到0~7數值)</span><br><span class="line">// 如果字面值的數字超出範圍，會導致第一位數字忽略，後面數值將會以十進制數字進行解析</span><br><span class="line">const hexNum = 070 //56</span><br><span class="line">const hexNum1 = 079 //79</span><br><span class="line"></span><br><span class="line">// 十六進制 (前綴0x或0X，0~9 | A~F)</span><br><span class="line">const hexNum = 0xF //15</span><br></pre></td></tr></table></figure>
 <h3 id="浮點數-雙精度"><a href="#浮點數-雙精度" class="headerlink" title="浮點數(雙精度)"></a>浮點數(雙精度)</h3><p>所謂浮點數就是包含小數點。<br><code>const floatNum = 1.1</code></p>
-<p>由於保存浮點數需要內存空間是保存整數兩倍，ECMAScript會自然會把浮點數轉換成整數。具體說，如果小數點後面沒有數值，把這個數值作為整數來保存。<br><code>const intNum = 10.0 // 10解析為10</code></p>
+<p>由於保存浮點數需要內存空間是保存整數兩倍，ECMAScript會自然把浮點數轉換成整數。具體說，如果小數點後面沒有數值，把這個數值作為整數來保存。<br><code>const intNum = 10.0 // 10解析為10</code></p>
 <p>對於極大極小數值，可以用e(科學計算法)表示。<strong>e</strong>表示的數值等於e前面數值乘以10指數。</p>
 <blockquote>
 <p>5.124 * (10**6) // 10的6次方</p>
