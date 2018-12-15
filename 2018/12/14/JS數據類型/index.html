@@ -95,7 +95,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/12/15/5c14151edb7ab.png">
 <meta property="og:image" content="https://i.loli.net/2018/12/15/5c13fd15d87ff.png">
 <meta property="og:image" content="https://i.loli.net/2018/12/15/5c14e25552006.png">
-<meta property="og:updated_time" content="2018-12-15T11:29:29.019Z">
+<meta property="og:updated_time" content="2018-12-15T11:35:36.548Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS數據類型">
 <meta name="twitter:description" content="最新ECMAScript標準定義中有7種數據類型：基本類型 (Primitive values ) Number String Boolean undefined null Symbol(ES6)  複雜類型 (Complex values) Object">
@@ -395,14 +395,11 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-----------------------------</span><br><span class="line">    delete Object[&apos;key&apos;]</span><br><span class="line">    key in Object</span><br><span class="line">-----------------------------</span><br><span class="line">delete person[&apos;name&apos;]   //這樣可以把name刪除</span><br><span class="line">person[&apos;name&apos;]  //undefined</span><br><span class="line">‘name&apos; in person   //問這個name在不在person裡面，答案是false不在</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--------------------------------</span><br><span class="line">     Object屬性循環:  for...in</span><br><span class="line">---------------------------------</span><br><span class="line">for (let key in person) &#123;</span><br><span class="line">  console.log(person[key]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#1 for...in 循環會跳過不可遍歷 (enumerable) 的 key</span><br><span class="line">#2 for…in 循環不僅遍歷對象自身的屬性，还遍歷繼承的屬性</span><br></pre></td></tr></table></figure>
 <h2 id="typeof-操作符"><a href="#typeof-操作符" class="headerlink" title="typeof 操作符"></a>typeof 操作符</h2><p>一種用來檢測變數數據類型</p>
-<blockquote>
-<p><strong>注意 function不是一個類型</strong></p>
-</blockquote>
 <p>null為什麼會是Object類型呢？前面說過那是<strong>JS BUG</strong></p>
 <blockquote>
 <p>這是歷史造成的。1995年的 JavaScript 第一版，只設計了五種數據類型（對象、整數、浮點數、字串和布林值），没考慮null，只把它当作object的一种特殊值。後來null獨立出來，作為一種單獨的數據類型，為了相容以前的程式，typeof null返回object就沒法改變了。</p>
 </blockquote>
-<p>function為什麼會是function類型，應該是Object類型。也是一個<strong>JS BUG</strong><br><strong>記住function就是Object</strong></p>
+<p>function為什麼會是function類型，應該是Object類型。也是一個<strong>JS BUG</strong><br><strong>注意： function不是一個類型，記住function就是Object</strong></p>
 <p><img src="https://i.loli.net/2018/12/15/5c14e25552006.png" alt=""></p>
 <h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
 <li><a href="https://wangdoc.com/javascript/types/index.html" target="_blank" rel="noopener">阮一峰</a></li>
