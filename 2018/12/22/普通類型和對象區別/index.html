@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/12/22/5c1e498d7cceb.png">
 <meta property="og:image" content="https://i.loli.net/2018/12/23/5c1e7ed8c0641.png">
 <meta property="og:image" content="https://i.loli.net/2018/12/23/5c1e826927431.png">
-<meta property="og:updated_time" content="2018-12-22T18:44:21.814Z">
+<meta property="og:updated_time" content="2018-12-22T19:27:15.368Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="普通類型和對象區別">
 <meta name="twitter:description" content="繼數據類型衍生來學習普通類型和對象區別">
@@ -318,6 +318,21 @@
 <p>引用類型的值是保存在堆Heap內存空間裡。在JS不允許直接訪問以及操作堆內存空間。<br>實際上是在操作對象的引用而不是實際的對象，至於引用可以理解保存在棧Stack內存中的一個地址，此地址與堆內存對象有關聯。</p>
 <p>當我們要訪問heap內存的對象時，實際上是通過stack內存裡地址去訪問<br><img src="https://i.loli.net/2018/12/23/5c1e7ed8c0641.png" alt=""></p>
 <p>引用類型複製同樣會為新的變數同一個地址在stack內存裡。o1和o2對象在stack裡地址，透過地址去訪問heap內存裡對象。<br>如o2對象裡屬性更改，也會發生變化，這就是普通類型和對象類型區別<br>例子：<br><img src="https://i.loli.net/2018/12/23/5c1e826927431.png" alt=""></p>
+<h1 id="垃圾回收機制"><a href="#垃圾回收機制" class="headerlink" title="垃圾回收機制"></a>垃圾回收機制</h1><p>JS有自動垃圾回收機制，也就是說，執行環境會負責管理程式執行過程中使用的內存。<br>這種垃圾回收機制原理，JS會創建變數，對象，字串… 時自動分配內存，找出不再使用的變數，然後釋放它所佔用的內存</p>
+<ul>
+<li>分配內存 - 內存由作業系統OS分配</li>
+<li>使用內存 - 使用已經分配的內存，進行程式執行讀和寫</li>
+<li>釋放內存 - 當不用的時候，會自動釋放內存</li>
+</ul>
+<h1 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h1><p>普通類型的 <strong>a = 3, b = a, b = 12</strong> a和b變數互不影響<br>對象類型 <strong>a = {name: ‘a’}, b = a, b.name = ‘p’</strong> b變會直接影響a</p>
+<h1 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h1><ul>
+<li>書籍：JS高級程序設計，JS核心技術開發解密，JS面向對象</li>
+<li><a href="http://www.ruanyifeng.com/blog/2017/04/memory-leak.html" target="_blank" rel="noopener">JavaScript 内存泄漏教程</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Memory_Management" target="_blank" rel="noopener">內存管理 mdn</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures" target="_blank" rel="noopener">數據類型 mdn</a></li>
+<li><a href="https://juejin.im/post/5b10ba336fb9a01e66164346" target="_blank" rel="noopener">JavaScript 内存机制 juejin</a></li>
+<li><a href="https://segmentfault.com/a/1190000011411121" target="_blank" rel="noopener">JavaScript是如何工作的：内存管理 + 如何处理4个常见的内存泄露</a></li>
+</ul>
 
       
     </div>
@@ -503,7 +518,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#普通類型"><span class="nav-number">1.</span> <span class="nav-text">普通類型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#對象類型"><span class="nav-number">2.</span> <span class="nav-text">對象類型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#普通類型"><span class="nav-number">1.</span> <span class="nav-text">普通類型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#對象類型"><span class="nav-number">2.</span> <span class="nav-text">對象類型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#垃圾回收機制"><span class="nav-number">3.</span> <span class="nav-text">垃圾回收機制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#總結"><span class="nav-number">4.</span> <span class="nav-text">總結</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#參考資料"><span class="nav-number">5.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
             
 
           </div>
