@@ -94,20 +94,11 @@
         </a>
     </li>
     
-    <li class="hide-on-med-and-down">
-        <a href="/projects" class="waves-effect waves-light">
-            
-            <i class="fa fa-user-circle-o"></i>
-            
-            <span>Projects</span>
-        </a>
-    </li>
-    
-    <li>
+    <!-- <li>
         <a href="#searchModal" class="modal-trigger waves-effect waves-light">
             <i id="searchIcon" class="fa fa-search" title="Search"></i>
         </a>
-    </li>
+    </li> -->
 </ul>
 
 <div id="mobile-nav" class="side-nav sidenav">
@@ -170,15 +161,6 @@
                 <i class="fa fa-fw fa-user-circle-o"></i>
                 
                 About
-            </a>
-        </li>
-        
-        <li>
-            <a href="/projects" class="waves-effect waves-light">
-                
-                <i class="fa fa-fw fa-user-circle-o"></i>
-                
-                Projects
             </a>
         </li>
         
@@ -356,7 +338,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
         xAxis: [
             {
                 type: 'category',
-                data: ["學習","指令","build tools","學習筆記","JavaScript","工程化","vue","git","css","gulp"]
+                data: ["指令","學習","build tools","學習筆記","JavaScript","工程化","vue","css","git","gulp"]
             }
         ],
         yAxis: [
@@ -483,18 +465,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             
             
-            <a href="/tags/css/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">css</span>
-            </a>
-            
-            
-            
-            <a href="/tags/學習/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">學習</span>
-            </a>
-            
-            
-            
             <a href="/tags/git/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">git</span>
             </a>
@@ -503,6 +473,18 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
             
             <a href="/tags/指令/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">指令</span>
+            </a>
+            
+            
+            
+            <a href="/tags/css/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">css</span>
+            </a>
+            
+            
+            
+            <a href="/tags/學習/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">學習</span>
             </a>
             
             
@@ -563,47 +545,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 </div>
                 
 
-                
-                
-<div id="myGallery" class="my-gallery">
-    <div class="title center-align" data-aos="zoom-in-up">
-        <i class="fa fa-photo"></i>&nbsp;&nbsp;Gallery
-    </div>
-    <div class="row">
-        
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/0.jpg">
-                <img src="/medias/featureimages/0.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/1.jpg">
-                <img src="/medias/featureimages/1.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/2.jpg">
-                <img src="/medias/featureimages/2.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-<script>
-    $(function () {
-        let animateClass = 'animated pulse';
-        $('#myGallery .photo').hover(function () {
-            $(this).addClass(animateClass);
-        }, function () {
-            $(this).removeClass(animateClass);
-        });
-    });
-</script>
                 
 
             </div>
