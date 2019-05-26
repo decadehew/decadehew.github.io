@@ -354,27 +354,29 @@ Symbol(ES6)
 </ul>
 <a id="more"></a>
 <h2 id="Number-數值"><a href="#Number-數值" class="headerlink" title="Number 數值"></a>Number 數值</h2><p>ECMAScript 標準，JavaScript 中只有一种數值類型：基於 IEEE 754 標準的双精度 64 位二进制格式的浮點數方式存儲。<br>當我們需要運算整數時，JS會自動把64位浮點數轉成32位整數，然後再進行運算。</p>
-<pre><code>// 1和1.0是相同
-1 === 1.0 // true
-</code></pre><p>JS底層根本沒有整數，所有數字都是浮點數</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 1和1.0是相同</span>
+<span class="token number">1</span> <span class="token operator">===</span> <span class="token number">1.0</span> <span class="token comment" spellcheck="true">// true</span>
+</code></pre>
+<p>JS底層根本沒有整數，所有數字都是浮點數</p>
 <h3 id="最基本數值字面格式："><a href="#最基本數值字面格式：" class="headerlink" title="最基本數值字面格式："></a>最基本數值字面格式：</h3><p>數值類型是使用國際標準IEEE754格式來表示整數和小數點，為了支持各種數值類型，ECMA-262定義了不同數值字面格式。</p>
 <blockquote>
 <p>JS會自動把二，八，十六進制轉換十進制</p>
 </blockquote>
-<pre><code>// 二進制 (前導0b)
-const BinNum = 0b10 //2
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 二進制 (前導0b)</span>
+<span class="token keyword">const</span> BinNum <span class="token operator">=</span> <span class="token number">0b10</span> <span class="token comment" spellcheck="true">//2</span>
 
-// 十進制 (沒有前導)
-const num = 10
+<span class="token comment" spellcheck="true">// 十進制 (沒有前導)</span>
+<span class="token keyword">const</span> num <span class="token operator">=</span> <span class="token number">10</span>
 
-// 八進制 (前綴0o或0O的數值，前導0，只用到0~7數值)
-// 如果字面值的數字超出範圍，會導致第一位數字忽略，後面數值將會以十進制數字進行解析
-const hexNum = 070 //56
-const hexNum1 = 079 //79
+<span class="token comment" spellcheck="true">// 八進制 (前綴0o或0O的數值，前導0，只用到0~7數值)</span>
+<span class="token comment" spellcheck="true">// 如果字面值的數字超出範圍，會導致第一位數字忽略，後面數值將會以十進制數字進行解析</span>
+<span class="token keyword">const</span> hexNum <span class="token operator">=</span> <span class="token number">070</span> <span class="token comment" spellcheck="true">//56</span>
+<span class="token keyword">const</span> hexNum1 <span class="token operator">=</span> <span class="token number">079</span> <span class="token comment" spellcheck="true">//79</span>
 
-// 十六進制 (前綴0x或0X，0~9 | A~F)
-const hexNum = 0xF //15
-</code></pre><h3 id="浮點數-雙精度"><a href="#浮點數-雙精度" class="headerlink" title="浮點數(雙精度)"></a>浮點數(雙精度)</h3><p>所謂浮點數就是包含小數點。<br><code>const floatNum = 1.1</code></p>
+<span class="token comment" spellcheck="true">// 十六進制 (前綴0x或0X，0~9 | A~F)</span>
+<span class="token keyword">const</span> hexNum <span class="token operator">=</span> <span class="token number">0xF</span> <span class="token comment" spellcheck="true">//15</span>
+</code></pre>
+<h3 id="浮點數-雙精度"><a href="#浮點數-雙精度" class="headerlink" title="浮點數(雙精度)"></a>浮點數(雙精度)</h3><p>所謂浮點數就是包含小數點。<br><code>const floatNum = 1.1</code></p>
 <p>由於保存浮點數需要內存空間是保存整數兩倍，ECMAScript會自然把浮點數轉換成整數。具體說，如果小數點後面沒有數值，把這個數值作為整數來保存。<br><code>const intNum = 10.0 // 10解析為10</code></p>
 <p>對於極大極小數值，可以用e(科學計算法)表示。<strong>e</strong>表示的數值等於e前面數值乘以10指數。</p>
 <blockquote>
@@ -411,21 +413,22 @@ const hexNum = 0xF //15
 <h3 id="字串定義"><a href="#字串定義" class="headerlink" title="字串定義"></a>字串定義</h3><p>字串可以用<strong>雙引號</strong>(“)或<strong>單引號</strong>(‘)來表示。</p>
 <h3 id="轉義符-Escape-Sequences"><a href="#轉義符-Escape-Sequences" class="headerlink" title="轉義符 (Escape Sequences)"></a>轉義符 (Escape Sequences)</h3><p>反斜槓()是字串類型特殊字符</p>
 <p><img src="https://i.loli.net/2018/12/15/5c14151edb7ab.png" alt=""> <strong>只列出部分</strong></p>
-<h3 id="多行字串"><a href="#多行字串" class="headerlink" title="多行字串"></a>多行字串</h3><pre><code>// 無回車符號
-const str = &#39;abc&#39; +
-&#39;def&#39;
+<h3 id="多行字串"><a href="#多行字串" class="headerlink" title="多行字串"></a>多行字串</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 無回車符號</span>
+<span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token string">'abc'</span> <span class="token operator">+</span>
+<span class="token string">'def'</span>
 
-// 有回車符號
-// 使用這個方式是坑人用法
-const str = `abc\
-def`
+<span class="token comment" spellcheck="true">// 有回車符號</span>
+<span class="token comment" spellcheck="true">// 使用這個方式是坑人用法</span>
+<span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token template-string"><span class="token string">`abc\
+def`</span></span>
 
-// ES6 反引號
-// 包含回車符號
-const str = `1234
-5678`
-str.length // 9包含回車符號
-</code></pre><h3 id="轉換成字串"><a href="#轉換成字串" class="headerlink" title="轉換成字串"></a>轉換成字串</h3><blockquote>
+<span class="token comment" spellcheck="true">// ES6 反引號</span>
+<span class="token comment" spellcheck="true">// 包含回車符號</span>
+<span class="token keyword">const</span> str <span class="token operator">=</span> <span class="token template-string"><span class="token string">`1234
+5678`</span></span>
+str<span class="token punctuation">.</span>length <span class="token comment" spellcheck="true">// 9包含回車符號</span>
+</code></pre>
+<h3 id="轉換成字串"><a href="#轉換成字串" class="headerlink" title="轉換成字串"></a>轉換成字串</h3><blockquote>
 <p>可以查詢MDN了解更多</p>
 </blockquote>
 <ul>
@@ -674,12 +677,12 @@ CSS學習資源
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/學習/" target="_blank">
-                        <span class="chip bg-color">學習</span>
-                    </a>
-                    
                     <a href="/tags/css/" target="_blank">
                         <span class="chip bg-color">css</span>
+                    </a>
+                    
+                    <a href="/tags/學習/" target="_blank">
+                        <span class="chip bg-color">學習</span>
                     </a>
                     
                 </div>
