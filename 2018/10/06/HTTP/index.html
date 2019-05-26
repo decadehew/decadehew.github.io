@@ -4,21 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="css小技巧, 平凡前端">
-    <meta name="description" content="鞏固基礎佈局排版知識點，主要內容是介紹佈局css技巧。
-目錄
-左右布局
-左中右布局
-水平居中
-垂直居中
-等其他小技巧
-CSS學習資源
+    <meta name="keywords" content="初見 HTTP, 平凡前端">
+    <meta name="description" content="什么是HTTPHTTP(HyperText Transport Protocol 超文本传输协议) 是服务端和客户端之间通过请求模式传输超文本(例如html文件，js文件，图片…) 内容的协议。
 
-
-左右布局float布局
-
-给所有子元素加float: left
-给父元素加clearfix, 清除浮动">
+HTTP 请求包括哪些部分请求报文由头部(">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -26,7 +15,7 @@ CSS學習資源
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>css小技巧 | 平凡前端</title>
+    <title>初見 HTTP | 平凡前端</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -192,13 +181,13 @@ CSS學習資源
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        css小技巧
+                        初見 HTTP
                     </div>
                 </div>
             </div>
@@ -309,12 +298,12 @@ CSS學習資源
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/學習/" target="_blank">
-                                <span class="chip bg-color">學習</span>
+                            <a href="/tags/http/" target="_blank">
+                                <span class="chip bg-color">http</span>
                             </a>
                         
-                            <a href="/tags/css/" target="_blank">
-                                <span class="chip bg-color">css</span>
+                            <a href="/tags/指令/" target="_blank">
+                                <span class="chip bg-color">指令</span>
                             </a>
                         
                     </div>
@@ -337,7 +326,7 @@ CSS學習資源
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2018-11-11
+                    2018-10-06
                 </div>
 
                 
@@ -353,165 +342,63 @@ CSS學習資源
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>鞏固基礎佈局排版知識點，主要內容是介紹佈局<strong>css技巧</strong>。</p>
-<h1 id="目錄"><a href="#目錄" class="headerlink" title="目錄"></a>目錄</h1><ul>
-<li>左右布局</li>
-<li>左中右布局</li>
-<li>水平居中</li>
-<li>垂直居中</li>
-<li>等其他小技巧</li>
-<li>CSS學習資源</li>
-</ul>
+                <h2 id="什么是HTTP"><a href="#什么是HTTP" class="headerlink" title="什么是HTTP"></a>什么是HTTP</h2><p>HTTP(HyperText Transport Protocol 超文本传输协议) 是服务端和客户端之间通过请求模式传输超文本(例如html文件，js文件，图片…) 内容的协议。</p>
 <a id="more"></a>
-<h2 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h2><p><strong>float布局</strong></p>
-<ul>
-<li>给所有子元素加float: left</li>
-<li>给父元素加clearfix, 清除浮动</li>
-</ul>
-<p><strong>HTML</strong></p>
-<pre><code>&lt;div&gt;
-  &lt;nav&gt;
-    &lt;ul class=&quot;clearfix&quot;&gt;
-      &lt;li&gt;首页&lt;/li&gt;
-      &lt;li&gt;关于&lt;/li&gt;
-      &lt;li&gt;更多&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/nav&gt;
-  &lt;div class=&quot;content&quot;&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p><strong>CSS</strong></p>
-<pre><code>body {
-  margin: 0
-}
-.clearfix::after {
-  content: &#39;&#39;;
-  display: block;
-  clear: both;
-}
-
-ul {
-  list-style: none;
-}
-
-ul li {
-  float: left;
-  border: 1px solid black;
-  border-radius: 4px;
-  margin-right: 5px;
-  padding: 10px
-}
-
-.content {
-  width: 100%;
-  height: 300px;
-  background-color: blue;
-}
-</code></pre><p><img src="https://i.loli.net/2018/11/11/5be84ccaf3403.png" alt=""></p>
-<h2 id="左中右布局"><a href="#左中右布局" class="headerlink" title="左中右布局"></a>左中右布局</h2><p>使用float来布局，原理和上面一样</p>
-<p>HTML</p>
-<pre><code>&lt;div class=&quot;clearfix&quot;&gt;
-  &lt;div class=&quot;left box&quot;&gt;左&lt;/div&gt;
-  &lt;div class=&quot;center box&quot;&gt;中&lt;/div&gt;
-  &lt;div class=&quot;right box&quot;&gt;右&lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p>CSS</p>
-<pre><code>.clearfix::after {
-  content: &#39;&#39;;
-  display: block;
-  clear: both;
-}
-
-.box {
-  float: left;
-  text-align: center;
-  color: white;
-  padding: 100px;
-  margin-right: 5px;
-}
-
-.left {
-  background-color: blue;
-}
-.center {
-  background-color: orange;
-}
-.right {
-  background-color: red;
-}
-</code></pre><p><img src="https://i.loli.net/2018/11/11/5be84f6098f16.png" alt=""></p>
-<h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><p>把一個box實現水平線居中</p>
-<p>HTML</p>
-<pre><code>&lt;div&gt;
-  &lt;div class=&quot;box&quot;&gt;水平局中&lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p>CSS</p>
-<pre><code>#1
-div {
-  text-align: center;
-}
-
-.box {
-  display: inline-block;
-  text-align: center;
-  color: white;
-  width: 100px;
-  height: 100px;
-  background-color: blue;
-}
-
-#2 可以在父元素設寬度
-div {
-  margin: 0 auto;
-}
-
-.box {
-  text-align: center;
-  color: white;
-  width: 100px;
-  height: 100px;
-  background-color: blue;
-}
-</code></pre><p><img src="https://i.loli.net/2018/11/12/5be8521b811af.png" alt=""></p>
-<h2 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h2><p>vertical-align 是用来指定内嵌元素(inline element) 和table-cell 垂直對齊。<br>在父元素加table，然後在子元素加table-cell變成表格styles</p>
+<h2 id="HTTP-请求包括哪些部分"><a href="#HTTP-请求包括哪些部分" class="headerlink" title="HTTP 请求包括哪些部分"></a>HTTP 请求包括哪些部分</h2><p>请求报文由头部(首部)(Header)，空行，报文主体(内容)组成</p>
+<ol>
+<li><strong>请求Header格式结构</strong>：请求行 | 请求首部字段 | 通用首部字段 | 实体首部字段 | 其他</li>
+<li><strong>空行</strong> ：CR+LF 换行符</li>
+<li><strong>报文主体</strong>：可以带着browser请求内容发送数据</li>
+</ol>
+<pre><code>例子：
+GET /home.html HTTP/1.1
+Host: developer.mozilla.org
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: https://developer.mozilla.org/testpage.html
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+If-Modified-Since: Mon, 18 Jul 2016 02:36:04 GMT
+If-None-Match: &quot;c561c68d0ba92bbeb8b0fff2a9199f722e3a621a&quot;
+Cache-Control: max-age=0
+</code></pre><p>在chrome开发者模式打开network点击网址查看Request Header 内容：<br><img src="https://lh3.googleusercontent.com/Mp_n-ouVC_f0J_A8oixmH2nwviGDchlCj5_AS8vfqCKdPIM0nkMi2CZ8F85NNa2DBGMirmsMReAGr4LR6EQqorKvJtQ710WXhfVxapIOfeYhQ2m1rX3kFP3cMUWDGiWBpgr9VUY3H3mbhILSlgmJRSgl6AfImxo26cSMtMZyC6Va0tGAEyKa_k-M5uXc8pHLWTtk3pkxZiTaK_x7LRrH6AlndWHeijL0nd0F3n1i5I5u1J7AKSviERBfTYHEAI-KJ8hMU9KWaRTIrYrBKrtqMmzQod8SzRw0zq22z8UisngwZ_hkDxYxeYTPzcICY65S19E5TWQCDkBvlgZx44kfbpnifCXVYxWAaquoGtmr0t7yfelMYED1zZIgoJ27Xj0G3hT3EeTHo6hiRWVBHbHSdW6RzS4nR04Ae8vg9S64BuRZwMKrcf7g6e_rUcBxdsC5zVOpXHfXWJsmwEpOrWYw7TzvbMKGGQO4GoHYsASWOson58ziyOUjNgDFPf51OP8cqrN9vJSFWDZI45nZlizTvPT8NUsMbow9TLYAbKYFPOHGOB8dUc5_fnNYbPgjbC3-kshRFQGVkuKxVRc9dNA7zhg8JOZ4yx3tikMU7JyP6d1oODyOPK8UEzQhcdlCZoI=w955-h256-no" alt=""></p>
+<h2 id="HTTP-响应包括哪些部分"><a href="#HTTP-响应包括哪些部分" class="headerlink" title="HTTP 响应包括哪些部分"></a>HTTP 响应包括哪些部分</h2><p>响应报文由头部(首部)(Header)，空行，报文主体(内容)组成</p>
+<ol>
+<li><strong>响应Header格式结构</strong>：状态行 | 请求首部字段 | 通用首部字段 | 实体首部字段 | 其他</li>
+<li><strong>空行</strong> ：CR+LF 换行符</li>
+<li><strong>报文主体</strong>：服务端返回给客户端信息</li>
+</ol>
+<pre><code>例子：
+200 OK
+Access-Control-Allow-Origin: *
+Connection: Keep-Alive
+Content-Encoding: gzip
+Content-Type: text/html; charset=utf-8
+Date: Mon, 18 Jul 2016 16:06:00 GMT
+Etag: &quot;c561c68d0ba92bbeb8b0f612a9199f722e3a621a&quot;
+Keep-Alive: timeout=5, max=997
+Last-Modified: Mon, 18 Jul 2016 02:36:04 GMT
+Server: Apache
+Set-Cookie: mykey=myvalue; expires=Mon, 17-Jul-2017 16:06:00 GMT; Max-Age=31449600; Path=/; secure
+Transfer-Encoding: chunked
+Vary: Cookie, Accept-Encoding
+X-Backend-Server: developer2.webapp.scl3.mozilla.com
+X-Cache-Info: not cacheable; meta data too large
+X-kuma-revision: 1085259
+x-frame-options: DENY
+</code></pre><p>在chrome开发者模式打开network点击网址查看General &amp;&amp; Response Header &amp;&amp; Preview &amp;&amp; Response 内容：<br><img src="https://lh3.googleusercontent.com/OahTQlNzGeXlKznVQwXSk79q89MBHhcThy1KFPo7HkMUFtwAE_OvUrM61nEPw07wP4DiH262TJdapnDDsy3PDAcjvSnU419h-GrRGLWlDIUOigf1zC7JfLlbpRsZE2rEET-nlSAd5zAOGa6B7hd4YGMwhoarKFYdU13GkWeHDihHfkXrxe1Pjt7ZS_O8GOCLuiOrPhpmOvt5o5nHyEuz-bqmlpXJKCzERvwO4erMo0G1oGFQN393SpI95MBTVH7bTiH3LI-Yl7DzimHnHxEkzj0Uplz7IejPmuGQVdh3DVMUHHrtXzBfd7wXtr7o5Zg4KN7bN0RIwAAyHngqEb-MwbB7IM-A_GyLiLKNdiP1WjBYgMzLQwb99TNGIC40Vd1KjsoZhV__HpYK5Igf2uUdEsLqpY8yWpiYaVyWO1vP2gEW52zcu9HIcFfsvlKWsBR3BkvBDzv5wK2FlevxnescyMqmkxFgby3HDQsyFxKxXTE_pxHjxr9B6bR2A53S7Vsfp699p5IkXWjixaZigQNfqc0SS-iYf1J0cMAfc4AeWPVNVnOggG_0ykfBClrW8LEy0FkajxUUQXnZrLXdQ9s5WSnzDRoZwU5PcQrApnDynypA07KM1jM4LshM5wKvb5I=w627-h440-no" alt=""></p>
+<h2 id="如何使用-curl-命令"><a href="#如何使用-curl-命令" class="headerlink" title="如何使用 curl 命令"></a>如何使用 curl 命令</h2><p>打开terminal，输入curl -s -v -H “Hello: xxx” – “<a href="https://www.google.com&quot;" target="_blank" rel="noopener">https://www.google.com&quot;</a> 。<br>请求google首页页面，然后得到响应结果</p>
 <blockquote>
-<p>MDN:  The vertical-align CSS property specifies sets vertical alignment of an inline or table-cell box.</p>
+<p>使用curl做一个请求动作，以及得到响应结果。</p>
 </blockquote>
-<p><strong>HTML</strong></p>
-<pre><code>&lt;div&gt;
-  &lt;div class=&quot;box&quot;&gt;垂直居中&lt;/div&gt;
-&lt;/div&gt;
-</code></pre><p><strong>CSS</strong></p>
-<pre><code>div {
-  border: 1px solid black;
-  height: 400px;
-  display: table;
-}
-
-.box {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  color: white;
-  width: 100px;
-  height: 100px;
-  background-color: blue;
-}
-</code></pre><p><img src="https://i.loli.net/2018/11/13/5bea42c0dbd6a.png" alt=""></p>
-<h2 id="等其他小技巧"><a href="#等其他小技巧" class="headerlink" title="等其他小技巧"></a>等其他小技巧</h2><ul>
-<li>如沒有必要的話，不用特意給高度或寬度，減少bug。可以使用padding 來替代</li>
-<li>使用float，必須要使用clearfix方法。(以上)</li>
-<li>使用Flexbox佈局</li>
-<li>使用Grid佈局</li>
-</ul>
-<h2 id="CSS學習資源"><a href="#CSS學習資源" class="headerlink" title="CSS學習資源"></a>CSS學習資源</h2><ul>
-<li>Google: 关键词 MDN</li>
-<li><a href="https://css-tricks.com/" target="_blank" rel="noopener">CSS Tricks</a></li>
-<li><a href="https://www.google.com/search?q=%E9%98%AE%E4%B8%80%E5%B3%B0+css" target="_blank" rel="noopener">Google: 阮一峰 css</a></li>
-<li><a href="https://www.zhangxinxu.com/wordpress/category/css/page/25/" target="_blank" rel="noopener">张鑫旭的 240 多篇 CSS 博客</a></li>
-<li><a href="https://tympanus.net/codrops/category/playground/" target="_blank" rel="noopener">Codrops 炫酷 CSS 效果</a></li>
-<li><a href="https://adamschwartz.co/magic-of-css/" target="_blank" rel="noopener">Magic of CSS 免费在线书</a></li>
+<p>如图下<br><img src="https://lh3.googleusercontent.com/4Ukl2rcmSuhee9lHzmtSAJjUnu1kK7DD3i00VZcj5q5JCpceeLPCmg_FoHynmK5opjbLulDIRXf7-XIh1w6zkCPRYyT5q5NlHOpCkZEhX7HAZgFt9RiWknDRwrRTjV3RSGgWgBAA9-VEl39UTwi9sB4cbFzYftUn09edp6aF6nFcSZiSnwWZCoHW5jlLiV4wrlZfdGj5oeLg1Wc1KDPoPZdg9-kW5EX1pa9sl0P7fLx5olUhH5EXSJERtbRwORgo-vcnS3EPhc3zf0VOf2nEh4iLBHNe9qYyGRy8exWvCro_Vpvf-WlZPVi9rjCshJf8rH_A_uSNnvhc58ESNZZpBIyeqgur0BQq05tQRt6xyjRsNEY5X4OHLJ_kVcN67rc7R5zvsqInIc7tE11ZIcCzY3LXYBk2dSUu1wmAvBIMPOonCe9sfUpxY2xCq1jruOHj_O0ZKV6WKyrLzKqvfQLEbsLtFHGRQJaGZlocc69BAmlTYAuUlulYJtvYeQKXORcHBXdfS62_r-RmfV3YEI4iTJluMbxdMlHc40s_IfMbvo4NWYUdCfUzu8j-OLyEl5TgOijeFzsM_ZgGODk7lukJBUhkDm8IqyTg2tJFeoZGbeGicRLGGn8kBYxLuZow8mw=w490-h241-no" alt=""></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>后续会增加深入理解http原理</p>
+<ul>
+<li>MDN http</li>
+<li>图解http</li>
+<li>其他文章</li>
 </ul>
 
             </div>
@@ -554,68 +441,6 @@ div {
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2018/12/14/JS數據類型/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="JS數據類型">
-                        
-                        <span class="card-title">JS數據類型</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-最新ECMAScript標準定義中有7種數據類型：基本類型 (Primitive values )
-Number
-String
-Boolean
-undefined
-null
-Symbol(ES6)
-
-複雜類型 (Complex value
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-14
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/前端/" class="post-category" target="_blank">
-                                    前端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/學習筆記/" target="_blank">
-                        <span class="chip bg-color">學習筆記</span>
-                    </a>
-                    
-                    <a href="/tags/JavaScript/" target="_blank">
-                        <span class="chip bg-color">JavaScript</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/2018/10/13/html常用標籤/">
                     <div class="card-image">
                         
@@ -639,9 +464,9 @@ div -
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-13
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-10-13
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -659,6 +484,63 @@ div -
                     
                     <a href="/tags/HTML5/" target="_blank">
                         <span class="chip bg-color">HTML5</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/09/10/git基本命令/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="git基本命令">
+                        
+                        <span class="card-title">git基本命令</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            git init使用 命令初始化这个目录，可以让git开始对这个目录进行版本控制
+
+git add使用该命令会把git add 目录，加到暂存里。
+git commit -v (verbose)使用该命令会列出diff结果
+
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-09-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/工具/" class="post-category" target="_blank">
+                                    工具
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/指令/" target="_blank">
+                        <span class="chip bg-color">指令</span>
+                    </a>
+                    
+                    <a href="/tags/git/" target="_blank">
+                        <span class="chip bg-color">git</span>
                     </a>
                     
                 </div>
