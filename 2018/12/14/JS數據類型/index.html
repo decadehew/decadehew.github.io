@@ -1,0 +1,1125 @@
+<!DOCTYPE HTML>
+<html lang="zh-tw">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JS數據類型, 前端">
+    <meta name="description" content="
+最新ECMAScript標準定義中有7種數據類型：基本類型 (Primitive values )
+Number
+String
+Boolean
+undefined
+null
+Symbol(ES6)
+
+複雜類型 (Complex value">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>JS數據類型 | 前端</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">前端</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">前端</div>
+        <div class="logo-desc">
+            
+            學習及分享
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        JS數據類型
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/學習筆記/" target="_blank">
+                                <span class="chip bg-color">學習筆記</span>
+                            </a>
+                        
+                            <a href="/tags/JavaScript/" target="_blank">
+                                <span class="chip bg-color">JavaScript</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2018-12-14
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><img src="https://i.loli.net/2018/12/15/5c13ee3cbdfdd.png" alt=""></p>
+<h2 id="最新ECMAScript標準定義中有7種數據類型："><a href="#最新ECMAScript標準定義中有7種數據類型：" class="headerlink" title="最新ECMAScript標準定義中有7種數據類型："></a>最新ECMAScript標準定義中有<strong>7種數據類型</strong>：</h2><h3 id="基本類型-Primitive-values"><a href="#基本類型-Primitive-values" class="headerlink" title="基本類型 (Primitive values )"></a>基本類型 (Primitive values )</h3><ul>
+<li><strong>Number</strong></li>
+<li><strong>String</strong></li>
+<li><strong>Boolean</strong></li>
+<li><strong>undefined</strong></li>
+<li><strong>null</strong></li>
+<li><strong>Symbol(ES6)</strong></li>
+</ul>
+<h3 id="複雜類型-Complex-values"><a href="#複雜類型-Complex-values" class="headerlink" title="複雜類型 (Complex values)"></a>複雜類型 (Complex values)</h3><ul>
+<li><strong>Object</strong></li>
+</ul>
+<a id="more"></a>
+<h2 id="Number-數值"><a href="#Number-數值" class="headerlink" title="Number 數值"></a>Number 數值</h2><p>ECMAScript 標準，JavaScript 中只有一种數值類型：基於 IEEE 754 標準的双精度 64 位二进制格式的浮點數方式存儲。<br>當我們需要運算整數時，JS會自動把64位浮點數轉成32位整數，然後再進行運算。</p>
+<pre><code>// 1和1.0是相同
+1 === 1.0 // true
+</code></pre><p>JS底層根本沒有整數，所有數字都是浮點數</p>
+<h3 id="最基本數值字面格式："><a href="#最基本數值字面格式：" class="headerlink" title="最基本數值字面格式："></a>最基本數值字面格式：</h3><p>數值類型是使用國際標準IEEE754格式來表示整數和小數點，為了支持各種數值類型，ECMA-262定義了不同數值字面格式。</p>
+<blockquote>
+<p>JS會自動把二，八，十六進制轉換十進制</p>
+</blockquote>
+<pre><code>// 二進制 (前導0b)
+const BinNum = 0b10 //2
+
+// 十進制 (沒有前導)
+const num = 10
+
+// 八進制 (前綴0o或0O的數值，前導0，只用到0~7數值)
+// 如果字面值的數字超出範圍，會導致第一位數字忽略，後面數值將會以十進制數字進行解析
+const hexNum = 070 //56
+const hexNum1 = 079 //79
+
+// 十六進制 (前綴0x或0X，0~9 | A~F)
+const hexNum = 0xF //15
+</code></pre><h3 id="浮點數-雙精度"><a href="#浮點數-雙精度" class="headerlink" title="浮點數(雙精度)"></a>浮點數(雙精度)</h3><p>所謂浮點數就是包含小數點。<br><code>const floatNum = 1.1</code></p>
+<p>由於保存浮點數需要內存空間是保存整數兩倍，ECMAScript會自然把浮點數轉換成整數。具體說，如果小數點後面沒有數值，把這個數值作為整數來保存。<br><code>const intNum = 10.0 // 10解析為10</code></p>
+<p>對於極大極小數值，可以用e(科學計算法)表示。<strong>e</strong>表示的數值等於e前面數值乘以10指數。</p>
+<blockquote>
+<p>5.124 * (10**6) // 10的6次方</p>
+</blockquote>
+<p><img src="https://i.loli.net/2018/12/15/5c13eb7a32a8f.png" alt=""></p>
+<h3 id="數值範圍"><a href="#數值範圍" class="headerlink" title="數值範圍"></a>數值範圍</h3><p>由於內存限制，ECMAScript不能保存全世界所有數值。<br>ECMAScript能夠表示最小數值保存在<strong>Number.MIN_VALUE</strong>在大多數browser中，這個值<strong>5e-324</strong><br><img src="https://i.loli.net/2018/12/14/5c13d03b54576.png" alt=""><br>ECMAScript能夠表示最大數值保存在<strong>Number.MAX_VALUE</strong>在大多數browser中，這個值<strong>1.7976931348623157e+308</strong><br><img src="https://i.loli.net/2018/12/15/5c13d8b5d1006.png" alt=""></p>
+<blockquote>
+<p>如果在計算中結果超過JS數值範圍，那麼這個值將自動轉成特殊<strong>Infinity</strong>值。具體說明，如果這個值是負會轉成<strong>-Infinity</strong>(負無窮)，如果這個值是正會轉成<strong>Infinity</strong>(正無窮)。</p>
+</blockquote>
+<h3 id="轉換成數值"><a href="#轉換成數值" class="headerlink" title="轉換成數值"></a>轉換成數值</h3><p>JS當中有三個內置函數可以把非數值轉換成數值：</p>
+<blockquote>
+<p>可以查詢MDN了解更多</p>
+</blockquote>
+<ul>
+<li>Number()</li>
+<li>parseInt()</li>
+<li>parseFloat()</li>
+</ul>
+<h3 id="NaN-非數值"><a href="#NaN-非數值" class="headerlink" title="NaN 非數值"></a>NaN 非數值</h3><p>NaN是<strong>非數值</strong>(Not a Number)是一個特殊的數值(<strong>數據類型依賴是Number</strong>)。在ECMAScript中，任何數值除以非數值會返回<strong>NaN</strong>，不會影響程式執行。<br><img src="https://i.loli.net/2018/12/15/5c13e2aaeb6b8.png" alt=""></p>
+<p><strong>NaN</strong>本身有兩個特點：</p>
+<ol>
+<li>在任何涉及到NaN操作(NaN/9)都會返回<strong>NaN</strong></li>
+<li>NaN與任何值都不相等，包括<strong>NaN</strong>本身。<br><code>NaN === NaN // false</code></li>
+</ol>
+<h2 id="String-字串"><a href="#String-字串" class="headerlink" title="String 字串"></a>String 字串</h2><ul>
+<li>String類型表示由零或多個16位Unicode字符組成字串序列。</li>
+<li>JavaScript使用Unicode字符集，JS內部所有字符都是使用Unicode來表示。</li>
+<li>如有些字符無法打印，可以使用Base64編碼，將轉成可以打印字符。</li>
+</ul>
+<blockquote>
+<p><a href="https://unicode-table.com/en/#spacing-modifier-letters" target="_blank" rel="noopener">unicode table</a></p>
+</blockquote>
+<h3 id="字串定義"><a href="#字串定義" class="headerlink" title="字串定義"></a>字串定義</h3><p>字串可以用<strong>雙引號</strong>(“)或<strong>單引號</strong>(‘)來表示。</p>
+<h3 id="轉義符-Escape-Sequences"><a href="#轉義符-Escape-Sequences" class="headerlink" title="轉義符 (Escape Sequences)"></a>轉義符 (Escape Sequences)</h3><p>反斜槓()是字串類型特殊字符</p>
+<p><img src="https://i.loli.net/2018/12/15/5c14151edb7ab.png" alt=""> <strong>只列出部分</strong></p>
+<h3 id="多行字串"><a href="#多行字串" class="headerlink" title="多行字串"></a>多行字串</h3><pre><code>// 無回車符號
+const str = &#39;abc&#39; +
+&#39;def&#39;
+
+// 有回車符號
+// 使用這個方式是坑人用法
+const str = `abc\
+def`
+
+// ES6 反引號
+// 包含回車符號
+const str = `1234
+5678`
+str.length // 9包含回車符號
+</code></pre><h3 id="轉換成字串"><a href="#轉換成字串" class="headerlink" title="轉換成字串"></a>轉換成字串</h3><blockquote>
+<p>可以查詢MDN了解更多</p>
+</blockquote>
+<ul>
+<li>toString()</li>
+<li>String()</li>
+<li>1 + ‘1’ -&gt; +號主要是與相同類型，JS會嘗試把它變成字串</li>
+</ul>
+<h2 id="Boolean-布林值"><a href="#Boolean-布林值" class="headerlink" title="Boolean 布林值"></a>Boolean 布林值</h2><p>Boolean代表true和false<br>以下各種數據類型對應轉換規則：</p>
+<blockquote>
+<p>至於返回是true或false，取決於數據類型的值以及實際值<br>比如在if statement部分將會把<strong>非布林值</strong>自動轉換成<strong>布林值</strong></p>
+</blockquote>
+<p><img src="https://i.loli.net/2018/12/15/5c13fd15d87ff.png" alt=""></p>
+<h2 id="undefined-未定義-和-null-空值"><a href="#undefined-未定義-和-null-空值" class="headerlink" title="undefined 未定義 和 null 空值"></a>undefined 未定義 和 null 空值</h2><p><strong>undefined</strong>和<strong>null</strong>類型表示未定義或空值，但實際上語法效果是沒啥區別。<br><strong>這是JS Bug</strong>，這樣要從JS之父說起，當時創造JS語言的時候也很糾結<a href="https://twitter.com/BrendanEich/status/333008305461006336" target="_blank" rel="noopener">更多</a>。</p>
+<h3 id="一般使用慣例和習俗有其區別："><a href="#一般使用慣例和習俗有其區別：" class="headerlink" title="一般使用慣例和習俗有其區別："></a>一般使用慣例和習俗有其區別：</h3><ol>
+<li>一個變數沒有assign值，它就自動是undefined 【JS推薦】<em>JS內部會自動給undefined，本身語法</em></li>
+<li>一個對象Obj，現在不想assign值，可以給它null 【JS推薦】<em>null表示空對象</em></li>
+</ol>
+<h2 id="Object-物件-我會以對象來描述"><a href="#Object-物件-我會以對象來描述" class="headerlink" title="Object 物件/(我會以對象來描述)"></a>Object 物件/(我會以對象來描述)</h2><p>對象是JavaScript核心概念，對象是一組key-value的集合，一種無順序數據集合。</p>
+<blockquote>
+<p>Object 主要介紹基本概念，後續會講解面向對象 (物件導向)<br>可以查詢MDN 了解更多Object內置方法</p>
+</blockquote>
+<ul>
+<li>Object的key一律是字串，不存在任何類型</li>
+<li>訪問Object屬性有兩種 [‘’], (.)</li>
+<li>注意Object.key 和Object[‘key’]差別</li>
+<li>delete Object[‘key’]</li>
+<li>key in Object</li>
+<li>Object屬性循環 :for…in</li>
+</ul>
+<pre><code>-----------------------------
+  基本例子
+  創建對象以及定義屬性值
+-----------------------------
+#1
+const person = new Object()
+person.name = &#39;Hew&#39;
+person.age = 18
+
+#2
+const person = {}
+person.name = &#39;Hew&#39;
+person[&#39;age&#39;] = 18
+
+#3
+const person = {
+  name: &#39;DecadeHew&#39;,
+  age: 18
+}
+</code></pre><pre><code>--------------------------------------
+  訪問對象屬性
+ 注意Object.key 和Object[&#39;key&#39;]差別
+--------------------------------------
+const person = {
+  name: &#39;DecadeHew&#39;,
+  age: 18,
+  &#39;my-address&#39;: &#39;KK&#39;
+}
+
+#合法
+person.name   //&#39;DecadeHew&#39;
+person[&#39;name&#39;]  // &#39;DecadeHew&#39;
+person[&#39;my-address&#39;]   //&#39;KK&#39;
+
+#不合法
+person.my-address   //Error
+
+#【注意】解釋：key 如果加引號就是字串，否則就是依照標示符原則(變數命名規則)
+</code></pre><pre><code>-----------------------------
+    delete Object[&#39;key&#39;]
+    key in Object
+-----------------------------
+delete person[&#39;name&#39;]   //這樣可以把name刪除
+person[&#39;name&#39;]  //undefined
+‘name&#39; in person   //問這個name在不在person裡面，答案是false不在
+</code></pre><pre><code>--------------------------------
+     Object屬性循環:  for...in
+---------------------------------
+for (let key in person) {
+  console.log(person[key]
+}
+
+#1 for...in 循環會跳過不可遍歷 (enumerable) 的 key
+#2 for…in 循環不僅遍歷對象自身的屬性，还遍歷繼承的屬性
+</code></pre><h3 id="轉換成布林"><a href="#轉換成布林" class="headerlink" title="轉換成布林"></a>轉換成布林</h3><blockquote>
+<p>可以查詢MDN了解更多</p>
+</blockquote>
+<ul>
+<li>Boolean</li>
+<li>!! + ?</li>
+</ul>
+<h2 id="typeof-操作符"><a href="#typeof-操作符" class="headerlink" title="typeof 操作符"></a>typeof 操作符</h2><p>一種用來檢測變數數據類型</p>
+<p>null為什麼會是Object類型呢？前面說過那是<strong>JS BUG</strong></p>
+<blockquote>
+<p>這是歷史造成的。1995年的 JavaScript 第一版，只設計了五種數據類型（對象、整數、浮點數、字串和布林值），没考慮null，只把它当作object的一种特殊值。後來null獨立出來，作為一種單獨的數據類型，為了相容以前的程式，typeof null返回object就沒法改變了。</p>
+</blockquote>
+<p>function為什麼會是function類型，應該是Object類型。也是一個<strong>JS BUG</strong><br><strong>注意： function不是一個類型，記住function就是Object</strong></p>
+<p><img src="https://i.loli.net/2018/12/15/5c14e25552006.png" alt=""></p>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a href="https://wangdoc.com/javascript/types/index.html" target="_blank" rel="noopener">阮一峰</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Data_structures" target="_blank" rel="noopener">MDN</a></li>
+<li>JavaScript高級程序設計</li>
+<li>jirengu 方方老師</li>
+<li><a href="https://zh.wikipedia.org/wiki/IEEE_754" target="_blank" rel="noopener">IEEE_754</a></li>
+<li><a href="https://unicode-table.com/en/#spacing-modifier-letters" target="_blank" rel="noopener">unicode table</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html" target="_blank" rel="noopener">ASCII，Unicode 和 UTF-8</a></li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>Reprint policy</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《JS數據類型》
+                </span> by
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2018/12/14/JS數據類型/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                DecadeHew
+            </a> is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a> 
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2018/12/22/普通類型和對象區別/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="普通類型和對象區別">
+                        
+                        <span class="card-title">普通類型和對象區別</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+
+繼數據類型衍生來學習普通類型和對象區別
+
+
+普通類型普通類型也可以叫做基本類型或原始類型(string, boolean, number, symbol, null, undefined)如需要了解各種類型使用 -&gt; 詳細JS 數
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            DecadeHew
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/學習筆記/" target="_blank">
+                        <span class="chip bg-color">學習筆記</span>
+                    </a>
+                    
+                    <a href="/tags/JavaScript/" target="_blank">
+                        <span class="chip bg-color">JavaScript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2018/11/11/css小技巧/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="css小技巧">
+                        
+                        <span class="card-title">css小技巧</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            鞏固基礎佈局排版知識點，主要內容是介紹佈局css技巧。
+目錄
+左右布局
+左中右布局
+水平居中
+垂直居中
+等其他小技巧
+CSS學習資源
+
+
+左右布局float布局
+
+给所有子元素加float: left
+给父元素加clearfix, 清除浮动
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-11-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            DecadeHew
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/css/" target="_blank">
+                        <span class="chip bg-color">css</span>
+                    </a>
+                    
+                    <a href="/tags/學習/" target="_blank">
+                        <span class="chip bg-color">學習</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
