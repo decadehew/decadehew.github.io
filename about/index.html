@@ -183,6 +183,144 @@
     .avatar-img {
         height: 12em;
     }
+    /*——————————————
+Global
+———————————————*/
+/*——————————————
+TimeLine CSS
+———————————————*/
+/* Base */
+
+#content {
+  margin-top: 50px;
+  text-align: center;
+}
+
+section.timeline-outer {
+  width: 80%;
+  margin: 0 auto;
+}
+
+h1.header {
+  font-size: 50px;
+  line-height: 70px;
+}
+/* Timeline */
+
+.timeline {
+  border-left: 8px solid #42A5F5;
+  border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  color: #333;
+  margin: 50px auto;
+  letter-spacing: 0.5px;
+  position: relative;
+  line-height: 1.4em;
+  padding: 20px;
+  list-style: none;
+  text-align: left;
+}
+
+.timeline h1,
+.timeline h2,
+.timeline h3 {
+  font-size: 1.4em;
+}
+
+.timeline .event {
+  border-bottom: 1px solid rgba(160, 160, 160, 0.2);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.timeline .event:last-of-type {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border: none;
+}
+
+.timeline .event:before,
+.timeline .event:after {
+  position: absolute;
+  display: block;
+  top: 0;
+}
+
+.timeline .event:before {
+  left: -177.5px;
+  color: #212121;
+  content: attr(data-date);
+  text-align: right;
+  /*  font-weight: 100;*/
+  
+  font-size: 16px;
+  min-width: 120px;
+}
+
+.timeline .event:after {
+  box-shadow: 0 0 0 8px #42A5F5;
+  left: -30px;
+  background: #212121;
+  border-radius: 50%;
+  height: 11px;
+  width: 11px;
+  content: "";
+  top: 5px;
+}
+/**/
+/*——————————————
+Responsive Stuff
+———————————————*/
+
+@media (max-width: 945px) {
+  .timeline .event::before {
+    left: 0.5px;
+    top: 20px;
+    min-width: 0;
+    font-size: 13px;
+  }
+  .timeline h3 {
+    font-size: 16px;
+  }
+  .timeline p {
+    padding-top: 20px;
+  }
+  section.lab h3.card-title {
+    padding: 5px;
+    font-size: 16px
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline .event::before {
+    left: 0.5px;
+    top: 20px;
+    min-width: 0;
+    font-size: 13px;
+  }
+  .timeline .event:nth-child(1)::before,
+  .timeline .event:nth-child(3)::before,
+  .timeline .event:nth-child(5)::before {
+    top: 38px;
+  }
+  .timeline h3 {
+    font-size: 16px;
+  }
+  .timeline p {
+    padding-top: 20px;
+  }
+}
+/*——————————————
+others
+———————————————*/
+
+a.portfolio-link {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
 </style>
 
 <div class="bg-cover pd-header about-cover">
@@ -303,6 +441,52 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
                 </div>
 
                 <div class="introduction center-align" data-aos="fade-up">Hello，大家好, 我是丘梓陽，來自馬來西亞，畢業於東海大學（資訊工程系），是一名前端工程師。 我熱愛追求技術不斷來提升與挑戰，我一直強調必須保持著學習態度，也希望藉由技術來提高使用者體驗及產品品質。 我喜歡挑戰讓我人生更加精彩，目前專注於React，JavaScript設計模式。</div>
+                <div class="main-container">
+                    <section id="timeline" class="timeline-outer">
+                      <div class="container" id="content">
+                        <div class="row">
+                          <div class="col s12 m12 l12">
+                            <h1 class="blue-text lighten-1 header">Responsive Material Design Timeline</h1>
+                            <ul class="timeline">
+                              <li class="event" data-date="2015/Present">
+                                <h3>Management and Entreprenurship (MSc)</h3>
+                                <p>
+                                  This September 2015 I will begin an MSc in Management and Entrepreneurship at University of Sussex, to broaden my knowledge and gain skills necessary for my future in business and management.
+                                </p>
+                              </li>
+                              <li class="event" data-date="2015/Present">
+                                <h3>Claromentis</h3>
+                                <p>
+                                  Claromentis is an intranet software provider company. I started working at the Brighton office as a Marketing Designer while I was still attending my final year at the University of Sussex. My primary responsibilities included creating corporate identity
+                                  for the company; I re-designed their website, and have created marketing materials such as brochures.
+                                </p>
+                                <p>Since graduating from university, I have also undertaken responsibilities for designing a product for the company. The roles I have been given have provided the perfect opportunity to implement the skills I have gained throughout my higher
+                                  education, as well as experiencing the running of a successful business.</p>
+                              </li>
+                              <li class="event" data-date="2012/2015">
+                                <h3>Games & Multimedia Environments BSc (Hons)</h3>
+                                <p>Throughout my degree I have gained expansive knowledge of informatics areas including Human Computer Interaction, Multimedia Design and Development, Program Analysis and Design For my final year project, I created a 2D Puzzler Game for iOS
+                                  called 'Flat Ball' and received a first. I therefore hope to release this game and further develop it to add new levels and improve the features.
+                                </p>
+                              </li>
+                              <li class="event" data-date="2012/2015">
+                                <h3>1108 Studios</h3>
+                                <p>This is a small startup that a friend and I created to gain more skills and apply those I had learned while completing my diploma. Since its inception, as a front - end web developer I have advised, designed and built web solutions for numerous
+                                  clients.</p>
+                              </li>
+                              <li class="event" data-date="2010/2012">
+                                <h3>IT Practitioners BTEC National Diploma</h3>
+                                <p>This is where my interest in building things for interactive media began. During my first computing course I studied a range of core topics including multimedia design, database design, computer games development, computer networks and object
+                                  oriented programming.</p>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                    <a class="portfolio-link" target "_blank" href="http://www.erpik.com"><h6>www.erpik.com</h6></a>
+                    <br/>
+                  </div>
 
                 <style type="text/css">
     #posts-chart,
@@ -429,7 +613,7 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
         xAxis: [
             {
                 type: 'category',
-                data: ["學習","指令","學習筆記","vue","JavaScript","build tools","工程化","git","service-worker","browser"]
+                data: ["學習","指令","build tools","JavaScript","工程化","vue","學習筆記","git","css","gulp"]
             }
         ],
         yAxis: [
@@ -548,6 +732,18 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
         <div class="tag-chips center-align">
             
             
+            <a href="/tags/vue/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">vue</span>
+            </a>
+            
+            
+            
+            <a href="/tags/學習/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">學習</span>
+            </a>
+            
+            
+            
             <a href="/tags/學習筆記/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">學習筆記</span>
             </a>
@@ -558,12 +754,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
             
             <a href="/tags/css/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">css</span>
-            </a>
-            
-            
-            
-            <a href="/tags/學習/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">學習</span>
             </a>
             
             
@@ -580,8 +770,20 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
             
             
             
-            <a href="/tags/vue/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">vue</span>
+            <a href="/tags/build-tools/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">build tools</span>
+            </a>
+            
+            
+            
+            <a href="/tags/工程化/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">工程化</span>
+            </a>
+            
+            
+            
+            <a href="/tags/gulp/" target="_blank">
+                <span class="chip center-align waves-effect waves-light chip-default">gulp</span>
             </a>
             
             
@@ -602,24 +804,6 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/0.jpg)');
             
             <a href="/tags/http/" target="_blank">
                 <span class="chip center-align waves-effect waves-light chip-default">http</span>
-            </a>
-            
-            
-            
-            <a href="/tags/build-tools/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">build tools</span>
-            </a>
-            
-            
-            
-            <a href="/tags/工程化/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">工程化</span>
-            </a>
-            
-            
-            
-            <a href="/tags/gulp/" target="_blank">
-                <span class="chip center-align waves-effect waves-light chip-default">gulp</span>
             </a>
             
             
