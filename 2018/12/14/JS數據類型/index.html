@@ -455,61 +455,65 @@ str.length // 9包含回車符號
 <li>key in Object</li>
 <li>Object屬性循環 :for…in</li>
 </ul>
-<pre><code>-----------------------------
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
   基本例子
   創建對象以及定義屬性值
------------------------------
-#1
-const person = new Object()
-person.name = &#39;Hew&#39;
-person.age = 18
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+#<span class="token number">1</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+person<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Hew'</span>
+person<span class="token punctuation">.</span>age <span class="token operator">=</span> <span class="token number">18</span>
 
-#2
-const person = {}
-person.name = &#39;Hew&#39;
-person[&#39;age&#39;] = 18
+#<span class="token number">2</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+person<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Hew'</span>
+person<span class="token punctuation">[</span><span class="token string">'age'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">18</span>
 
-#3
-const person = {
-  name: &#39;DecadeHew&#39;,
-  age: 18
-}
-</code></pre><pre><code>--------------------------------------
+#<span class="token number">3</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'DecadeHew'</span><span class="token punctuation">,</span>
+  age<span class="token punctuation">:</span> <span class="token number">18</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
   訪問對象屬性
- 注意Object.key 和Object[&#39;key&#39;]差別
---------------------------------------
-const person = {
-  name: &#39;DecadeHew&#39;,
-  age: 18,
-  &#39;my-address&#39;: &#39;KK&#39;
-}
+ 注意Object<span class="token punctuation">.</span>key 和Object<span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span>差別
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'DecadeHew'</span><span class="token punctuation">,</span>
+  age<span class="token punctuation">:</span> <span class="token number">18</span><span class="token punctuation">,</span>
+  <span class="token string">'my-address'</span><span class="token punctuation">:</span> <span class="token string">'KK'</span>
+<span class="token punctuation">}</span>
 
 #合法
-person.name   //&#39;DecadeHew&#39;
-person[&#39;name&#39;]  // &#39;DecadeHew&#39;
-person[&#39;my-address&#39;]   //&#39;KK&#39;
+person<span class="token punctuation">.</span>name   <span class="token comment" spellcheck="true">//'DecadeHew'</span>
+person<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true">// 'DecadeHew'</span>
+person<span class="token punctuation">[</span><span class="token string">'my-address'</span><span class="token punctuation">]</span>   <span class="token comment" spellcheck="true">//'KK'</span>
 
 #不合法
-person.my-address   //Error
+person<span class="token punctuation">.</span>my<span class="token operator">-</span>address   <span class="token comment" spellcheck="true">//Error</span>
 
-#【注意】解釋：key 如果加引號就是字串，否則就是依照標示符原則(變數命名規則)
-</code></pre><pre><code>-----------------------------
-    delete Object[&#39;key&#39;]
-    key in Object
------------------------------
-delete person[&#39;name&#39;]   //這樣可以把name刪除
-person[&#39;name&#39;]  //undefined
-‘name&#39; in person   //問這個name在不在person裡面，答案是false不在
-</code></pre><pre><code>--------------------------------
-     Object屬性循環:  for...in
----------------------------------
-for (let key in person) {
-  console.log(person[key]
-}
+#【注意】解釋：key <span class="token function">如果加引號就是字串，否則就是依照標示符原則</span><span class="token punctuation">(</span>變數命名規則<span class="token punctuation">)</span>
+</code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+    <span class="token keyword">delete</span> Object<span class="token punctuation">[</span><span class="token string">'key'</span><span class="token punctuation">]</span>
+    key <span class="token keyword">in</span> Object
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+<span class="token keyword">delete</span> person<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span>   <span class="token comment" spellcheck="true">//這樣可以把name刪除</span>
+person<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true">//undefined</span>
+‘name' <span class="token keyword">in</span> person   <span class="token comment" spellcheck="true">//問這個name在不在person裡面，答案是false不在</span>
+</code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+     Object屬性循環<span class="token punctuation">:</span>  <span class="token keyword">for</span><span class="token operator">...</span><span class="token keyword">in</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> person<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
 
-#1 for...in 循環會跳過不可遍歷 (enumerable) 的 key
-#2 for…in 循環不僅遍歷對象自身的屬性，还遍歷繼承的屬性
-</code></pre><h3 id="轉換成布林"><a href="#轉換成布林" class="headerlink" title="轉換成布林"></a>轉換成布林</h3><blockquote>
+#<span class="token number">1</span> <span class="token keyword">for</span><span class="token operator">...</span><span class="token keyword">in</span> 循環會跳過不可遍歷 <span class="token punctuation">(</span>enumerable<span class="token punctuation">)</span> 的 key
+#<span class="token number">2</span> <span class="token keyword">for</span>…<span class="token keyword">in</span> 循環不僅遍歷對象自身的屬性，还遍歷繼承的屬性
+</code></pre>
+<h3 id="轉換成布林"><a href="#轉換成布林" class="headerlink" title="轉換成布林"></a>轉換成布林</h3><blockquote>
 <p>可以查詢MDN了解更多</p>
 </blockquote>
 <ul>
