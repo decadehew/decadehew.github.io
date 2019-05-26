@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="初见HTTP, 前端">
+    <meta name="keywords" content="初见HTTP, 平凡前端">
     <meta name="description" content="什么是HTTPHTTP(HyperText Transport Protocol 超文本传输协议) 是服务端和客户端之间通过请求模式传输超文本(例如html文件，js文件，图片…) 内容的协议。
 
 HTTP 请求包括哪些部分请求报文由头部(">
@@ -15,7 +15,7 @@ HTTP 请求包括哪些部分请求报文由头部(">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>初见HTTP | 前端</title>
+    <title>初见HTTP | 平凡前端</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -43,7 +43,7 @@ HTTP 请求包括哪些部分请求报文由头部(">
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">前端</span>
+                    <span class="logo-span">平凡前端</span>
                 </a>
             </div>
             
@@ -109,7 +109,7 @@ HTTP 请求包括哪些部分请求报文由头部(">
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">前端</div>
+        <div class="logo-name">平凡前端</div>
         <div class="logo-desc">
             
             學習及分享
@@ -341,16 +341,45 @@ HTTP 请求包括哪些部分请求报文由头部(">
 <li><strong>空行</strong> ：CR+LF 换行符</li>
 <li><strong>报文主体</strong>：可以带着browser请求内容发送数据</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">例子：</span><br><span class="line">GET /home.html HTTP/1.1</span><br><span class="line">Host: developer.mozilla.org</span><br><span class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0</span><br><span class="line">Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span><br><span class="line">Accept-Language: en-US,en;q=0.5</span><br><span class="line">Accept-Encoding: gzip, deflate, br</span><br><span class="line">Referer: https://developer.mozilla.org/testpage.html</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Upgrade-Insecure-Requests: 1</span><br><span class="line">If-Modified-Since: Mon, 18 Jul 2016 02:36:04 GMT</span><br><span class="line">If-None-Match: &quot;c561c68d0ba92bbeb8b0fff2a9199f722e3a621a&quot;</span><br><span class="line">Cache-Control: max-age=0</span><br></pre></td></tr></table></figure>
-<p>在chrome开发者模式打开network点击网址查看Request Header 内容：<br><img src="https://lh3.googleusercontent.com/Mp_n-ouVC_f0J_A8oixmH2nwviGDchlCj5_AS8vfqCKdPIM0nkMi2CZ8F85NNa2DBGMirmsMReAGr4LR6EQqorKvJtQ710WXhfVxapIOfeYhQ2m1rX3kFP3cMUWDGiWBpgr9VUY3H3mbhILSlgmJRSgl6AfImxo26cSMtMZyC6Va0tGAEyKa_k-M5uXc8pHLWTtk3pkxZiTaK_x7LRrH6AlndWHeijL0nd0F3n1i5I5u1J7AKSviERBfTYHEAI-KJ8hMU9KWaRTIrYrBKrtqMmzQod8SzRw0zq22z8UisngwZ_hkDxYxeYTPzcICY65S19E5TWQCDkBvlgZx44kfbpnifCXVYxWAaquoGtmr0t7yfelMYED1zZIgoJ27Xj0G3hT3EeTHo6hiRWVBHbHSdW6RzS4nR04Ae8vg9S64BuRZwMKrcf7g6e_rUcBxdsC5zVOpXHfXWJsmwEpOrWYw7TzvbMKGGQO4GoHYsASWOson58ziyOUjNgDFPf51OP8cqrN9vJSFWDZI45nZlizTvPT8NUsMbow9TLYAbKYFPOHGOB8dUc5_fnNYbPgjbC3-kshRFQGVkuKxVRc9dNA7zhg8JOZ4yx3tikMU7JyP6d1oODyOPK8UEzQhcdlCZoI=w955-h256-no" alt=""></p>
+<pre><code>例子：
+GET /home.html HTTP/1.1
+Host: developer.mozilla.org
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: https://developer.mozilla.org/testpage.html
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+If-Modified-Since: Mon, 18 Jul 2016 02:36:04 GMT
+If-None-Match: &quot;c561c68d0ba92bbeb8b0fff2a9199f722e3a621a&quot;
+Cache-Control: max-age=0
+</code></pre><p>在chrome开发者模式打开network点击网址查看Request Header 内容：<br><img src="https://lh3.googleusercontent.com/Mp_n-ouVC_f0J_A8oixmH2nwviGDchlCj5_AS8vfqCKdPIM0nkMi2CZ8F85NNa2DBGMirmsMReAGr4LR6EQqorKvJtQ710WXhfVxapIOfeYhQ2m1rX3kFP3cMUWDGiWBpgr9VUY3H3mbhILSlgmJRSgl6AfImxo26cSMtMZyC6Va0tGAEyKa_k-M5uXc8pHLWTtk3pkxZiTaK_x7LRrH6AlndWHeijL0nd0F3n1i5I5u1J7AKSviERBfTYHEAI-KJ8hMU9KWaRTIrYrBKrtqMmzQod8SzRw0zq22z8UisngwZ_hkDxYxeYTPzcICY65S19E5TWQCDkBvlgZx44kfbpnifCXVYxWAaquoGtmr0t7yfelMYED1zZIgoJ27Xj0G3hT3EeTHo6hiRWVBHbHSdW6RzS4nR04Ae8vg9S64BuRZwMKrcf7g6e_rUcBxdsC5zVOpXHfXWJsmwEpOrWYw7TzvbMKGGQO4GoHYsASWOson58ziyOUjNgDFPf51OP8cqrN9vJSFWDZI45nZlizTvPT8NUsMbow9TLYAbKYFPOHGOB8dUc5_fnNYbPgjbC3-kshRFQGVkuKxVRc9dNA7zhg8JOZ4yx3tikMU7JyP6d1oODyOPK8UEzQhcdlCZoI=w955-h256-no" alt=""></p>
 <h2 id="HTTP-响应包括哪些部分"><a href="#HTTP-响应包括哪些部分" class="headerlink" title="HTTP 响应包括哪些部分"></a>HTTP 响应包括哪些部分</h2><p>响应报文由头部(首部)(Header)，空行，报文主体(内容)组成</p>
 <ol>
 <li><strong>响应Header格式结构</strong>：状态行 | 请求首部字段 | 通用首部字段 | 实体首部字段 | 其他</li>
 <li><strong>空行</strong> ：CR+LF 换行符</li>
 <li><strong>报文主体</strong>：服务端返回给客户端信息</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">例子：</span><br><span class="line">200 OK</span><br><span class="line">Access-Control-Allow-Origin: *</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Content-Encoding: gzip</span><br><span class="line">Content-Type: text/html; charset=utf-8</span><br><span class="line">Date: Mon, 18 Jul 2016 16:06:00 GMT</span><br><span class="line">Etag: &quot;c561c68d0ba92bbeb8b0f612a9199f722e3a621a&quot;</span><br><span class="line">Keep-Alive: timeout=5, max=997</span><br><span class="line">Last-Modified: Mon, 18 Jul 2016 02:36:04 GMT</span><br><span class="line">Server: Apache</span><br><span class="line">Set-Cookie: mykey=myvalue; expires=Mon, 17-Jul-2017 16:06:00 GMT; Max-Age=31449600; Path=/; secure</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Vary: Cookie, Accept-Encoding</span><br><span class="line">X-Backend-Server: developer2.webapp.scl3.mozilla.com</span><br><span class="line">X-Cache-Info: not cacheable; meta data too large</span><br><span class="line">X-kuma-revision: 1085259</span><br><span class="line">x-frame-options: DENY</span><br></pre></td></tr></table></figure>
-<p>在chrome开发者模式打开network点击网址查看General &amp;&amp; Response Header &amp;&amp; Preview &amp;&amp; Response 内容：<br><img src="https://lh3.googleusercontent.com/OahTQlNzGeXlKznVQwXSk79q89MBHhcThy1KFPo7HkMUFtwAE_OvUrM61nEPw07wP4DiH262TJdapnDDsy3PDAcjvSnU419h-GrRGLWlDIUOigf1zC7JfLlbpRsZE2rEET-nlSAd5zAOGa6B7hd4YGMwhoarKFYdU13GkWeHDihHfkXrxe1Pjt7ZS_O8GOCLuiOrPhpmOvt5o5nHyEuz-bqmlpXJKCzERvwO4erMo0G1oGFQN393SpI95MBTVH7bTiH3LI-Yl7DzimHnHxEkzj0Uplz7IejPmuGQVdh3DVMUHHrtXzBfd7wXtr7o5Zg4KN7bN0RIwAAyHngqEb-MwbB7IM-A_GyLiLKNdiP1WjBYgMzLQwb99TNGIC40Vd1KjsoZhV__HpYK5Igf2uUdEsLqpY8yWpiYaVyWO1vP2gEW52zcu9HIcFfsvlKWsBR3BkvBDzv5wK2FlevxnescyMqmkxFgby3HDQsyFxKxXTE_pxHjxr9B6bR2A53S7Vsfp699p5IkXWjixaZigQNfqc0SS-iYf1J0cMAfc4AeWPVNVnOggG_0ykfBClrW8LEy0FkajxUUQXnZrLXdQ9s5WSnzDRoZwU5PcQrApnDynypA07KM1jM4LshM5wKvb5I=w627-h440-no" alt=""></p>
+<pre><code>例子：
+200 OK
+Access-Control-Allow-Origin: *
+Connection: Keep-Alive
+Content-Encoding: gzip
+Content-Type: text/html; charset=utf-8
+Date: Mon, 18 Jul 2016 16:06:00 GMT
+Etag: &quot;c561c68d0ba92bbeb8b0f612a9199f722e3a621a&quot;
+Keep-Alive: timeout=5, max=997
+Last-Modified: Mon, 18 Jul 2016 02:36:04 GMT
+Server: Apache
+Set-Cookie: mykey=myvalue; expires=Mon, 17-Jul-2017 16:06:00 GMT; Max-Age=31449600; Path=/; secure
+Transfer-Encoding: chunked
+Vary: Cookie, Accept-Encoding
+X-Backend-Server: developer2.webapp.scl3.mozilla.com
+X-Cache-Info: not cacheable; meta data too large
+X-kuma-revision: 1085259
+x-frame-options: DENY
+</code></pre><p>在chrome开发者模式打开network点击网址查看General &amp;&amp; Response Header &amp;&amp; Preview &amp;&amp; Response 内容：<br><img src="https://lh3.googleusercontent.com/OahTQlNzGeXlKznVQwXSk79q89MBHhcThy1KFPo7HkMUFtwAE_OvUrM61nEPw07wP4DiH262TJdapnDDsy3PDAcjvSnU419h-GrRGLWlDIUOigf1zC7JfLlbpRsZE2rEET-nlSAd5zAOGa6B7hd4YGMwhoarKFYdU13GkWeHDihHfkXrxe1Pjt7ZS_O8GOCLuiOrPhpmOvt5o5nHyEuz-bqmlpXJKCzERvwO4erMo0G1oGFQN393SpI95MBTVH7bTiH3LI-Yl7DzimHnHxEkzj0Uplz7IejPmuGQVdh3DVMUHHrtXzBfd7wXtr7o5Zg4KN7bN0RIwAAyHngqEb-MwbB7IM-A_GyLiLKNdiP1WjBYgMzLQwb99TNGIC40Vd1KjsoZhV__HpYK5Igf2uUdEsLqpY8yWpiYaVyWO1vP2gEW52zcu9HIcFfsvlKWsBR3BkvBDzv5wK2FlevxnescyMqmkxFgby3HDQsyFxKxXTE_pxHjxr9B6bR2A53S7Vsfp699p5IkXWjixaZigQNfqc0SS-iYf1J0cMAfc4AeWPVNVnOggG_0ykfBClrW8LEy0FkajxUUQXnZrLXdQ9s5WSnzDRoZwU5PcQrApnDynypA07KM1jM4LshM5wKvb5I=w627-h440-no" alt=""></p>
 <h2 id="如何使用-curl-命令"><a href="#如何使用-curl-命令" class="headerlink" title="如何使用 curl 命令"></a>如何使用 curl 命令</h2><p>打开terminal，输入curl -s -v -H “Hello: xxx” – “<a href="https://www.google.com&quot;" target="_blank" rel="noopener">https://www.google.com&quot;</a> 。<br>请求google首页页面，然后得到响应结果</p>
 <blockquote>
 <p>使用curl做一个请求动作，以及得到响应结果。</p>

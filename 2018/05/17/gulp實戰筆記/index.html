@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="gulp實戰筆記, 前端">
+    <meta name="keywords" content="gulp實戰筆記, 平凡前端">
     <meta name="description" content="我將會挑幾個常用插件來學習，主要是通過實戰來了解Gulp的應用。在開發過程中，根據自己項目需求去尋找對應插件使用，來滿足需求及提高開發效率。
 
 目錄
@@ -21,7 +21,7 @@ Gulp全局安裝
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>gulp實戰筆記 | 前端</title>
+    <title>gulp實戰筆記 | 平凡前端</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -49,7 +49,7 @@ Gulp全局安裝
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">前端</span>
+                    <span class="logo-span">平凡前端</span>
                 </a>
             </div>
             
@@ -115,7 +115,7 @@ Gulp全局安裝
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">前端</div>
+        <div class="logo-name">平凡前端</div>
         <div class="logo-desc">
             
             學習及分享
@@ -361,11 +361,12 @@ Gulp全局安裝
 <li><p>切換項目中目錄下，創建gulpfile.js來編寫你的任務</p>
 <ul>
 <li>首先指定構建內容，通過gulp插件來完成構建，最終輸出指定目錄裡。</li>
-<li>使用前，需要安裝這兩個gulp插件(npm i gulp-sass, npm i gulp-autoprefixer)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">const gulp = require(&apos;gulp&apos;);</span><br><span class="line">const sass = require(&apos;gulp-sass&apos;);</span><br><span class="line">const autoprefixer = require(&apos;gulp-autoprefixer&apos;);</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;default&apos;, function() &#123;</span><br><span class="line">	console.log(&apos;hello world&apos;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">gulp.task(&apos;styles&apos;, function() &#123;</span><br><span class="line">	gulp.src(&apos;sass/**/*.scss&apos;)</span><br><span class="line">		.pipe(sass())</span><br><span class="line">		.pipe(autoprefixer(&#123;</span><br><span class="line">			browsers: [&apos;last 2 version&apos;]</span><br><span class="line">		&#125;))</span><br><span class="line">		.pipe(gulp.dest(&apos;./css&apos;))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-</li>
+<li>使用前，需要安裝這兩個gulp插件(npm i gulp-sass, npm i gulp-autoprefixer)<br><code>`</code><br>const gulp = require(‘gulp’);<br>const sass = require(‘gulp-sass’);<br>const autoprefixer = require(‘gulp-autoprefixer’);</li>
 </ul>
 </li>
 </ul>
+<p>gulp.task(‘default’, function() {<br>    console.log(‘hello world’)<br>})</p>
+<p>gulp.task(‘styles’, function() {<br>    gulp.src(‘sass/*<em>/</em>.scss’)<br>        .pipe(sass())<br>        .pipe(autoprefixer({<br>            browsers: [‘last 2 version’]<br>        }))<br>        .pipe(gulp.dest(‘./css’))<br>})<br><code>`</code></p>
 <h2 id="代碼說明"><a href="#代碼說明" class="headerlink" title="代碼說明"></a>代碼說明</h2><ul>
 <li><strong>定義gulp任務及執行</strong></li>
 </ul>
