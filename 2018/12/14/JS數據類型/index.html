@@ -435,27 +435,14 @@ Symbol(ES6)
 </ul>
 <a id="more"></a>
 <h2 id="Number-數值"><a href="#Number-數值" class="headerlink" title="Number 數值"></a>Number 數值</h2><p>ECMAScript 標準，JavaScript 中只有一种數值類型：基於 IEEE 754 標準的双精度 64 位二进制格式的浮點數方式存儲。<br>當我們需要運算整數時，JS會自動把64位浮點數轉成32位整數，然後再進行運算。</p>
-<pre><code>// 1和1.0是相同
-1 === 1.0 // true
-</code></pre><p>JS底層根本沒有整數，所有數字都是浮點數</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 1和1.0是相同</span><br><span class="line">1 === 1.0 // true</span><br></pre></td></tr></table></figure>
+<p>JS底層根本沒有整數，所有數字都是浮點數</p>
 <h3 id="最基本數值字面格式："><a href="#最基本數值字面格式：" class="headerlink" title="最基本數值字面格式："></a>最基本數值字面格式：</h3><p>數值類型是使用國際標準IEEE754格式來表示整數和小數點，為了支持各種數值類型，ECMA-262定義了不同數值字面格式。</p>
 <blockquote>
 <p>JS會自動把二，八，十六進制轉換十進制</p>
 </blockquote>
-<pre><code>// 二進制 (前導0b)
-const BinNum = 0b10 //2
-
-// 十進制 (沒有前導)
-const num = 10
-
-// 八進制 (前綴0o或0O的數值，前導0，只用到0~7數值)
-// 如果字面值的數字超出範圍，會導致第一位數字忽略，後面數值將會以十進制數字進行解析
-const hexNum = 070 //56
-const hexNum1 = 079 //79
-
-// 十六進制 (前綴0x或0X，0~9 | A~F)
-const hexNum = 0xF //15
-</code></pre><h3 id="浮點數-雙精度"><a href="#浮點數-雙精度" class="headerlink" title="浮點數(雙精度)"></a>浮點數(雙精度)</h3><p>所謂浮點數就是包含小數點。<br><code>const floatNum = 1.1</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 二進制 (前導0b)</span><br><span class="line">const BinNum = 0b10 //2</span><br><span class="line"></span><br><span class="line">// 十進制 (沒有前導)</span><br><span class="line">const num = 10</span><br><span class="line"></span><br><span class="line">// 八進制 (前綴0o或0O的數值，前導0，只用到0~7數值)</span><br><span class="line">// 如果字面值的數字超出範圍，會導致第一位數字忽略，後面數值將會以十進制數字進行解析</span><br><span class="line">const hexNum = 070 //56</span><br><span class="line">const hexNum1 = 079 //79</span><br><span class="line"></span><br><span class="line">// 十六進制 (前綴0x或0X，0~9 | A~F)</span><br><span class="line">const hexNum = 0xF //15</span><br></pre></td></tr></table></figure>
+<h3 id="浮點數-雙精度"><a href="#浮點數-雙精度" class="headerlink" title="浮點數(雙精度)"></a>浮點數(雙精度)</h3><p>所謂浮點數就是包含小數點。<br><code>const floatNum = 1.1</code></p>
 <p>由於保存浮點數需要內存空間是保存整數兩倍，ECMAScript會自然把浮點數轉換成整數。具體說，如果小數點後面沒有數值，把這個數值作為整數來保存。<br><code>const intNum = 10.0 // 10解析為10</code></p>
 <p>對於極大極小數值，可以用e(科學計算法)表示。<strong>e</strong>表示的數值等於e前面數值乘以10指數。</p>
 <blockquote>
@@ -492,21 +479,8 @@ const hexNum = 0xF //15
 <h3 id="字串定義"><a href="#字串定義" class="headerlink" title="字串定義"></a>字串定義</h3><p>字串可以用<strong>雙引號</strong>(“)或<strong>單引號</strong>(‘)來表示。</p>
 <h3 id="轉義符-Escape-Sequences"><a href="#轉義符-Escape-Sequences" class="headerlink" title="轉義符 (Escape Sequences)"></a>轉義符 (Escape Sequences)</h3><p>反斜槓()是字串類型特殊字符</p>
 <p><img src="https://i.loli.net/2018/12/15/5c14151edb7ab.png" alt=""> <strong>只列出部分</strong></p>
-<h3 id="多行字串"><a href="#多行字串" class="headerlink" title="多行字串"></a>多行字串</h3><pre><code>// 無回車符號
-const str = &#39;abc&#39; +
-&#39;def&#39;
-
-// 有回車符號
-// 使用這個方式是坑人用法
-const str = `abc\
-def`
-
-// ES6 反引號
-// 包含回車符號
-const str = `1234
-5678`
-str.length // 9包含回車符號
-</code></pre><h3 id="轉換成字串"><a href="#轉換成字串" class="headerlink" title="轉換成字串"></a>轉換成字串</h3><blockquote>
+<h3 id="多行字串"><a href="#多行字串" class="headerlink" title="多行字串"></a>多行字串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 無回車符號</span><br><span class="line">const str = &apos;abc&apos; +</span><br><span class="line">&apos;def&apos;</span><br><span class="line"></span><br><span class="line">// 有回車符號</span><br><span class="line">// 使用這個方式是坑人用法</span><br><span class="line">const str = `abc\</span><br><span class="line">def`</span><br><span class="line"></span><br><span class="line">// ES6 反引號</span><br><span class="line">// 包含回車符號</span><br><span class="line">const str = `1234</span><br><span class="line">5678`</span><br><span class="line">str.length // 9包含回車符號</span><br></pre></td></tr></table></figure>
+<h3 id="轉換成字串"><a href="#轉換成字串" class="headerlink" title="轉換成字串"></a>轉換成字串</h3><blockquote>
 <p>可以查詢MDN了解更多</p>
 </blockquote>
 <ul>
@@ -536,61 +510,11 @@ str.length // 9包含回車符號
 <li>key in Object</li>
 <li>Object屬性循環 :for…in</li>
 </ul>
-<pre><code>-----------------------------
-  基本例子
-  創建對象以及定義屬性值
------------------------------
-#1
-const person = new Object()
-person.name = &#39;Hew&#39;
-person.age = 18
-
-#2
-const person = {}
-person.name = &#39;Hew&#39;
-person[&#39;age&#39;] = 18
-
-#3
-const person = {
-  name: &#39;DecadeHew&#39;,
-  age: 18
-}
-</code></pre><pre><code>--------------------------------------
-  訪問對象屬性
- 注意Object.key 和Object[&#39;key&#39;]差別
---------------------------------------
-const person = {
-  name: &#39;DecadeHew&#39;,
-  age: 18,
-  &#39;my-address&#39;: &#39;KK&#39;
-}
-
-#合法
-person.name   //&#39;DecadeHew&#39;
-person[&#39;name&#39;]  // &#39;DecadeHew&#39;
-person[&#39;my-address&#39;]   //&#39;KK&#39;
-
-#不合法
-person.my-address   //Error
-
-#【注意】解釋：key 如果加引號就是字串，否則就是依照標示符原則(變數命名規則)
-</code></pre><pre><code>-----------------------------
-    delete Object[&#39;key&#39;]
-    key in Object
------------------------------
-delete person[&#39;name&#39;]   //這樣可以把name刪除
-person[&#39;name&#39;]  //undefined
-‘name&#39; in person   //問這個name在不在person裡面，答案是false不在
-</code></pre><pre><code>--------------------------------
-     Object屬性循環:  for...in
----------------------------------
-for (let key in person) {
-  console.log(person[key]
-}
-
-#1 for...in 循環會跳過不可遍歷 (enumerable) 的 key
-#2 for…in 循環不僅遍歷對象自身的屬性，还遍歷繼承的屬性
-</code></pre><h3 id="轉換成布林"><a href="#轉換成布林" class="headerlink" title="轉換成布林"></a>轉換成布林</h3><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">-----------------------------</span><br><span class="line">  基本例子</span><br><span class="line">  創建對象以及定義屬性值</span><br><span class="line">-----------------------------</span><br><span class="line">#1</span><br><span class="line">const person = new Object()</span><br><span class="line">person.name = &apos;Hew&apos;</span><br><span class="line">person.age = 18</span><br><span class="line"></span><br><span class="line">#2</span><br><span class="line">const person = &#123;&#125;</span><br><span class="line">person.name = &apos;Hew&apos;</span><br><span class="line">person[&apos;age&apos;] = 18</span><br><span class="line"></span><br><span class="line">#3</span><br><span class="line">const person = &#123;</span><br><span class="line">  name: &apos;DecadeHew&apos;,</span><br><span class="line">  age: 18</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">--------------------------------------</span><br><span class="line">  訪問對象屬性</span><br><span class="line"> 注意Object.key 和Object[&apos;key&apos;]差別</span><br><span class="line">--------------------------------------</span><br><span class="line">const person = &#123;</span><br><span class="line">  name: &apos;DecadeHew&apos;,</span><br><span class="line">  age: 18,</span><br><span class="line">  &apos;my-address&apos;: &apos;KK&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#合法</span><br><span class="line">person.name   //&apos;DecadeHew&apos;</span><br><span class="line">person[&apos;name&apos;]  // &apos;DecadeHew&apos;</span><br><span class="line">person[&apos;my-address&apos;]   //&apos;KK&apos;</span><br><span class="line"></span><br><span class="line">#不合法</span><br><span class="line">person.my-address   //Error</span><br><span class="line"></span><br><span class="line">#【注意】解釋：key 如果加引號就是字串，否則就是依照標示符原則(變數命名規則)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-----------------------------</span><br><span class="line">    delete Object[&apos;key&apos;]</span><br><span class="line">    key in Object</span><br><span class="line">-----------------------------</span><br><span class="line">delete person[&apos;name&apos;]   //這樣可以把name刪除</span><br><span class="line">person[&apos;name&apos;]  //undefined</span><br><span class="line">‘name&apos; in person   //問這個name在不在person裡面，答案是false不在</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">--------------------------------</span><br><span class="line">     Object屬性循環:  for...in</span><br><span class="line">---------------------------------</span><br><span class="line">for (let key in person) &#123;</span><br><span class="line">  console.log(person[key]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#1 for...in 循環會跳過不可遍歷 (enumerable) 的 key</span><br><span class="line">#2 for…in 循環不僅遍歷對象自身的屬性，还遍歷繼承的屬性</span><br></pre></td></tr></table></figure>
+<h3 id="轉換成布林"><a href="#轉換成布林" class="headerlink" title="轉換成布林"></a>轉換成布林</h3><blockquote>
 <p>可以查詢MDN了解更多</p>
 </blockquote>
 <ul>
