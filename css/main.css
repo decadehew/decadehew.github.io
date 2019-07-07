@@ -1261,7 +1261,7 @@ pre .javascript .function {
 }
 @media (min-width: 992px) {
   .posts-expand .post-body {
-    text-align: center;
+    text-align: justify;
   }
 }
 @media (max-width: 991px) {
@@ -1732,7 +1732,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #39defe;
+  background: #05d7e9;
 }
 .feed-link,
 .chat {
