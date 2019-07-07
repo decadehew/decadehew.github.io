@@ -98,20 +98,18 @@
 
 
 
-  <meta name="description" content="這篇讓我們來學習 TDD 和 BDD 是什麼。">
-<meta name="keywords" content="學習筆記,測試">
+  <meta name="description" content="何謂作用域 作用域就是變數和函數可訪問的範圍。 作用域可分為全局作用域 (Global Scope) 和函數作用域 (Local Scope) ，但在ES6之後，存在塊作用域 (Block Scope) 。 JS 的作用域採用詞法作用域 (Lexical Scope) 也就是靜態作用域。">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tdd-bdd">
-<meta property="og:url" content="http://yoursite.com/2019/05/27/tdd-bdd/index.html">
+<meta property="og:title" content="Scope 作用域">
+<meta property="og:url" content="http://yoursite.com/2019/02/11/scope/index.html">
 <meta property="og:site_name" content="平凡前端">
-<meta property="og:description" content="這篇讓我們來學習 TDD 和 BDD 是什麼。">
+<meta property="og:description" content="何謂作用域 作用域就是變數和函數可訪問的範圍。 作用域可分為全局作用域 (Global Scope) 和函數作用域 (Local Scope) ，但在ES6之後，存在塊作用域 (Block Scope) 。 JS 的作用域採用詞法作用域 (Lexical Scope) 也就是靜態作用域。">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="http://yoursite.com/2019/05/27/assets/img/tdd-bdd.png">
-<meta property="og:updated_time" content="2019-05-27T15:19:00.699Z">
+<meta property="og:updated_time" content="2019-07-07T15:43:56.548Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tdd-bdd">
-<meta name="twitter:description" content="這篇讓我們來學習 TDD 和 BDD 是什麼。">
-<meta name="twitter:image" content="http://yoursite.com/2019/05/27/assets/img/tdd-bdd.png">
+<meta name="twitter:title" content="Scope 作用域">
+<meta name="twitter:description" content="何謂作用域 作用域就是變數和函數可訪問的範圍。 作用域可分為全局作用域 (Global Scope) 和函數作用域 (Local Scope) ，但在ES6之後，存在塊作用域 (Block Scope) 。 JS 的作用域採用詞法作用域 (Lexical Scope) 也就是靜態作用域。">
 
 
 
@@ -119,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/27/tdd-bdd/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/02/11/scope/"/>
 
 
 
@@ -129,7 +127,7 @@
   };
 </script>
 
-  <title>tdd-bdd | 平凡前端</title>
+  <title>Scope 作用域 | 平凡前端</title>
   
 
 
@@ -344,7 +342,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/27/tdd-bdd/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/11/scope/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="DecadeHew"/>
@@ -361,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">tdd-bdd
+          <h1 class="post-title" itemprop="name headline">Scope 作用域
 
               
             
@@ -387,13 +385,23 @@
                 
               
 
-              <time title="Created: 2019-05-27 22:48:19 / Modified: 23:19:00" itemprop="dateCreated datePublished" datetime="2019-05-27T22:48:19+08:00">2019-05-27</time>
+              <time title="Created: 2019-02-11 23:40:51" itemprop="dateCreated datePublished" datetime="2019-02-11T23:40:51+08:00">2019-02-11</time>
             </span>
           
 
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-07-07 23:43:56" itemprop="dateModified" datetime="2019-07-07T23:43:56+08:00">2019-07-07</time>
+              </span>
             
           
 
@@ -444,22 +452,45 @@
       
 
       
-        <h1 id="這篇讓我們來學習-TDD-和-BDD-是什麼。"><a href="#這篇讓我們來學習-TDD-和-BDD-是什麼。" class="headerlink" title="這篇讓我們來學習 TDD 和 BDD 是什麼。"></a>這篇讓我們來學習 TDD 和 BDD 是什麼。</h1><a id="more"></a>
-<h2 id="首先先了解這兩個-term-概念"><a href="#首先先了解這兩個-term-概念" class="headerlink" title="首先先了解這兩個 term 概念"></a>首先先了解這兩個 term 概念</h2><h3 id="TDD-Test-Driven-Development"><a href="#TDD-Test-Driven-Development" class="headerlink" title="TDD (Test Driven Development)"></a>TDD (Test Driven Development)</h3><p>TDD 是測試驅動開發，也就是先寫測試再寫程式，步驟：</p>
-<p><img src="../assets/img/tdd-bdd.png" alt="a"></p>
-<ul>
-<li>先寫一個測試 test case</li>
-<li>接下來寫功能程式</li>
-<li>run test -&gt; pass or failed</li>
-<li>重構 (Refactor), 添加新 test case</li>
+        <h1 id="何謂作用域"><a href="#何謂作用域" class="headerlink" title="何謂作用域"></a>何謂作用域</h1><ul>
+<li>作用域就是變數和函數可訪問的範圍。</li>
+<li>作用域可分為<strong>全局作用域 (Global Scope)</strong> 和<strong>函數作用域 (Local Scope)</strong> ，但在ES6之後，存在<strong>塊作用域 (Block Scope)</strong> 。</li>
+<li>JS 的作用域採用詞法作用域 (Lexical Scope) 也就是靜態作用域。</li>
 </ul>
-<p>例子：</p>
-<pre class=" language-javascript"><code class="language-javascript">
+<a id="more"></a>
+<h2 id="什麼是詞法作用域-Lexical-Scope"><a href="#什麼是詞法作用域-Lexical-Scope" class="headerlink" title="什麼是詞法作用域 (Lexical Scope)"></a>什麼是詞法作用域 (Lexical Scope)</h2><p>函數作用域是在函數定義的時候，就決定了</p>
+<p>範例：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> color <span class="token operator">=</span> <span class="token string">'red'</span>
+<span class="token keyword">function</span> f2 <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>color<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// red or blue ?</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> f1 <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> color <span class="token operator">=</span> <span class="token string">'blue'</span>
+  <span class="token function">f2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<h3 id="BDD-Behaviour-Driven-Development"><a href="#BDD-Behaviour-Driven-Development" class="headerlink" title="BDD(Behaviour Driven Development)"></a>BDD(Behaviour Driven Development)</h3><p>BDD 是行為驅動開發，可以理解為是 TDD 衍生測試。但 BDD 寫測試風格，更接近自然語言來描述 test case，讓我們 (其他部門人員) 也可以看懂這些測試！</p>
-<p>例子：</p>
-<pre class=" language-javascript"><code class="language-javascript">
+<p><strong>答案：red</strong><br>JS是採用詞法作用域，當f2函數被執行時會查找是否有color變數，如沒有就往外找color變數</p>
+<h2 id="全局作用域-Global-Scope"><a href="#全局作用域-Global-Scope" class="headerlink" title="全局作用域 (Global Scope)"></a>全局作用域 (Global Scope)</h2><p>全局作用域是在函數以外變數，表示該變數可以在任何地方訪問。<br>所有函數都可以訪問全局作用域內定義的變數</p>
+<pre><code>let global = &#39;G&#39;
+function globalScope () {
+  return global
+}
+</code></pre><h2 id="函數作用域-Local-Scope"><a href="#函數作用域-Local-Scope" class="headerlink" title="函數作用域 (Local Scope)"></a>函數作用域 (Local Scope)</h2><p>變數定義在函數裡面，表示函數作用域或局部作用域，只有函數內才可以訪問，外部作用域無法訪問。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> local <span class="token operator">=</span> <span class="token string">'L'</span>
+<span class="token keyword">function</span> localScope <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 首先會查看函數內是否有定義local變數</span>
+  <span class="token comment" spellcheck="true">// 如果發現有就會到此為止</span>
+  <span class="token comment" spellcheck="true">// 如果沒有，JS engine就會查看外面一層函數，然後是在往外一層函數，以此類推，一直到到達全局作用域</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>local<span class="token punctuation">)</span>
+  <span class="token keyword">const</span> innerLocal <span class="token operator">=</span> <span class="token string">'Inner'</span>
+<span class="token punctuation">}</span>
 </code></pre>
+<blockquote>
+<p>如果JavaScript Engine檢查了所有外層函數和全局作用域，仍然找不到此變數的話，會報錯！</p>
+</blockquote>
+<h4 id="特別注意"><a href="#特別注意" class="headerlink" title="特別注意"></a>特別注意</h4><blockquote>
+<p>全局變數很好用很方便，在任何地方都可以被訪問。<br>但特別小心，就是命名空間發生衝突，或者說一不小心覆蓋全局變數的值，影響其他程式運作。如果程式越寫越大，你也很難追蹤此變數的值，<strong>非常⚠️</strong></p>
+</blockquote>
 
       
     </div>
@@ -486,9 +517,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/學習筆記/" rel="tag"># 學習筆記</a>
-          
-            <a href="/tags/測試/" rel="tag"># 測試</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -501,8 +530,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/11/scope/" rel="next" title="Scope 作用域">
-                <i class="fa fa-chevron-left"></i> Scope 作用域
+              <a href="/2018/12/22/普通類型和對象區別/" rel="next" title="普通類型和對象區別">
+                <i class="fa fa-chevron-left"></i> 普通類型和對象區別
               </a>
             
           </div>
@@ -511,8 +540,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/07/cors/" rel="prev" title="CORS 跨域">
-                CORS 跨域 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/27/tdd-bdd/" rel="prev" title="tdd-bdd">
+                tdd-bdd <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -722,7 +751,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#這篇讓我們來學習-TDD-和-BDD-是什麼。"><span class="nav-number">1.</span> <span class="nav-text">這篇讓我們來學習 TDD 和 BDD 是什麼。</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先先了解這兩個-term-概念"><span class="nav-number">1.1.</span> <span class="nav-text">首先先了解這兩個 term 概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TDD-Test-Driven-Development"><span class="nav-number">1.1.1.</span> <span class="nav-text">TDD (Test Driven Development)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BDD-Behaviour-Driven-Development"><span class="nav-number">1.1.2.</span> <span class="nav-text">BDD(Behaviour Driven Development)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#何謂作用域"><span class="nav-number">1.</span> <span class="nav-text">何謂作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什麼是詞法作用域-Lexical-Scope"><span class="nav-number">1.1.</span> <span class="nav-text">什麼是詞法作用域 (Lexical Scope)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局作用域-Global-Scope"><span class="nav-number">1.2.</span> <span class="nav-text">全局作用域 (Global Scope)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函數作用域-Local-Scope"><span class="nav-number">1.3.</span> <span class="nav-text">函數作用域 (Local Scope)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特別注意"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">特別注意</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
