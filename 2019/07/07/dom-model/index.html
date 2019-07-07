@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="平凡前端">
 <meta property="og:description" content="知識點： Document Event onlick 和 addEventListener 區別 捕捉事件和泡沫事件 stopPropagation()">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-07-07T13:31:46.451Z">
+<meta property="og:updated_time" content="2019-07-07T13:36:06.161Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM Model">
 <meta name="twitter:description" content="知識點： Document Event onlick 和 addEventListener 區別 捕捉事件和泡沫事件 stopPropagation()">
@@ -364,16 +364,16 @@ x<span class="token punctuation">.</span><span class="token function">addEventLi
 <span class="token comment" spellcheck="true">// 1，2進行排隊，但還沒被觸發1就離開了 -> 2</span>
 x<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 1 })</span>
 </code></pre>
-<pre class=" language-htmlembedded"><code class="language-htmlembedded"><!-- html -->
-<div id="grand">
+<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- html --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>grand<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
   爺爺
-  <div id="father">
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>father<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     爸爸
-    <div id="child">
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>child<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
       兒子
-    </div>
-  </div>
-</div>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
 </code></pre>
 <pre class=" language-css"><code class="language-css"><span class="token comment" spellcheck="true">/* css */</span>
 <span class="token selector"><span class="token id">#grand</span> </span><span class="token punctuation">{</span>
