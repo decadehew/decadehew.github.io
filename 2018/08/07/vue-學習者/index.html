@@ -98,7 +98,7 @@
 
 
 
-  <meta name="keywords" content="vue,學習">
+  <meta name="keywords" content="學習,vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue 學習者">
 <meta property="og:url" content="http://yoursite.com/2018/08/07/vue-學習者/index.html">
@@ -477,9 +477,9 @@
         
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"># vue</a>
-          
             <a href="/tags/學習/" rel="tag"># 學習</a>
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
           
         </div>
       
@@ -525,6 +525,10 @@
 
           </div>
           
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
 
   
 
@@ -880,6 +884,35 @@
 
   
 
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css"/>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'af8ada5fbbe6751a1ca8',
+    clientSecret: '5540c3d084c802f6f1272678669143a52d1c5a2c',
+    repo: 'https://github.com/decadehew/decadehew.github.io/issues',
+    owner: 'https://github.com/decadehew/decadehew.github.io',
+    admin: [''],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
 
   
 

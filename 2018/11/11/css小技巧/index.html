@@ -99,7 +99,7 @@
 
 
   <meta name="description" content="鞏固基礎佈局排版知識點，主要內容是介紹佈局css技巧。 目錄 左右布局 左中右布局 水平居中 垂直居中 等其他小技巧 CSS學習資源">
-<meta name="keywords" content="學習,css">
+<meta name="keywords" content="css,學習">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css小技巧">
 <meta property="og:url" content="http://yoursite.com/2018/11/11/css小技巧/index.html">
@@ -629,9 +629,9 @@ div {
         
         <div class="post-tags">
           
-            <a href="/tags/學習/" rel="tag"># 學習</a>
-          
             <a href="/tags/css/" rel="tag"># css</a>
+          
+            <a href="/tags/學習/" rel="tag"># 學習</a>
           
         </div>
       
@@ -677,6 +677,10 @@ div {
 
           </div>
           
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
 
   
 
@@ -1032,6 +1036,35 @@ div {
 
   
 
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css"/>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'af8ada5fbbe6751a1ca8',
+    clientSecret: '5540c3d084c802f6f1272678669143a52d1c5a2c',
+    repo: 'https://github.com/decadehew/decadehew.github.io/issues',
+    owner: 'https://github.com/decadehew/decadehew.github.io',
+    admin: [''],
+    id: md5(location.pathname),
+    
+      language: window.navigator.language || window.navigator.userLanguage,
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
 
   
 
