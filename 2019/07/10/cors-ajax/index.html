@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="平凡前端">
 <meta property="og:description" content="發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 script 標籤可以發 get 請求，但只能以腳本形式來執行  如和用 CRUD 的形式來實現：  g">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-07-12T04:00:53.353Z">
+<meta property="og:updated_time" content="2019-07-12T07:49:26.977Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="認識 Ajax">
 <meta name="twitter:description" content="發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 script 標籤可以發 get 請求，但只能以腳本形式來執行  如和用 CRUD 的形式來實現：  g">
@@ -546,14 +546,46 @@ request<span class="token punctuation">.</span><span class="token function">send
 </ol>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" rel="noopener">JSON.stringify</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="noopener">JSON.parse</a><br><code>`</code>javascript<br>JSON 和 XML 都是數據格式，相比之下 JSON 可讀性很高，也得到大眾的使用！</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="noopener">JSON.parse</a></li>
 </ul>
-<hr>
-<h2 id="JS-VS-JSON"><a href="#JS-VS-JSON" class="headerlink" title="   JS              VS         JSON"></a>   JS              VS         JSON</h2><p>undefined                     沒有<br>null                          null<br>boolean                      boolean<br>function f1(){…}            沒有<br>{name: ‘decadehew’}        {“name”:”decadehew”}<br>[‘a’, ‘b’]                 [“a”, “b”]<br>‘decadehew’                  “decadehew”<br>let person = {}               沒有</p>
-<p>// ———————<br>// JS convert to JSON<br>// ———————<br>JSON.stringify({name: ‘decadehew’}) // {“name”: “decadehew”}</p>
-<p>// —————————–<br>// JSON String convert to JS<br>// 符合 JSON 字串來表示 JS 的值<br>// —————————–</p>
-<p>稍微說明：<br>// ‘“foo”‘ 是 JSON 字串，<br>// parse 會解析 JSON 字串轉換成 JS 的值(字串)。<br>// 你可以看符合 JSON 字串裡所表示/描述是什麼，它就是 JS 某類型的值！<br>//<br>//<br>// ‘“foo”‘ 表示是 JS 字串類型，<br>// “true” 表示是 boolean 類型，<br>// {} 表示是 JS 對象類型。<br>JSON.parse(‘“foo”‘) // ‘foo’<br>JSON.parse(‘true’); // true<br>JSON.parse({“name”: “decadehew”}) // {name: ‘decadehew’}</p>
-<p><code>`</code></p>
+<pre class=" language-javascript"><code class="language-javascript">JSON 和 XML 都是數據格式，相比之下 JSON 可讀性很高，也得到大眾的使用！
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+   JS              VS         JSON
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>
+undefined                     沒有
+<span class="token keyword">null</span>                          <span class="token keyword">null</span>
+boolean                      boolean
+<span class="token keyword">function</span> <span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span>            沒有
+<span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">'decadehew'</span><span class="token punctuation">}</span>        <span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span><span class="token string">"decadehew"</span><span class="token punctuation">}</span>
+<span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span> <span class="token string">'b'</span><span class="token punctuation">]</span>                 <span class="token punctuation">[</span><span class="token string">"a"</span><span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">]</span>
+<span class="token string">'decadehew'</span>                  <span class="token string">"decadehew"</span>
+<span class="token keyword">let</span> person <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>               沒有
+
+<span class="token comment" spellcheck="true">// ---------------------</span>
+<span class="token comment" spellcheck="true">// JS convert to JSON</span>
+<span class="token comment" spellcheck="true">// ---------------------</span>
+JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">'decadehew'</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// {"name": "decadehew"}</span>
+
+<span class="token comment" spellcheck="true">// -----------------------------</span>
+<span class="token comment" spellcheck="true">// JSON String convert to JS </span>
+<span class="token comment" spellcheck="true">// 符合 JSON 字串來表示 JS 的值</span>
+<span class="token comment" spellcheck="true">// -----------------------------</span>
+
+稍微說明：
+<span class="token comment" spellcheck="true">// '"foo"' 是 JSON 字串，</span>
+<span class="token comment" spellcheck="true">// parse 會解析 JSON 字串轉換成 JS 的值(字串)。</span>
+<span class="token comment" spellcheck="true">// 你可以看符合 JSON 字串裡所表示/描述是什麼，它就是 JS 某類型的值！</span>
+<span class="token comment" spellcheck="true">// </span>
+<span class="token comment" spellcheck="true">// </span>
+<span class="token comment" spellcheck="true">// '"foo"' 表示是 JS 字串類型，</span>
+<span class="token comment" spellcheck="true">// "true" 表示是 boolean 類型，</span>
+<span class="token comment" spellcheck="true">// {} 表示是 JS 對象類型。</span>
+JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">'"foo"'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 'foo'</span>
+JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">'true'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
+JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"decadehew"</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// {name: 'decadehew'}</span>
+
+</code></pre>
 <h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ul>
 <li><a href="http://javascript.ruanyifeng.com/bom/ajax.html" target="_blank" rel="noopener">阮一峰 Ajax</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener">MDN XMLHttpRequest</a></li>
@@ -822,7 +854,7 @@ request<span class="token punctuation">.</span><span class="token function">send
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#發請求有哪幾種方式："><span class="nav-number">1.</span> <span class="nav-text">發請求有哪幾種方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重新認識-Ajax"><span class="nav-number">2.</span> <span class="nav-text">重新認識 Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#傳統請求過程"><span class="nav-number">2.1.</span> <span class="nav-text">傳統請求過程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#優點和缺點"><span class="nav-number">2.2.</span> <span class="nav-text">優點和缺點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax-與跨域"><span class="nav-number">2.3.</span> <span class="nav-text">Ajax 與跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域"><span class="nav-number">2.4.</span> <span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#總結"><span class="nav-number">2.5.</span> <span class="nav-text">總結</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面試題"><span class="nav-number">3.</span> <span class="nav-text">面試題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS-VS-JSON"><span class="nav-number">4.</span> <span class="nav-text">   JS              VS         JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">5.</span> <span class="nav-text">參考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#發請求有哪幾種方式："><span class="nav-number">1.</span> <span class="nav-text">發請求有哪幾種方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重新認識-Ajax"><span class="nav-number">2.</span> <span class="nav-text">重新認識 Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#傳統請求過程"><span class="nav-number">2.1.</span> <span class="nav-text">傳統請求過程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#優點和缺點"><span class="nav-number">2.2.</span> <span class="nav-text">優點和缺點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax-與跨域"><span class="nav-number">2.3.</span> <span class="nav-text">Ajax 與跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域"><span class="nav-number">2.4.</span> <span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#總結"><span class="nav-number">2.5.</span> <span class="nav-text">總結</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面試題"><span class="nav-number">3.</span> <span class="nav-text">面試題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">4.</span> <span class="nav-text">參考</span></a></li></ol></div>
             
 
           </div>
