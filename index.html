@@ -352,6 +352,188 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/10/cors-ajax/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DecadeHew"/>
+      <meta itemprop="description" content="學習及分享"/>
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3433864?s=460&v=4"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平凡前端"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/07/10/cors-ajax/" class="post-title-link" itemprop="url">認識 Ajax</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-10 11:52:46" itemprop="dateCreated datePublished" datetime="2019-07-10T11:52:46+08:00">2019-07-10</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="發請求有哪幾種方式："><a href="#發請求有哪幾種方式：" class="headerlink" title="發請求有哪幾種方式："></a>發請求有哪幾種方式：</h2><blockquote>
+<p>比較常規來講解</p>
+</blockquote>
+<ul>
+<li><code>form</code> 表單來發起 <code>get</code> 或 <code>post</code> 請求，但會刷新頁面</li>
+<li><code>a</code> 標籤可以發 <code>get</code> 請求，但會刷新頁面</li>
+<li><code>img</code> 標籤可以發 <code>get</code> 請求，但只能以圖片形式來展示</li>
+<li><code>link</code> 標籤可以發 <code>get</code> 請求，但只能以 <code>css</code> 和 <code>favicon</code> 等形式來展示</li>
+<li><code>script</code> 標籤可以發 <code>get</code> 請求，但只能以腳本形式來執行</li>
+</ul>
+<p><strong>如和用 CRUD 的形式來實現：</strong></p>
+<ul>
+<li>get</li>
+<li>post</li>
+<li>put</li>
+<li>delete</li>
+</ul>
+<blockquote>
+<p>在 <code>http</code> 裡，response 是字串</p>
+</blockquote>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/07/10/cors-ajax/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/dom-model/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -620,11 +802,17 @@
       
         
           <h2 id="什麼是跨域"><a href="#什麼是跨域" class="headerlink" title="什麼是跨域"></a>什麼是跨域</h2><p>首先我們需要了解什麼是同源策略 (Same origin policy)，目前所有 <code>browser</code> 都遵守此策略。<br>同源策略目的是資訊安全，防止他人竊取數據或 CSRF（Cross-site request forgery）。</p>
-<p>所謂同源是指三個相同：</p>
+<p><strong>所謂同源是指三個相同：</strong></p>
 <ul>
 <li>協議相同 (Protocol: http)</li>
 <li>域名相同 (Domain: example.com)</li>
 <li>端口相同 (Host: 80)</li>
+</ul>
+<p><strong>非同源情況下，browser 對它有何限制：</strong></p>
+<ul>
+<li><code>Cookie</code>, <code>LocalStorage</code> 和 <code>IndexDB</code> 無法讀取</li>
+<li><code>DOM</code> 無法獲得</li>
+<li><code>Ajax</code> 請求被阻止</li>
 </ul>
 <blockquote>
 <p>只要三個【以上】不相同的話，就是跨域！</p>
@@ -1849,169 +2037,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/10/git基本命令/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="DecadeHew"/>
-      <meta itemprop="description" content="學習及分享"/>
-      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3433864?s=460&v=4"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="平凡前端"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/09/10/git基本命令/" class="post-title-link" itemprop="url">git基本命令</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-10 21:59:39" itemprop="dateCreated datePublished" datetime="2018-09-10T21:59:39+08:00">2018-09-10</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工具/" itemprop="url" rel="index"><span itemprop="name">工具</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          <br/>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h2><p>使用 命令初始化这个目录，可以让git开始对这个目录进行版本控制<br><img src="https://lh3.googleusercontent.com/9EAGFOT5f2-r84T1lCP-SfzJ_2lO6TJ_U-iw87tD_YBk8Zqm07BwKIqLe5_XvNSrT0kbrLa4v-tpMNCi6ezB4gFdJyso4pDfC6GDC6HovVa8zxZyJyWplp23r2ZmVW29riLlsMJPv0MeGfnzD686FuPUThl3kEpQpqN1GTciJOOHbASSzU61VyO-KUDx7NDDY0OTKH0FpWbvdrcRTQZudUlLysaOEL6rIYWSahKgmNAPcnIyv4TXKQoGrODkehI8_Lh1eSOrLb2l-LuNE-Q1902SOvnRSHm9L5TVd9EdJBzS-ABllAvOonrqA4Ohl0DScWS5ACh0ieh-tNBh22ReUuf7Wr0SCbVySRiRk59QezGItxuBA8w7pwUkOCq8ZwAOo3tO1Oi08pRXVJgqNqnaCHhGWXNp-FTrOCy5qkwGTcO7Wo9Ek2G7jIVBrmvSf34mrrAzULmSWgAm3uQnWRpBc15zBcWy5aAMjtvSpMgz2vRaLfB7fJNUZL6myG2CNKpLzyzUgfhBP_8rNu31XIhL8ZaXbFm8YR5SdhKpRjHAPVQ8GadtYamIgr-i7R4hqhAhNIY0N3VcqNtJlt2V48JG7hHJTBAd2_NIzfE30eJGdfvHjOP59oImAu9scXFsQiU=w494-h32-no" alt="git init"></p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/09/10/git基本命令/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2062,7 +2087,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

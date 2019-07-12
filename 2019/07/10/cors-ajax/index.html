@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css"/>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.2.0',
+    sidebar: {"position":"left","width":300,"display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 script 標籤可以發 get 請求，但只能以腳本形式來執行  如和用 CRUD 的形式來實現：  g">
+<meta name="keywords" content="跨域">
+<meta property="og:type" content="article">
+<meta property="og:title" content="認識 Ajax">
+<meta property="og:url" content="http://yoursite.com/2019/07/10/cors-ajax/index.html">
+<meta property="og:site_name" content="平凡前端">
+<meta property="og:description" content="發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 script 標籤可以發 get 請求，但只能以腳本形式來執行  如和用 CRUD 的形式來實現：  g">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2019-07-12T04:00:53.353Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="認識 Ajax">
+<meta name="twitter:description" content="發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 script 標籤可以發 get 請求，但只能以腳本形式來執行  如和用 CRUD 的形式來實現：  g">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/10/cors-ajax/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>認識 Ajax | 平凡前端</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143420292-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-143420292-1');
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">平凡前端</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">技術博客</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-resume">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/resume" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>Resume</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-projects">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/projects" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Projects</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/10/cors-ajax/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DecadeHew"/>
+      <meta itemprop="description" content="學習及分享"/>
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3433864?s=460&v=4"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平凡前端"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">認識 Ajax
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-10 11:52:46" itemprop="dateCreated datePublished" datetime="2019-07-10T11:52:46+08:00">2019-07-10</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="發請求有哪幾種方式："><a href="#發請求有哪幾種方式：" class="headerlink" title="發請求有哪幾種方式："></a>發請求有哪幾種方式：</h2><blockquote>
+<p>比較常規來講解</p>
+</blockquote>
+<ul>
+<li><code>form</code> 表單來發起 <code>get</code> 或 <code>post</code> 請求，但會刷新頁面</li>
+<li><code>a</code> 標籤可以發 <code>get</code> 請求，但會刷新頁面</li>
+<li><code>img</code> 標籤可以發 <code>get</code> 請求，但只能以圖片形式來展示</li>
+<li><code>link</code> 標籤可以發 <code>get</code> 請求，但只能以 <code>css</code> 和 <code>favicon</code> 等形式來展示</li>
+<li><code>script</code> 標籤可以發 <code>get</code> 請求，但只能以腳本形式來執行</li>
+</ul>
+<p><strong>如和用 CRUD 的形式來實現：</strong></p>
+<ul>
+<li>get</li>
+<li>post</li>
+<li>put</li>
+<li>delete</li>
+</ul>
+<blockquote>
+<p>在 <code>http</code> 裡，response 是字串</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="重新認識-Ajax"><a href="#重新認識-Ajax" class="headerlink" title="重新認識 Ajax"></a>重新認識 Ajax</h2><blockquote>
+<p>Ajax 是 Asynchronous JavaScript and XML (異步 JavaScript 和 XML)</p>
+</blockquote>
+<p><code>Ajax</code> 可以通過 <code>JavaScript</code> 來異步通訊 (<code>client</code> 和 <code>Server</code> 進行通訊)。<code>Ajax</code> 可以在不用刷新整個網頁，可以達到網頁局部更新。也就是說 <code>client</code> 向 <code>server</code> 請求獲取數據來進行網頁上更新，這樣提升用戶體驗。</p>
+<h3 id="傳統請求過程"><a href="#傳統請求過程" class="headerlink" title="傳統請求過程"></a>傳統請求過程</h3><ol>
+<li><code>client</code> 會向 <code>server</code> 發起 <code>request</code></li>
+<li><code>server</code> 會收到請求後，進行處理您要的東西</li>
+<li>處理完後，<code>server</code> 將會創建 <code>response</code></li>
+<li>然後 <code>server</code> 將 <code>response</code> 給 <code>client</code></li>
+<li><code>client</code> 收到 <code>response</code> 後</li>
+<li><code>client</code> 刷新整個頁面來更新數據</li>
+</ol>
+<p>根據上面傳統請求過程步驟，我們可以知道這是同步行為。Ajax 可以讓 <code>browser/client</code> 和 server 之間異步通訊。我們可以通過 <code>JavaScript</code> 來發起請求來向 <code>server</code> 獲取數據來操作網頁內容局部更新，無需重刷新整個頁面，帶來用戶體驗效果！</p>
+<h3 id="優點和缺點"><a href="#優點和缺點" class="headerlink" title="優點和缺點"></a>優點和缺點</h3><p><strong>優點</strong></p>
+<ul>
+<li>減少 bandwidth，減輕 <code>server</code> 負擔， 減少請求，按照需要數據進行請求</li>
+<li>提高用戶體驗</li>
+<li>…</li>
+</ul>
+<p><strong>缺點：</strong></p>
+<ul>
+<li>對 <code>SEO</code> 不友善</li>
+<li>debug 不友善</li>
+<li>不支持 <code>browser</code> back </li>
+<li>安全性問題</li>
+<li>…</li>
+</ul>
+<h3 id="Ajax-與跨域"><a href="#Ajax-與跨域" class="headerlink" title="Ajax 與跨域"></a>Ajax 與跨域</h3><p>只有在同源策略情況下允許發 <code>ajax</code> 請求。<br>在非同源情況下，使用 <code>ajax</code> 發送請求，由於 <code>ajax</code> 可以讀取 <code>response</code> 內容，所以 <code>browser</code> 認為是不安全，可以發送，但 <code>browser</code> 不會給你響應 (會被擋)。</p>
+<blockquote>
+<p>例子： </p>
+<ol>
+<li><code>https://facebook.com</code> 可以向 <code>https://www.facebook.com</code> 發 ajax 請求嗎？<br><strong>答案</strong>：不行</li>
+</ol>
+</blockquote>
+<p>如果我想透過 <code>ajax</code> 跨域呢？<br>本來 A網站想請求 B網站內容，但他們是不同域，造成無法請求響應。<br>可以用 <code>cors</code> 來告訴 <code>browser</code> (A網站)和(B網站)是朋友，A網站要 B網站內容，給他吧。</p>
+<blockquote>
+<p>只要在後端 <code>response header</code> 設定 <code>Access-Control-Allow-origin, 指定允許 A網站</code>。<br>如果是多個不同域可以這樣設定 <code>Access-Control-Allow-origin, *</code>。</p>
+</blockquote>
+<h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><p><code>browser</code> 限制下不允許透過 <code>JS</code> 跨域，所以 <code>ajax</code> 是不被允許。像 <code>browser</code> 本身是沒有限制自己，如 <code>form</code>, <code>img</code>, <code>script</code>, <code>link</code>, <code>a</code> 等標籤都可以允許與 <code>server</code> 通訊，可以被說成跨域行為。</p>
+<blockquote>
+<p>例子1: <code>form</code> 表單提交到另一個網站後，原本頁面無法取得新頁面內容，所以 <code>browser</code> 是認為安全。</p>
+<p>例子2： <code>script</code> 標籤裡，我們可以請求任意不同 <code>domain</code>。我們也知道在同源策略裡只要 <strong>(協議，域名，端口)</strong> 三個不同就是<strong>跨域行為</strong>。</p>
+<p>在回顧<strong>跨域</strong>和<strong>同源策略</strong>是什麼，強逼自己記在心裡。</p>
+<ul>
+<li>同源策略 - <strong>協議，域名，端口</strong> 必須相同</li>
+<li>跨域 - <strong>協議，域名，端口</strong> 不相同等同於跨域行為</li>
+</ul>
+</blockquote>
+<p>關於更多 CORS 請到 -&gt; <a href="https://decadehew.github.io/2019/07/07/cors/" target="_blank" rel="noopener">link</a></p>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>雖然 ajax 真的很方便也非常安全，因為有同源策略 (Same origin policy)，只有<strong>協議，域名，端口</strong> 必須<strong>相同</strong>。如果非要通過 <strong>ajax</strong> 來跨域的話，需要後端開啟允許可跨域來告訴 <code>browser</code> 我們是朋友。<code>browser</code> 會根據 <code>response header</code> 裡字段 <code>Access-Control-Allow-Origin</code> 知道你們關係。</p>
+<hr>
+<h2 id="面試題"><a href="#面試題" class="headerlink" title="面試題"></a>面試題</h2><ol>
+<li><p>請使用原生 JS 來發送 ajax 請求<br>答：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">let</span> request <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+request<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">'GET'</span><span class="token punctuation">,</span> <span class="token string">'https://jsonplaceholder.typicode.com/todos'</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 配置</span>
+request<span class="token punctuation">.</span>onreadystatechange <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>readyState <span class="token operator">===</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'請求response完成'</span><span class="token punctuation">)</span>
+ <span class="token keyword">if</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>status <span class="token operator">>=</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'請求成功'</span><span class="token punctuation">)</span>
+   <span class="token keyword">let</span> string <span class="token operator">=</span> request<span class="token punctuation">.</span>responseText
+   <span class="token keyword">let</span> data <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>string<span class="token punctuation">)</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+ <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>status <span class="token operator">>=</span> <span class="token number">400</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'請求失敗'</span><span class="token punctuation">)</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+request<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li><p>JSON 和 JavaScript<br>答： <code>JSON</code> 不具備程式語言特性，它是<strong>數據傳輸格式</strong>。 <a href="https://www.json.org/" target="_blank" rel="noopener">JSON 官方</a></p>
+</li>
+</ol>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify" target="_blank" rel="noopener">JSON.stringify</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse" target="_blank" rel="noopener">JSON.parse</a><br><code>`</code>javascript<br>JSON 和 XML 都是數據格式，相比之下 JSON 可讀性很高，也得到大眾的使用！</li>
+</ul>
+<hr>
+<h2 id="JS-VS-JSON"><a href="#JS-VS-JSON" class="headerlink" title="   JS              VS         JSON"></a>   JS              VS         JSON</h2><p>undefined                     沒有<br>null                          null<br>boolean                      boolean<br>function f1(){…}            沒有<br>{name: ‘decadehew’}        {“name”:”decadehew”}<br>[‘a’, ‘b’]                 [“a”, “b”]<br>‘decadehew’                  “decadehew”<br>let person = {}               沒有</p>
+<p>// ———————<br>// JS convert to JSON<br>// ———————<br>JSON.stringify({name: ‘decadehew’}) // {“name”: “decadehew”}</p>
+<p>// —————————–<br>// JSON String convert to JS<br>// 符合 JSON 字串來表示 JS 的值<br>// —————————–</p>
+<p>稍微說明：<br>// ‘“foo”‘ 是 JSON 字串，<br>// parse 會解析 JSON 字串轉換成 JS 的值(字串)。<br>// 你可以看符合 JSON 字串裡所表示/描述是什麼，它就是 JS 某類型的值！<br>//<br>//<br>// ‘“foo”‘ 表示是 JS 字串類型，<br>// “true” 表示是 boolean 類型，<br>// {} 表示是 JS 對象類型。<br>JSON.parse(‘“foo”‘) // ‘foo’<br>JSON.parse(‘true’); // true<br>JSON.parse({“name”: “decadehew”}) // {name: ‘decadehew’}</p>
+<p><code>`</code></p>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ul>
+<li><a href="http://javascript.ruanyifeng.com/bom/ajax.html" target="_blank" rel="noopener">阮一峰 Ajax</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener">MDN XMLHttpRequest</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/跨域/" rel="tag"># 跨域</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/07/dom-model/" rel="next" title="DOM Model">
+                <i class="fa fa-chevron-left"></i> DOM Model
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars2.githubusercontent.com/u/3433864?s=460&v=4"
+                alt="DecadeHew"/>
+            
+              <p class="site-author-name" itemprop="name">DecadeHew</p>
+              <div class="site-description motion-element" itemprop="description">學習及分享</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/decadehew" title="GitHub &rarr; https://github.com/decadehew" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/decadehew" title="Twitter &rarr; https://twitter.com/decadehew" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#發請求有哪幾種方式："><span class="nav-number">1.</span> <span class="nav-text">發請求有哪幾種方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重新認識-Ajax"><span class="nav-number">2.</span> <span class="nav-text">重新認識 Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#傳統請求過程"><span class="nav-number">2.1.</span> <span class="nav-text">傳統請求過程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#優點和缺點"><span class="nav-number">2.2.</span> <span class="nav-text">優點和缺點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax-與跨域"><span class="nav-number">2.3.</span> <span class="nav-text">Ajax 與跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域"><span class="nav-number">2.4.</span> <span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#總結"><span class="nav-number">2.5.</span> <span class="nav-text">總結</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面試題"><span class="nav-number">3.</span> <span class="nav-text">面試題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS-VS-JSON"><span class="nav-number">4.</span> <span class="nav-text">   JS              VS         JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">5.</span> <span class="nav-text">參考</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DecadeHew</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+  <script src="/js/js.cookie.js?v=7.2.0"></script>
+  <script src="/js/scroll-cookie.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css"/>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'af8ada5fbbe6751a1ca8',
+    clientSecret: '5540c3d084c802f6f1272678669143a52d1c5a2c',
+    repo: 'decadehew.github.io',
+    owner: 'decadehew',
+    admin: ['decadehew'],
+    id: md5(location.pathname),
+    
+      language: 'en',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

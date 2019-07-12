@@ -98,20 +98,20 @@
 
 
 
-  <meta name="description" content="什麼是跨域首先我們需要了解什麼是同源策略 (Same origin policy)，目前所有 browser 都遵守此策略。同源策略目的是資訊安全，防止他人竊取數據或 CSRF（Cross-site request forgery）。 所謂同源是指三個相同：  協議相同 (Protocol: http) 域名相同 (Domain: example.com) 端口相同 (Host: 80)   只要">
+  <meta name="description" content="什麼是跨域首先我們需要了解什麼是同源策略 (Same origin policy)，目前所有 browser 都遵守此策略。同源策略目的是資訊安全，防止他人竊取數據或 CSRF（Cross-site request forgery）。 所謂同源是指三個相同：  協議相同 (Protocol: http) 域名相同 (Domain: example.com) 端口相同 (Host: 80)  非同源">
 <meta name="keywords" content="跨域">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CORS 跨域">
 <meta property="og:url" content="http://yoursite.com/2019/07/07/cors/index.html">
 <meta property="og:site_name" content="平凡前端">
-<meta property="og:description" content="什麼是跨域首先我們需要了解什麼是同源策略 (Same origin policy)，目前所有 browser 都遵守此策略。同源策略目的是資訊安全，防止他人竊取數據或 CSRF（Cross-site request forgery）。 所謂同源是指三個相同：  協議相同 (Protocol: http) 域名相同 (Domain: example.com) 端口相同 (Host: 80)   只要">
+<meta property="og:description" content="什麼是跨域首先我們需要了解什麼是同源策略 (Same origin policy)，目前所有 browser 都遵守此策略。同源策略目的是資訊安全，防止他人竊取數據或 CSRF（Cross-site request forgery）。 所謂同源是指三個相同：  協議相同 (Protocol: http) 域名相同 (Domain: example.com) 端口相同 (Host: 80)  非同源">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://i.imgur.com/9K8IWh7.png">
 <meta property="og:image" content="https://i.imgur.com/NBm3Fyt.png">
-<meta property="og:updated_time" content="2019-07-07T13:28:33.403Z">
+<meta property="og:updated_time" content="2019-07-12T03:59:46.687Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CORS 跨域">
-<meta name="twitter:description" content="什麼是跨域首先我們需要了解什麼是同源策略 (Same origin policy)，目前所有 browser 都遵守此策略。同源策略目的是資訊安全，防止他人竊取數據或 CSRF（Cross-site request forgery）。 所謂同源是指三個相同：  協議相同 (Protocol: http) 域名相同 (Domain: example.com) 端口相同 (Host: 80)   只要">
+<meta name="twitter:description" content="什麼是跨域首先我們需要了解什麼是同源策略 (Same origin policy)，目前所有 browser 都遵守此策略。同源策略目的是資訊安全，防止他人竊取數據或 CSRF（Cross-site request forgery）。 所謂同源是指三個相同：  協議相同 (Protocol: http) 域名相同 (Domain: example.com) 端口相同 (Host: 80)  非同源">
 <meta name="twitter:image" content="https://i.imgur.com/9K8IWh7.png">
 
 
@@ -453,11 +453,17 @@
 
       
         <h2 id="什麼是跨域"><a href="#什麼是跨域" class="headerlink" title="什麼是跨域"></a>什麼是跨域</h2><p>首先我們需要了解什麼是同源策略 (Same origin policy)，目前所有 <code>browser</code> 都遵守此策略。<br>同源策略目的是資訊安全，防止他人竊取數據或 CSRF（Cross-site request forgery）。</p>
-<p>所謂同源是指三個相同：</p>
+<p><strong>所謂同源是指三個相同：</strong></p>
 <ul>
 <li>協議相同 (Protocol: http)</li>
 <li>域名相同 (Domain: example.com)</li>
 <li>端口相同 (Host: 80)</li>
+</ul>
+<p><strong>非同源情況下，browser 對它有何限制：</strong></p>
+<ul>
+<li><code>Cookie</code>, <code>LocalStorage</code> 和 <code>IndexDB</code> 無法讀取</li>
+<li><code>DOM</code> 無法獲得</li>
+<li><code>Ajax</code> 請求被阻止</li>
 </ul>
 <blockquote>
 <p>只要三個【以上】不相同的話，就是跨域！</p>
@@ -467,10 +473,11 @@
 <h2 id="實現跨域"><a href="#實現跨域" class="headerlink" title="實現跨域"></a>實現跨域</h2><p>前面說了 browser 對跨域作出限制，如何實現跨域？</p>
 <ul>
 <li>JSONP</li>
+<li>CORS (Cross-origin resource sharing)</li>
 <li>待續</li>
 </ul>
 <h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><blockquote>
-<p>JSONP -&gt; Json + Padding<br>JSONP 是利用 script 來實現跨域和達到請求資源的目的。<br>本质上 client 和 server 會約定好函數名稱</p>
+<p>JSONP -&gt; Json + Padding<br>JSONP 是利用 script 標籤來實現跨域和達到請求資源的目的。<br>本质上 client 和 server 會約定好函數名稱</p>
 </blockquote>
 <p>請求方：前端 (browser/client)<br>響應方：後端 (server)</p>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 但不是說 script 是跨域，</span>
@@ -555,6 +562,13 @@ window<span class="token punctuation">.</span>callMeFunc <span class="token oper
   response<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 </code></pre>
+<h3 id="CORS-Cross-origin-resource-sharing"><a href="#CORS-Cross-origin-resource-sharing" class="headerlink" title="CORS (Cross-origin resource sharing)"></a>CORS (Cross-origin resource sharing)</h3><blockquote>
+<p>中文是跨源資源共享<br>當使用 <code>ajax</code> 時在不同源情況下，無法通訊。唯有麻煩後台在 <code>response header</code> 設定 <code>Access-Control-Allow-origin</code>，告訴 browser，我們是朋友需要共享資源。解決了 ajax 只能同源限制。使用 cors 主要是 server 是否開啟跨域，否則我們前端無法獲取響應資源。</p>
+</blockquote>
+<blockquote>
+<p>只要在後端 <code>response header</code> 設定 <code>Access-Control-Allow-origin, 指定允許 A網站</code>。<br>如果是多個不同域可以這樣設定 <code>Access-Control-Allow-origin, *</code>。</p>
+</blockquote>
+<hr>
 <h2 id="面試題"><a href="#面試題" class="headerlink" title="面試題"></a>面試題</h2><p>請問 <code>JSONP</code> 為什麼不接受 <code>POST</code> 請求</p>
 <ul>
 <li>因為 <code>JSONP</code> 是動態創建 <code>script</code> 來實現，我們動態創建 <code>script</code> 只能用 <code>get</code> 請求。</li>
@@ -563,6 +577,7 @@ window<span class="token punctuation">.</span>callMeFunc <span class="token oper
 <li><a href="http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html" target="_blank" rel="noopener">阮一峰：浏览器同源政策及其规避方法</a></li>
 <li><a href="http://www.ruanyifeng.com/blog/2016/04/cors.html" target="_blank" rel="noopener">阮一峰：跨域资源共享 CORS 详解</a></li>
 <li><a href="https://segmentfault.com/a/1190000007935557" target="_blank" rel="noopener">JSONP 是什麼</a></li>
+<li><a href="https://www.html5rocks.com/en/tutorials/file/xhr2/" target="_blank" rel="noopener">New Tricks in XMLHttpRequest2</a></li>
 </ul>
 
       
@@ -692,7 +707,7 @@ window<span class="token punctuation">.</span>callMeFunc <span class="token oper
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -832,7 +847,7 @@ window<span class="token punctuation">.</span>callMeFunc <span class="token oper
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什麼是跨域"><span class="nav-number">1.</span> <span class="nav-text">什麼是跨域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#實現跨域"><span class="nav-number">2.</span> <span class="nav-text">實現跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP"><span class="nav-number">2.1.</span> <span class="nav-text">JSONP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面試題"><span class="nav-number">3.</span> <span class="nav-text">面試題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">4.</span> <span class="nav-text">參考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什麼是跨域"><span class="nav-number">1.</span> <span class="nav-text">什麼是跨域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#實現跨域"><span class="nav-number">2.</span> <span class="nav-text">實現跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP"><span class="nav-number">2.1.</span> <span class="nav-text">JSONP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CORS-Cross-origin-resource-sharing"><span class="nav-number">2.2.</span> <span class="nav-text">CORS (Cross-origin resource sharing)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面試題"><span class="nav-number">3.</span> <span class="nav-text">面試題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">4.</span> <span class="nav-text">參考</span></a></li></ol></div>
             
 
           </div>
