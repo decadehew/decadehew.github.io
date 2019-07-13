@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css"/>
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.2.0',
+    sidebar: {"position":"left","width":300,"display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="this的值取決於函數呼叫方式。function Cat(name) {  this.name = name;  this.sayName = function () {    console.log(`Meow! My name is ${this.name}`);  }; } const bailey = new Cat(&amp;#39;Bailey&amp;#39;);  什麼時候 this 被賦值 很多">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="this 到底怎麼一回事">
+<meta property="og:url" content="http://yoursite.com/2019/07/13/this/index.html">
+<meta property="og:site_name" content="平凡前端">
+<meta property="og:description" content="this的值取決於函數呼叫方式。function Cat(name) {  this.name = name;  this.sayName = function () {    console.log(`Meow! My name is ${this.name}`);  }; } const bailey = new Cat(&amp;#39;Bailey&amp;#39;);  什麼時候 this 被賦值 很多">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2019-07-13T15:25:29.321Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="this 到底怎麼一回事">
+<meta name="twitter:description" content="this的值取決於函數呼叫方式。function Cat(name) {  this.name = name;  this.sayName = function () {    console.log(`Meow! My name is ${this.name}`);  }; } const bailey = new Cat(&amp;#39;Bailey&amp;#39;);  什麼時候 this 被賦值 很多">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://yoursite.com/2019/07/13/this/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>this 到底怎麼一回事 | 平凡前端</title>
+  
+
+
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-143420292-1"></script>
+  <script>
+    var host = window.location.hostname;
+    if (host !== "localhost" || !true) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-143420292-1');
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">平凡前端</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">技術博客</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-projects">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/projects" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Projects</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-series">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/series" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Series</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/13/this/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="DecadeHew"/>
+      <meta itemprop="description" content="學習及分享"/>
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/3433864?s=460&v=4"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="平凡前端"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">this 到底怎麼一回事
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-07-13 22:21:26" itemprop="dateCreated datePublished" datetime="2019-07-13T22:21:26+08:00">2019-07-13</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          <br/>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="this的值取決於函數呼叫方式。"><a href="#this的值取決於函數呼叫方式。" class="headerlink" title="this的值取決於函數呼叫方式。"></a>this的值取決於函數呼叫方式。</h2><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Cat</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span>sayName <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Meow! My name is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> bailey <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token string">'Bailey'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="什麼時候-this-被賦值"><a href="#什麼時候-this-被賦值" class="headerlink" title="什麼時候 this 被賦值"></a>什麼時候 this 被賦值</h2><ul>
+<li>很多人誤解，以為 <code>this</code> 是指向對象。</li>
+<li>正確來說：當前函數的 <code>this</code> 是在函數被調用執行的時候才確定。</li>
+</ul>
+<a id="more"></a>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> dog <span class="token operator">=</span> <span class="token punctuation">{</span>
+  bark<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Woof!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  barkTwice<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">bark</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">bark</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p><code>this</code> 的值實際上沒有分配給任何東西，直到 <code>object</code> 呼叫方法。<br><code>this</code> 的值是根據 <code>object</code> 調用方法時，<code>this</code> 被確定了。</p>
+</blockquote>
+<h2 id="What-Does-this-Get-Set-To"><a href="#What-Does-this-Get-Set-To" class="headerlink" title="What Does this Get Set To?"></a>What Does this Get Set To?</h2><p>當函數被調用時，變數this被設成特定的值。根據函數的調用方式，<code>this</code> 指向對象會截然不同。</p>
+<p>有四種方式去 <code>call function</code>，在每個設定 <code>this</code> 方式不同</p>
+<ol>
+<li>使用關鍵字 <code>new</code> 來調用構造函數將會設定 <code>this</code> 指向新的 <code>object</code>。</li>
+<li>在 <code>object</code> 調用方法 (method) <code>this</code> 指向 <code>obj</code> 本身。<ol>
+<li>例子：<code>dog.barkTwice()</code> 會訪問 <code>dog</code> 本身</li>
+</ol>
+</li>
+<li>呼叫原生函數，<code>this</code> 會指向 <code>window</code> (<code>browser</code> 環境)</li>
+<li>呼叫原生函數允許我們去設定 <code>this</code> 指向</li>
+</ol>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>函數，對象和 <code>this</code> 是有互相關聯的。當我們使用 <code>new</code> 來調用構造函數，變數 <code>this</code> 會被設為新的 <code>object</code>。當我們在 <code>object</code> 調用方法 (method) ，<code>this</code> 會被設為 <code>object</code> 本身。當我們調用原生函數 (在 <code>browser</code> 環境) <code>this</code> 會被設為 <code>window</code>。</p>
+<h2 id="設定this的指向"><a href="#設定this的指向" class="headerlink" title="設定this的指向"></a>設定this的指向</h2><p>如果我們想要設成自己 <code>this</code> 的值，<code>JavaScript</code> 有提供幾種來設定/改變  <code>this</code> 的值的方法(<code>call()</code>, <code>apply()</code>, <code>bind()</code>)來實現。</p>
+<ul>
+<li><code>call()</code>, <code>apply()</code> 會根據參數形式。</li>
+<li><code>bind()</code> 是返回新的函數。</li>
+</ul>
+<h3 id="call"><a href="#call" class="headerlink" title="call()"></a>call()</h3><blockquote>
+<p><code>call()</code> 是一個直接調用在函數上的方法<br>function.call(函數內部指定 this 的值, 函數的參數)</p>
+</blockquote>
+<p>以下面例子函數裡 <code>this</code> 是指向 <code>window</code>，3和4是函數的參數。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">multiply</span><span class="token punctuation">(</span>n1<span class="token punctuation">,</span> n2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> n1 <span class="token operator">*</span> n2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">multiply</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 12</span>
+
+multiply<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 12</span>
+</code></pre>
+<p>以下面例子，在 <code>object</code> 的方法(method) 使用 <code>call()</code></p>
+<ul>
+<li>使用 <code>call()</code> 來向 <code>object</code> 借方法來執行</li>
+<li>當我執行 <code>mockingbird.describe</code> 方法時，裡面 <code>this</code> 是指向 object(mockingbird) 本身。</li>
+<li>執行 <code>mockingbird.describe.call(pride);</code> 第一個參數是來指定 <code>this</code> 的值，所以 <code>this</code> 是指向 <code>pride</code> 對象</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> mockingbird <span class="token operator">=</span> <span class="token punctuation">{</span>
+  title<span class="token punctuation">:</span> <span class="token string">'To Kill a Mockingbird'</span><span class="token punctuation">,</span>
+  describe<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>title<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> is a classic novel`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+mockingbird<span class="token punctuation">.</span><span class="token function">describe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 'To Kill a Mockingbird is a classic novel'</span>
+
+<span class="token keyword">const</span> pride <span class="token operator">=</span> <span class="token punctuation">{</span>
+  title<span class="token punctuation">:</span> <span class="token string">'Pride and Prejudice'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+mockingbird<span class="token punctuation">.</span>describe<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>pride<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 'Pride and Prejudice is a classic novel'</span>
+
+</code></pre>
+<h3 id="apply"><a href="#apply" class="headerlink" title="apply()"></a>apply()</h3><blockquote>
+<p><code>apply()</code> 是一個直接調用在函數上的方法<br><code>call()</code> 和 <code>apply()</code> 很相似，apply() 差別在於函數的參數是陣列形式<br>function.apply(函數內部指定this的值, [函數的參數])</p>
+</blockquote>
+<p>以下面例子函數裡 <code>this</code> 是指向 <code>window</code>，3和4是函數的參數。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">multiply</span><span class="token punctuation">(</span>n1<span class="token punctuation">,</span> n2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> n1 <span class="token operator">*</span> n2<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+multiply<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>window<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 12</span>
+</code></pre>
+<p>以下面例子使用 <code>apply</code> 來調用 object 方法(method)</p>
+<ul>
+<li><code>apply()</code> 和 <code>call()</code> 使用方式是一樣。</li>
+<li>結果也和 <code>call()</code> 是一樣</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> mockingbird <span class="token operator">=</span> <span class="token punctuation">{</span>
+  title<span class="token punctuation">:</span> <span class="token string">'To Kill a Mockingbird'</span><span class="token punctuation">,</span>
+  describe<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>title<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> is a classic novel`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+mockingbird<span class="token punctuation">.</span><span class="token function">describe</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 'To Kill a Mockingbird is a classic novel'</span>
+
+<span class="token keyword">const</span> pride <span class="token operator">=</span> <span class="token punctuation">{</span>
+  title<span class="token punctuation">:</span> <span class="token string">'Pride and Prejudice'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+mockingbird<span class="token punctuation">.</span>describe<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>pride<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 'Pride and Prejudice is a classic novel'</span>
+</code></pre>
+<h2 id="選擇哪個方法呢？"><a href="#選擇哪個方法呢？" class="headerlink" title="選擇哪個方法呢？"></a>選擇哪個方法呢？</h2><p><code>call()</code> 可能有限，如果你不知道 <code>function</code> 需要多少參數，可以使用<code>apply()</code> 來代替是最佳選擇！</p>
+<h3 id="callback-and-this"><a href="#callback-and-this" class="headerlink" title="callback and this"></a>callback and this</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">invokeTwice</span><span class="token punctuation">(</span>cb<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token keyword">const</span> dog <span class="token operator">=</span> <span class="token punctuation">{</span>
+  age<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+  growOneYear<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">const</span> cat <span class="token operator">=</span> <span class="token punctuation">{</span>
+  age<span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+  growOneYear<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+
+dog<span class="token punctuation">.</span><span class="token function">growOneYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+dog<span class="token punctuation">.</span>age<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 6</span>
+
+
+<span class="token function">invokeTwice</span><span class="token punctuation">(</span>dog<span class="token punctuation">.</span>growOneYear<span class="token punctuation">)</span><span class="token punctuation">;</span>
+dog<span class="token punctuation">.</span>age<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 6</span>
+</code></pre>
+<p>為什麼 <code>age</code> 還是保留 <code>6</code>。因為 <code>invokeTwice</code> 調用 <code>dog.growOneYear</code> ，但是是當作 <code>function</code> 來調用而不是 <code>method</code>，所以 <code>this</code> 是指向 <code>global object</code> 而不是 <code>dog</code>。</p>
+<h2 id="bind"><a href="#bind" class="headerlink" title="bind()"></a>bind()</h2><p><code>bind</code> 可以用來指定 <code>this</code>，會 <code>return</code> 新的函數</p>
+<ul>
+<li><code>bind()</code> 是一個直接調用在函數上的方法</li>
+<li>返回該函數副本，具有特定 <code>this</code> 值</li>
+<li>向 <code>bind</code> 中傳入一個參數是</li>
+<li>在 <code>bind</code> 函數被調用時作為目標函數的 <code>this</code> 參數</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 根據上面程式例子</span>
+<span class="token keyword">const</span> grow <span class="token operator">=</span> dog<span class="token punctuation">.</span>growOneYear<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>dog<span class="token punctuation">)</span>
+<span class="token function">invokeTwice</span><span class="token punctuation">(</span>grow<span class="token punctuation">)</span>
+dog<span class="token punctuation">.</span>age <span class="token comment" spellcheck="true">// 8</span>
+
+
+<span class="token comment" spellcheck="true">// dog.growOneYear 是目標函數，</span>
+<span class="token comment" spellcheck="true">// 我們不希望this是指向 global object，</span>
+<span class="token comment" spellcheck="true">// 但我希望 this 是指向 dog</span>
+
+
+<span class="token keyword">const</span> grow <span class="token operator">=</span> dog<span class="token punctuation">.</span>growOneYear<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>cat<span class="token punctuation">)</span>
+<span class="token function">invokeTwice</span><span class="token punctuation">(</span>grow<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// cat.age = 7</span>
+
+
+<span class="token comment" spellcheck="true">// dog.growOneYear 裡面的 this 綁定到 cat (指定object),</span>
+<span class="token comment" spellcheck="true">// 會複製一份函數存在 grow 變數。</span>
+<span class="token comment" spellcheck="true">// 呼叫 grow() cat 的 age 會是8</span>
+<span class="token comment" spellcheck="true">// 理解成 cat.growOneYear()</span>
+</code></pre>
+<h2 id="總結-1"><a href="#總結-1" class="headerlink" title="總結"></a>總結</h2><p>總結來說，<code>this</code> 的值是誰調用 <code>this</code> 指向誰。我們可以強制改變 <code>this</code> 的指向，可以使用 (<code>call</code>, <code>apply</code>, <code>bind</code>)</p>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ul>
+<li><a href="https://stackoverflow.com/questions/50884893/calling-vs-invoking-a-function" target="_blank" rel="noopener">invoke vs call function</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/10/cors-ajax/" rel="next" title="認識 Ajax">
+                <i class="fa fa-chevron-left"></i> 認識 Ajax
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="gitalk-container">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://avatars2.githubusercontent.com/u/3433864?s=460&v=4"
+                alt="DecadeHew"/>
+            
+              <p class="site-author-name" itemprop="name">DecadeHew</p>
+              <div class="site-description motion-element" itemprop="description">學習及分享</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/decadehew" title="GitHub &rarr; https://github.com/decadehew" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/decadehew" title="Twitter &rarr; https://twitter.com/decadehew" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#this的值取決於函數呼叫方式。"><span class="nav-number">1.</span> <span class="nav-text">this的值取決於函數呼叫方式。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什麼時候-this-被賦值"><span class="nav-number">2.</span> <span class="nav-text">什麼時候 this 被賦值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-Does-this-Get-Set-To"><span class="nav-number">3.</span> <span class="nav-text">What Does this Get Set To?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#總結"><span class="nav-number">3.1.</span> <span class="nav-text">總結</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#設定this的指向"><span class="nav-number">4.</span> <span class="nav-text">設定this的指向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#call"><span class="nav-number">4.1.</span> <span class="nav-text">call()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply"><span class="nav-number">4.2.</span> <span class="nav-text">apply()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#選擇哪個方法呢？"><span class="nav-number">5.</span> <span class="nav-text">選擇哪個方法呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#callback-and-this"><span class="nav-number">5.1.</span> <span class="nav-text">callback and this</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind"><span class="nav-number">6.</span> <span class="nav-text">bind()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#總結-1"><span class="nav-number">7.</span> <span class="nav-text">總結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">8.</span> <span class="nav-text">參考</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">DecadeHew</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.2.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.2.0"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+
+  
+  <script src="/js/js.cookie.js?v=7.2.0"></script>
+  <script src="/js/scroll-cookie.js?v=7.2.0"></script>
+
+
+  
+
+  
+
+  
+
+
+  
+    
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css"/>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'af8ada5fbbe6751a1ca8',
+    clientSecret: '5540c3d084c802f6f1272678669143a52d1c5a2c',
+    repo: 'decadehew.github.io',
+    owner: 'decadehew',
+    admin: ['decadehew'],
+    id: md5(location.pathname),
+    
+      language: 'en',
+    
+    distractionFreeMode: 'true'
+  });
+  gitalk.render('gitalk-container');
+</script>
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
