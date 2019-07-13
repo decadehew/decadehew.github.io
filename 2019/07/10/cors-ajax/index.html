@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 script 標籤可以發 get 請求，但只能以腳本形式來執行  如和用 CRUD 的形式來實現：  g">
+  <meta name="description" content="title: ‘認識 Ajax’ tags: ‘FrontEnd, jirengu, Ajax’發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 scr">
 <meta name="keywords" content="跨域">
 <meta property="og:type" content="article">
 <meta property="og:title" content="認識 Ajax">
 <meta property="og:url" content="http://yoursite.com/2019/07/10/cors-ajax/index.html">
 <meta property="og:site_name" content="平凡前端">
-<meta property="og:description" content="發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 script 標籤可以發 get 請求，但只能以腳本形式來執行  如和用 CRUD 的形式來實現：  g">
+<meta property="og:description" content="title: ‘認識 Ajax’ tags: ‘FrontEnd, jirengu, Ajax’發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 scr">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-07-12T07:49:26.977Z">
+<meta property="og:updated_time" content="2019-07-13T07:13:29.469Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="認識 Ajax">
-<meta name="twitter:description" content="發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 script 標籤可以發 get 請求，但只能以腳本形式來執行  如和用 CRUD 的形式來實現：  g">
+<meta name="twitter:description" content="title: ‘認識 Ajax’ tags: ‘FrontEnd, jirengu, Ajax’發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 scr">
 
 
 
@@ -449,7 +449,9 @@
       
 
       
-        <h2 id="發請求有哪幾種方式："><a href="#發請求有哪幾種方式：" class="headerlink" title="發請求有哪幾種方式："></a>發請求有哪幾種方式：</h2><blockquote>
+        <hr>
+<p>title: ‘認識 Ajax’</p>
+<h2 id="tags-‘FrontEnd-jirengu-Ajax’"><a href="#tags-‘FrontEnd-jirengu-Ajax’" class="headerlink" title="tags: ‘FrontEnd, jirengu, Ajax’"></a>tags: ‘FrontEnd, jirengu, Ajax’</h2><h2 id="發請求有哪幾種方式："><a href="#發請求有哪幾種方式：" class="headerlink" title="發請求有哪幾種方式："></a>發請求有哪幾種方式：</h2><blockquote>
 <p>比較常規來講解</p>
 </blockquote>
 <ul>
@@ -483,7 +485,7 @@
 <li><code>client</code> 刷新整個頁面來更新數據</li>
 </ol>
 <p>根據上面傳統請求過程步驟，我們可以知道這是同步行為。Ajax 可以讓 <code>browser/client</code> 和 server 之間異步通訊。我們可以通過 <code>JavaScript</code> 來發起請求來向 <code>server</code> 獲取數據來操作網頁內容局部更新，無需重刷新整個頁面，帶來用戶體驗效果！</p>
-<h3 id="優點和缺點"><a href="#優點和缺點" class="headerlink" title="優點和缺點"></a>優點和缺點</h3><p><strong>優點</strong></p>
+<h3 id="Ajax-優點和缺點"><a href="#Ajax-優點和缺點" class="headerlink" title="Ajax 優點和缺點"></a>Ajax 優點和缺點</h3><p><strong>優點</strong></p>
 <ul>
 <li>減少 bandwidth，減輕 <code>server</code> 負擔， 減少請求，按照需要數據進行請求</li>
 <li>提高用戶體驗</li>
@@ -493,7 +495,11 @@
 <ul>
 <li>對 <code>SEO</code> 不友善</li>
 <li>debug 不友善</li>
-<li>不支持 <code>browser</code> back </li>
+<li>不支持 <code>browser</code> back<ul>
+<li><strong>問題</strong>：<code>ajax</code> 可以做到無刷新，沒辦法更改 <code>URL</code>，所以 <code>browser</code> 不支持前進和後退。點擊後退，頁面是最初頁面，不會後退刷新！因為 <code>ajax</code> 不能在 <code>browser</code> 保留歷史紀錄。</li>
+<li><strong>解決之一</strong>：通過 HTML5 API <code>history.pushState</code> 或 <code>history.replaceState</code> 來操作 <code>browser</code> 歷史紀錄和無刷新行為來改變 <code>URL</code>。 </li>
+</ul>
+</li>
 <li>安全性問題</li>
 <li>…</li>
 </ul>
@@ -562,6 +568,12 @@ boolean                      boolean
 <span class="token string">'decadehew'</span>                  <span class="token string">"decadehew"</span>
 <span class="token keyword">let</span> person <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>               沒有
 
+
+
+
+
+
+
 <span class="token comment" spellcheck="true">// ---------------------</span>
 <span class="token comment" spellcheck="true">// JS convert to JSON</span>
 <span class="token comment" spellcheck="true">// ---------------------</span>
@@ -588,7 +600,10 @@ JSON<span class="token punctuation">.</span><span class="token function">parse</
 </code></pre>
 <h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ul>
 <li><a href="http://javascript.ruanyifeng.com/bom/ajax.html" target="_blank" rel="noopener">阮一峰 Ajax</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2011/03/url_hash.html" target="_blank" rel="noopener">阮一峰 URL #號</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener">MDN XMLHttpRequest</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/History_API" target="_blank" rel="noopener">MDN History API</a></li>
+<li><a href="https://www.zhangxinxu.com/wordpress/2013/06/html5-history-api-pushstate-replacestate-ajax/" target="_blank" rel="noopener">鑫空間 Ajax 與 HTML history</a></li>
 </ul>
 
       
@@ -854,7 +869,7 @@ JSON<span class="token punctuation">.</span><span class="token function">parse</
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#發請求有哪幾種方式："><span class="nav-number">1.</span> <span class="nav-text">發請求有哪幾種方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重新認識-Ajax"><span class="nav-number">2.</span> <span class="nav-text">重新認識 Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#傳統請求過程"><span class="nav-number">2.1.</span> <span class="nav-text">傳統請求過程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#優點和缺點"><span class="nav-number">2.2.</span> <span class="nav-text">優點和缺點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax-與跨域"><span class="nav-number">2.3.</span> <span class="nav-text">Ajax 與跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域"><span class="nav-number">2.4.</span> <span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#總結"><span class="nav-number">2.5.</span> <span class="nav-text">總結</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面試題"><span class="nav-number">3.</span> <span class="nav-text">面試題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">4.</span> <span class="nav-text">參考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tags-‘FrontEnd-jirengu-Ajax’"><span class="nav-number">1.</span> <span class="nav-text">tags: ‘FrontEnd, jirengu, Ajax’</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#發請求有哪幾種方式："><span class="nav-number">2.</span> <span class="nav-text">發請求有哪幾種方式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重新認識-Ajax"><span class="nav-number">3.</span> <span class="nav-text">重新認識 Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#傳統請求過程"><span class="nav-number">3.1.</span> <span class="nav-text">傳統請求過程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax-優點和缺點"><span class="nav-number">3.2.</span> <span class="nav-text">Ajax 優點和缺點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ajax-與跨域"><span class="nav-number">3.3.</span> <span class="nav-text">Ajax 與跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域"><span class="nav-number">3.4.</span> <span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#總結"><span class="nav-number">3.5.</span> <span class="nav-text">總結</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面試題"><span class="nav-number">4.</span> <span class="nav-text">面試題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">5.</span> <span class="nav-text">參考</span></a></li></ol></div>
             
 
           </div>
