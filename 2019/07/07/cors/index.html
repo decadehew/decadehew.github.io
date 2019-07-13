@@ -108,7 +108,7 @@
 <meta property="og:locale" content="zh-tw">
 <meta property="og:image" content="https://i.imgur.com/9K8IWh7.png">
 <meta property="og:image" content="https://i.imgur.com/NBm3Fyt.png">
-<meta property="og:updated_time" content="2019-07-12T03:59:46.687Z">
+<meta property="og:updated_time" content="2019-07-13T14:15:14.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CORS 跨域">
 <meta name="twitter:description" content="什麼是跨域首先我們需要了解什麼是同源策略 (Same origin policy)，目前所有 browser 都遵守此策略。同源策略目的是資訊安全，防止他人竊取數據或 CSRF（Cross-site request forgery）。 所謂同源是指三個相同：  協議相同 (Protocol: http) 域名相同 (Domain: example.com) 端口相同 (Host: 80)  非同源">
@@ -567,6 +567,9 @@ window<span class="token punctuation">.</span>callMeFunc <span class="token oper
 </blockquote>
 <blockquote>
 <p>只要在後端 <code>response header</code> 設定 <code>Access-Control-Allow-origin, 指定允許 A網站</code>。<br>如果是多個不同域可以這樣設定 <code>Access-Control-Allow-origin, *</code>。</p>
+</blockquote>
+<blockquote>
+<p>關於更多 Ajax 跨域，請到 <a href="https://decadehew.github.io/2019/07/10/cors-ajax/" target="_blank" rel="noopener">link</a></p>
 </blockquote>
 <hr>
 <h2 id="面試題"><a href="#面試題" class="headerlink" title="面試題"></a>面試題</h2><p>請問 <code>JSONP</code> 為什麼不接受 <code>POST</code> 請求</p>

@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="平凡前端">
 <meta property="og:description" content="發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 script 標籤可以發 get 請求，但只能以腳本形式來執行  如和用 CRUD 的形式來實現：  g">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-07-13T12:06:22.115Z">
+<meta property="og:updated_time" content="2019-07-13T14:11:13.223Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="認識 Ajax">
 <meta name="twitter:description" content="發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 script 標籤可以發 get 請求，但只能以腳本形式來執行  如和用 CRUD 的形式來實現：  g">
@@ -524,6 +524,9 @@
 </blockquote>
 <p>關於更多 CORS 請到 -&gt; <a href="https://decadehew.github.io/2019/07/07/cors/" target="_blank" rel="noopener">link</a></p>
 <h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><p>雖然 ajax 真的很方便也非常安全，因為有同源策略 (Same origin policy)，只有<strong>協議，域名，端口</strong> 必須<strong>相同</strong>。如果非要通過 <strong>ajax</strong> 來跨域的話，需要後端開啟允許可跨域來告訴 <code>browser</code> 我們是朋友。<code>browser</code> 會根據 <code>response header</code> 裡字段 <code>Access-Control-Allow-Origin</code> 知道你們關係。</p>
+<blockquote>
+<p><a href="https://github.com/decadehew/frontend-notes/tree/master/nodejs/node-ajax-cors" target="_blank" rel="noopener">實戰 code</a></p>
+</blockquote>
 <hr>
 <h2 id="面試題"><a href="#面試題" class="headerlink" title="面試題"></a>面試題</h2><ol>
 <li><p>請使用原生 JS 來發送 ajax 請求<br>答：</p>
