@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="this的值取決於函數呼叫方式。function Cat(name) {  this.name = name;  this.sayName = function () {    console.log(`Meow! My name is ${this.name}`);  }; } const bailey = new Cat(&amp;#39;Bailey&amp;#39;);  什麼時候 this 被賦值 很多">
+  <meta name="description" content="this的值取決於函數呼叫方式。function Cat(name) {  this.name = name;  this.sayName = function () {    console.log(`Meow! My name is ${this.name}`);  }; } const bailey = new Cat(&amp;#39;Bailey&amp;#39;);">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="this 到底怎麼一回事">
 <meta property="og:url" content="http://yoursite.com/2019/07/13/this/index.html">
 <meta property="og:site_name" content="平凡前端">
-<meta property="og:description" content="this的值取決於函數呼叫方式。function Cat(name) {  this.name = name;  this.sayName = function () {    console.log(`Meow! My name is ${this.name}`);  }; } const bailey = new Cat(&amp;#39;Bailey&amp;#39;);  什麼時候 this 被賦值 很多">
+<meta property="og:description" content="this的值取決於函數呼叫方式。function Cat(name) {  this.name = name;  this.sayName = function () {    console.log(`Meow! My name is ${this.name}`);  }; } const bailey = new Cat(&amp;#39;Bailey&amp;#39;);">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-07-13T15:25:29.321Z">
+<meta property="og:updated_time" content="2019-07-13T15:26:55.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this 到底怎麼一回事">
-<meta name="twitter:description" content="this的值取決於函數呼叫方式。function Cat(name) {  this.name = name;  this.sayName = function () {    console.log(`Meow! My name is ${this.name}`);  }; } const bailey = new Cat(&amp;#39;Bailey&amp;#39;);  什麼時候 this 被賦值 很多">
+<meta name="twitter:description" content="this的值取決於函數呼叫方式。function Cat(name) {  this.name = name;  this.sayName = function () {    console.log(`Meow! My name is ${this.name}`);  }; } const bailey = new Cat(&amp;#39;Bailey&amp;#39;);">
 
 
 
@@ -457,11 +457,11 @@
 <span class="token punctuation">}</span>
 <span class="token keyword">const</span> bailey <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token string">'Bailey'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
+<a id="more"></a>
 <h2 id="什麼時候-this-被賦值"><a href="#什麼時候-this-被賦值" class="headerlink" title="什麼時候 this 被賦值"></a>什麼時候 this 被賦值</h2><ul>
 <li>很多人誤解，以為 <code>this</code> 是指向對象。</li>
 <li>正確來說：當前函數的 <code>this</code> 是在函數被調用執行的時候才確定。</li>
 </ul>
-<a id="more"></a>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> dog <span class="token operator">=</span> <span class="token punctuation">{</span>
   bark<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Woof!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
