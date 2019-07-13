@@ -451,13 +451,11 @@
 
       
         
-          <h2 id="this的值取決於函數呼叫方式。"><a href="#this的值取決於函數呼叫方式。" class="headerlink" title="this的值取決於函數呼叫方式。"></a>this的值取決於函數呼叫方式。</h2><pre><code class="javascript">function Cat(name) {
- this.name = name;
- this.sayName = function () {
-   console.log(`Meow! My name is ${this.name}`);
- };
-}
-const bailey = new Cat(&#39;Bailey&#39;);
+          <p>在學習 <code>JS</code>，往往都會對 <code>this</code> 的值很模糊，也讓人困擾！以為認為 <code>this</code> 是指向某個對象，但往往不是你想那樣。正確來說，誰調用函數，那麼<code>this</code> 就指向調用者。<strong>但是要特別注意如果使用嚴謹模式 <code>this</code> 會轉變成 <code>undefined</code></strong>。</p>
+<pre><code class="javascript">function fn() {
+  &#39;use strict&#39;
+  console.log(this) // undefined
+} 
 </code></pre>
           <!--noindex-->
           

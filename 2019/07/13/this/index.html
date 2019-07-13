@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="this的值取決於函數呼叫方式。function Cat(name) {  this.name = name;  this.sayName = function () {    console.log(`Meow! My name is ${this.name}`);  }; } const bailey = new Cat(&amp;#39;Bailey&amp;#39;);">
+  <meta name="description" content="在學習 JS，往往都會對 this 的值很模糊，也讓人困擾！以為認為 this 是指向某個對象，但往往不是你想那樣。正確來說，誰調用函數，那麼this 就指向調用者。但是要特別注意如果使用嚴謹模式 this 會轉變成 undefined。 function fn() {   &amp;#39;use strict&amp;#39;   console.log(this) // undefined }">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="this 到底怎麼一回事">
 <meta property="og:url" content="http://yoursite.com/2019/07/13/this/index.html">
 <meta property="og:site_name" content="平凡前端">
-<meta property="og:description" content="this的值取決於函數呼叫方式。function Cat(name) {  this.name = name;  this.sayName = function () {    console.log(`Meow! My name is ${this.name}`);  }; } const bailey = new Cat(&amp;#39;Bailey&amp;#39;);">
+<meta property="og:description" content="在學習 JS，往往都會對 this 的值很模糊，也讓人困擾！以為認為 this 是指向某個對象，但往往不是你想那樣。正確來說，誰調用函數，那麼this 就指向調用者。但是要特別注意如果使用嚴謹模式 this 會轉變成 undefined。 function fn() {   &amp;#39;use strict&amp;#39;   console.log(this) // undefined }">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-07-13T15:26:55.798Z">
+<meta property="og:updated_time" content="2019-07-13T16:45:53.724Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this 到底怎麼一回事">
-<meta name="twitter:description" content="this的值取決於函數呼叫方式。function Cat(name) {  this.name = name;  this.sayName = function () {    console.log(`Meow! My name is ${this.name}`);  }; } const bailey = new Cat(&amp;#39;Bailey&amp;#39;);">
+<meta name="twitter:description" content="在學習 JS，往往都會對 this 的值很模糊，也讓人困擾！以為認為 this 是指向某個對象，但往往不是你想那樣。正確來說，誰調用函數，那麼this 就指向調用者。但是要特別注意如果使用嚴謹模式 this 會轉變成 undefined。 function fn() {   &amp;#39;use strict&amp;#39;   console.log(this) // undefined }">
 
 
 
@@ -449,7 +449,14 @@
       
 
       
-        <h2 id="this的值取決於函數呼叫方式。"><a href="#this的值取決於函數呼叫方式。" class="headerlink" title="this的值取決於函數呼叫方式。"></a>this的值取決於函數呼叫方式。</h2><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Cat</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <p>在學習 <code>JS</code>，往往都會對 <code>this</code> 的值很模糊，也讓人困擾！以為認為 <code>this</code> 是指向某個對象，但往往不是你想那樣。正確來說，誰調用函數，那麼<code>this</code> 就指向調用者。<strong>但是要特別注意如果使用嚴謹模式 <code>this</code> 會轉變成 <code>undefined</code></strong>。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token string">'use strict'</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// undefined</span>
+<span class="token punctuation">}</span> 
+</code></pre>
+<a id="more"></a>
+<h2 id="this-的值取決於函數呼叫方式。"><a href="#this-的值取決於函數呼叫方式。" class="headerlink" title="this 的值取決於函數呼叫方式。"></a>this 的值取決於函數呼叫方式。</h2><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Cat</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
  <span class="token keyword">this</span><span class="token punctuation">.</span>sayName <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Meow! My name is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -457,7 +464,6 @@
 <span class="token punctuation">}</span>
 <span class="token keyword">const</span> bailey <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token string">'Bailey'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<a id="more"></a>
 <h2 id="什麼時候-this-被賦值"><a href="#什麼時候-this-被賦值" class="headerlink" title="什麼時候 this 被賦值"></a>什麼時候 this 被賦值</h2><ul>
 <li>很多人誤解，以為 <code>this</code> 是指向對象。</li>
 <li>正確來說：當前函數的 <code>this</code> 是在函數被調用執行的時候才確定。</li>
@@ -609,9 +615,16 @@ dog<span class="token punctuation">.</span>age <span class="token comment" spell
 <span class="token comment" spellcheck="true">// 呼叫 grow() cat 的 age 會是8</span>
 <span class="token comment" spellcheck="true">// 理解成 cat.growOneYear()</span>
 </code></pre>
-<h2 id="總結-1"><a href="#總結-1" class="headerlink" title="總結"></a>總結</h2><p>總結來說，<code>this</code> 的值是誰調用 <code>this</code> 指向誰。我們可以強制改變 <code>this</code> 的指向，可以使用 (<code>call</code>, <code>apply</code>, <code>bind</code>)</p>
+<h2 id="剪頭函數？"><a href="#剪頭函數？" class="headerlink" title="剪頭函數？"></a>剪頭函數？</h2><p>關於剪頭函數有沒有 <code>this</code> ?</p>
+<blockquote>
+<p>An arrow function expression is a syntactically compact alternative to a regular function expression, although without its own bindings to the this, arguments, super, or new.target keywords. Arrow function expressions are ill suited as methods, and they cannot be used as constructors.</p>
+</blockquote>
+<p>剪頭函數本身是沒 <code>this</code> !</p>
+<h2 id="總結-1"><a href="#總結-1" class="headerlink" title="總結"></a>總結</h2><p>總結來說，<code>this</code> 的值是誰調用函數 <code>this</code> 指向誰 <strong>(this 指向是函數調用者)</strong>。但我們可以強制改變 <code>this</code> 的指向，可以使用 (<code>call</code>, <code>apply</code>, <code>bind</code>)</p>
 <h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ul>
 <li><a href="https://stackoverflow.com/questions/50884893/calling-vs-invoking-a-function" target="_blank" rel="noopener">invoke vs call function</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions" target="_blank" rel="noopener">arrow function</a></li>
+<li>udacity</li>
 </ul>
 
       
@@ -875,7 +888,7 @@ dog<span class="token punctuation">.</span>age <span class="token comment" spell
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#this的值取決於函數呼叫方式。"><span class="nav-number">1.</span> <span class="nav-text">this的值取決於函數呼叫方式。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什麼時候-this-被賦值"><span class="nav-number">2.</span> <span class="nav-text">什麼時候 this 被賦值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-Does-this-Get-Set-To"><span class="nav-number">3.</span> <span class="nav-text">What Does this Get Set To?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#總結"><span class="nav-number">3.1.</span> <span class="nav-text">總結</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#設定this的指向"><span class="nav-number">4.</span> <span class="nav-text">設定this的指向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#call"><span class="nav-number">4.1.</span> <span class="nav-text">call()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply"><span class="nav-number">4.2.</span> <span class="nav-text">apply()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#選擇哪個方法呢？"><span class="nav-number">5.</span> <span class="nav-text">選擇哪個方法呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#callback-and-this"><span class="nav-number">5.1.</span> <span class="nav-text">callback and this</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind"><span class="nav-number">6.</span> <span class="nav-text">bind()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#總結-1"><span class="nav-number">7.</span> <span class="nav-text">總結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">8.</span> <span class="nav-text">參考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#this-的值取決於函數呼叫方式。"><span class="nav-number">1.</span> <span class="nav-text">this 的值取決於函數呼叫方式。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什麼時候-this-被賦值"><span class="nav-number">2.</span> <span class="nav-text">什麼時候 this 被賦值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-Does-this-Get-Set-To"><span class="nav-number">3.</span> <span class="nav-text">What Does this Get Set To?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#總結"><span class="nav-number">3.1.</span> <span class="nav-text">總結</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#設定this的指向"><span class="nav-number">4.</span> <span class="nav-text">設定this的指向</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#call"><span class="nav-number">4.1.</span> <span class="nav-text">call()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply"><span class="nav-number">4.2.</span> <span class="nav-text">apply()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#選擇哪個方法呢？"><span class="nav-number">5.</span> <span class="nav-text">選擇哪個方法呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#callback-and-this"><span class="nav-number">5.1.</span> <span class="nav-text">callback and this</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bind"><span class="nav-number">6.</span> <span class="nav-text">bind()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#剪頭函數？"><span class="nav-number">7.</span> <span class="nav-text">剪頭函數？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#總結-1"><span class="nav-number">8.</span> <span class="nav-text">總結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">9.</span> <span class="nav-text">參考</span></a></li></ol></div>
             
 
           </div>
