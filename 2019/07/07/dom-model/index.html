@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="平凡前端">
 <meta property="og:description" content="知識點： Document Event onlick 和 addEventListener 區別 捕捉事件和泡沫事件 stopPropagation()">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-07-07T13:36:06.161Z">
+<meta property="og:updated_time" content="2019-07-15T10:22:40.030Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM Model">
 <meta name="twitter:description" content="知識點： Document Event onlick 和 addEventListener 區別 捕捉事件和泡沫事件 stopPropagation()">
@@ -473,7 +473,22 @@
 <li>removeEventListener</li>
 </ul>
 <p><strong>onlick 和 addEventListener 區別</strong></p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// onlick 屬性，唯一</span>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 在 html 和 js 寫 onclick很容易混雜！</span>
+html
+<span class="token operator">*</span> 在 html 裡是需要執行的程式，而不是函數
+
+<span class="token operator">&lt;</span>button onclick<span class="token operator">=</span><span class="token string">"x()"</span><span class="token operator">></span>A<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span> <span class="token comment" spellcheck="true">// 正確</span>
+<span class="token operator">&lt;</span>button onclick<span class="token operator">=</span><span class="token string">"x"</span><span class="token operator">></span>A<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span> <span class="token comment" spellcheck="true">// 錯</span>
+
+js
+<span class="token operator">*</span> 在 JS 裡是要函數，因為我們需要等待使用者點擊然後才調用！
+<span class="token operator">*</span> onclick 屬性是函數值<span class="token punctuation">.</span>
+
+<span class="token keyword">function</span> clickMe <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+x<span class="token punctuation">.</span>onlick <span class="token operator">=</span> <span class="token function">clickMe</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 錯</span>
+x<span class="token punctuation">.</span>onlick <span class="token operator">=</span> clickMe <span class="token comment" spellcheck="true">// 正確</span>
+
+<span class="token comment" spellcheck="true">// onlick 屬性，唯一</span>
 <span class="token comment" spellcheck="true">// 如果綁定兩個事件，就不行，會被覆蓋</span>
 x<span class="token punctuation">.</span>onlick <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 x<span class="token punctuation">.</span>onlick <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 會被覆蓋 }</span>
