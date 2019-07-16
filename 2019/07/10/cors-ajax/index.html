@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="平凡前端">
 <meta property="og:description" content="發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 script 標籤可以發 get 請求，但只能以腳本形式來執行  如果用 CRUD 的形式來實現：  g">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-07-13T15:33:09.835Z">
+<meta property="og:updated_time" content="2019-07-16T02:25:15.624Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="認識 Ajax">
 <meta name="twitter:description" content="發請求有哪幾種方式： 比較常規來講解   form 表單來發起 get 或 post 請求，但會刷新頁面 a 標籤可以發 get 請求，但會刷新頁面 img 標籤可以發 get 請求，但只能以圖片形式來展示 link 標籤可以發 get 請求，但只能以 css 和 favicon 等形式來展示 script 標籤可以發 get 請求，但只能以腳本形式來執行  如果用 CRUD 的形式來實現：  g">
@@ -494,7 +494,7 @@
 <li>對 <code>SEO</code> 不友善</li>
 <li>debug 不友善</li>
 <li>不支持 <code>browser</code> back<ul>
-<li><strong>問題</strong>：<code>ajax</code> 可以做到無刷新，沒辦法更改 <code>URL</code>，所以 <code>browser</code> 不支持前進和後退。點擊後退，是上一個網址，不會後退刷新！因為 <code>ajax</code> 不能在 <code>browser</code> 保留歷史紀錄。<a href="https://www.youtube.com/watch?v=R5AjF-Yl4N0" target="_blank" rel="noopener">link</a></li>
+<li><strong>問題</strong>：<code>ajax</code> 可以做到無刷新，沒辦法更改 <code>URL</code>，所以 <code>browser</code> 不支持前進和後退。以分頁作為例子，當我順序點分頁123，<code>URL</code> 完全沒有變更 (局部請求資源)。我目前在分頁3，可是我點擊後退 (上一頁)，照理來說後退回到分頁2，但我只回到最初上一個網址的內容分頁1，而不是分頁2。因為 <code>ajax</code> 不能在 <code>browser</code> 保留歷史紀錄。<a href="https://www.youtube.com/watch?v=R5AjF-Yl4N0" target="_blank" rel="noopener">link</a></li>
 <li><strong>解決之一</strong>：通過 HTML5 API <code>history.pushState</code> 或 <code>history.replaceState</code> 來操作 <code>browser</code> 歷史紀錄和無刷新行為來改變 <code>URL</code>。 </li>
 </ul>
 </li>
