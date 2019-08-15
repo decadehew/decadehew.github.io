@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="知識點： Document Event onlick 和 addEventListener 區別 捕捉事件和泡沫事件 stopPropagation()">
-<meta name="keywords" content="DOM,DOM Events">
+  <meta name="description" content="MVC 是什麼MVC 是一種架構設計模式或是程式組織形式。我接觸 mvc 是在學 ruby on rails 的時候，這是讓我首次感受到 MVC 是什麼。  在前端某個情境：用戶點擊 submit 會觸發 controller 一個事件，然後 controller 會調用 model 的操作。最後 controller 就會通知 view">
+<meta name="keywords" content="架構,設計模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DOM Model">
-<meta property="og:url" content="http://yoursite.com/2019/07/07/dom-model/index.html">
+<meta property="og:title" content="重新認識 MVC">
+<meta property="og:url" content="http://yoursite.com/2019/08/15/mvc/index.html">
 <meta property="og:site_name" content="平凡前端">
-<meta property="og:description" content="知識點： Document Event onlick 和 addEventListener 區別 捕捉事件和泡沫事件 stopPropagation()">
+<meta property="og:description" content="MVC 是什麼MVC 是一種架構設計模式或是程式組織形式。我接觸 mvc 是在學 ruby on rails 的時候，這是讓我首次感受到 MVC 是什麼。  在前端某個情境：用戶點擊 submit 會觸發 controller 一個事件，然後 controller 會調用 model 的操作。最後 controller 就會通知 view">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-07-15T10:22:40.030Z">
+<meta property="og:updated_time" content="2019-08-15T02:54:13.124Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="DOM Model">
-<meta name="twitter:description" content="知識點： Document Event onlick 和 addEventListener 區別 捕捉事件和泡沫事件 stopPropagation()">
+<meta name="twitter:title" content="重新認識 MVC">
+<meta name="twitter:description" content="MVC 是什麼MVC 是一種架構設計模式或是程式組織形式。我接觸 mvc 是在學 ruby on rails 的時候，這是讓我首次感受到 MVC 是什麼。  在前端某個情境：用戶點擊 submit 會觸發 controller 一個事件，然後 controller 會調用 model 的操作。最後 controller 就會通知 view">
 
 
 
@@ -117,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/07/dom-model/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/08/15/mvc/"/>
 
 
 
@@ -127,7 +127,7 @@
   };
 </script>
 
-  <title>DOM Model | 平凡前端</title>
+  <title>重新認識 MVC | 平凡前端</title>
   
 
 
@@ -353,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/07/dom-model/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/mvc/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="DecadeHew"/>
@@ -370,7 +370,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">DOM Model
+          <h1 class="post-title" itemprop="name headline">重新認識 MVC
 
               
             
@@ -396,7 +396,7 @@
                 
               
 
-              <time title="Created: 2019-07-07 21:30:40" itemprop="dateCreated datePublished" datetime="2019-07-07T21:30:40+08:00">2019-07-07</time>
+              <time title="Created: 2019-08-15 10:52:52" itemprop="dateCreated datePublished" datetime="2019-08-15T10:52:52+08:00">2019-08-15</time>
             </span>
           
 
@@ -449,128 +449,53 @@
       
 
       
-        <h2 id="知識點："><a href="#知識點：" class="headerlink" title="知識點："></a>知識點：</h2><ul>
-<li>Document Event</li>
-<li><code>onlick</code> 和 <code>addEventListener</code> 區別</li>
-<li>捕捉事件和泡沫事件</li>
-<li><code>stopPropagation()</code></li>
-</ul>
-<a id="more"></a>
-<h2 id="Document-Event"><a href="#Document-Event" class="headerlink" title="Document Event"></a>Document Event</h2><blockquote>
-<p>DOM level 是由 <code>W3C</code> 提供規範<br>我只針對 click 事件描述</p>
+        <h2 id="MVC-是什麼"><a href="#MVC-是什麼" class="headerlink" title="MVC 是什麼"></a>MVC 是什麼</h2><p><code>MVC</code> 是一種架構設計模式或是程式組織形式。我接觸 <code>mvc</code> 是在學 <code>ruby on rails</code> 的時候，這是讓我首次感受到 <code>MVC</code> 是什麼。</p>
+<blockquote>
+<p>在前端某個情境：用戶點擊 submit 會觸發 controller 一個事件，然後 controller 會調用 model 的操作。最後 controller 就會通知 view</p>
 </blockquote>
-<p><strong>DOM level 0</strong> </p>
+<a id="more"></a>
+<p><strong>簡單來說 mvc 會分成三層</strong></p>
 <ul>
-<li>onclick 可以在 <code>html</code> 和 <code>js</code>去寫，但比較容易出錯(混亂)</li>
+<li>Model - 數據模型層和數據相關操作(crud)。數據變化是由 controller 來進行控制。</li>
+<li>View - View 只負責看得見東西，單純將數據輸出在畫面和使用者交互層。 View 向 model 註冊，view 會觀察 model 是否有數據更新 (觀察者模式)</li>
+<li>Controller - 把所有東西組合起來，可以簡單理解成中介人，當使用者和 view 進行交互時，會觸發事件處理 (業務邏輯層)，處理操作以及作出對 model 進行改變。</li>
 </ul>
-<p><strong>DOM level 1</strong></p>
+<h2 id="爭議性"><a href="#爭議性" class="headerlink" title="爭議性"></a>爭議性</h2><p>感覺前端和後端 MVC 有所不同。<br>我當初接觸 MVC 是 雙向的，M 和 V 是不能通訊。<br>V 發出請求時，在 C 裡找到匹配條件，然後對 M 改變狀態，M 就會返回給 C。最後 C 負責渲染數據給 V。<br>但不知是不是有前後端差異性，但本質上是沒有太大變化。因為 MVC 分別有各自職責，只不過通訊方式或許有所不同。</p>
+<p><strong>前端</strong></p>
 <ul>
-<li>並沒有對事件做什麼</li>
+<li>單向 -  V -&gt; C -&gt; M -&gt; V</li>
 </ul>
-<p><strong>DOM level 2</strong></p>
+<p><strong>后端</strong></p>
 <ul>
-<li>addEventListener</li>
-<li>removeEventListener</li>
+<li>雙向 - V -&gt; C -&gt; M -&gt; C -&gt; V</li>
 </ul>
-<p><strong>onlick 和 addEventListener 區別</strong></p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 在 html 和 js 寫 onclick很容易混雜！</span>
-html
-<span class="token operator">*</span> 在 html 裡是需要執行的程式，而不是函數
-
-<span class="token operator">&lt;</span>button onclick<span class="token operator">=</span><span class="token string">"x()"</span><span class="token operator">></span>A<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span> <span class="token comment" spellcheck="true">// 正確</span>
-<span class="token operator">&lt;</span>button onclick<span class="token operator">=</span><span class="token string">"x"</span><span class="token operator">></span>A<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span> <span class="token comment" spellcheck="true">// 錯</span>
-
-js
-<span class="token operator">*</span> 在 JS 裡是要函數，因為我們需要等待使用者點擊然後才調用！
-<span class="token operator">*</span> onclick 屬性是函數值<span class="token punctuation">.</span>
-
-<span class="token keyword">function</span> clickMe <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-x<span class="token punctuation">.</span>onlick <span class="token operator">=</span> <span class="token function">clickMe</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 錯</span>
-x<span class="token punctuation">.</span>onlick <span class="token operator">=</span> clickMe <span class="token comment" spellcheck="true">// 正確</span>
-
-<span class="token comment" spellcheck="true">// onlick 屬性，唯一</span>
-<span class="token comment" spellcheck="true">// 如果綁定兩個事件，就不行，會被覆蓋</span>
-x<span class="token punctuation">.</span>onlick <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-x<span class="token punctuation">.</span>onlick <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 會被覆蓋 }</span>
-
-<span class="token comment" spellcheck="true">// addEventListener 隊列(先進先出)，</span>
-<span class="token comment" spellcheck="true">// 綁定兩個事件，會先進先出(1,2)。</span>
-<span class="token comment" spellcheck="true">// 先1進去，後1先出，</span>
-<span class="token comment" spellcheck="true">// 接下來 先2進去，後2先出。</span>
-<span class="token comment" spellcheck="true">// 會先把在 addEventListener 隊列裡存放兩個函數，</span>
-<span class="token comment" spellcheck="true">// 當我觸發 click 事件時，會執行隊列裡函數！</span>
-
-x<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 1 })</span>
-x<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 2 })</span>
-
-<span class="token comment" spellcheck="true">// 1，2進行排隊，但還沒被觸發1就離開了 -> 2</span>
-x<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 1 })</span>
-</code></pre>
-<pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- html --></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>grand<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-  爺爺
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>father<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-    爸爸
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>child<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-      兒子
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-</code></pre>
-<pre class=" language-css"><code class="language-css"><span class="token comment" spellcheck="true">/* css */</span>
-<span class="token selector"><span class="token id">#grand</span> </span><span class="token punctuation">{</span>
-  <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid blue<span class="token punctuation">;</span>
-  <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token selector"><span class="token id">#father</span> </span><span class="token punctuation">{</span>
-  <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid red<span class="token punctuation">;</span>
-  <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token selector"><span class="token id">#child</span> </span><span class="token punctuation">{</span>
-  <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid black<span class="token punctuation">;</span>
-  <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span>px<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// JS</span>
-<span class="token comment" spellcheck="true">// </span>
-<span class="token comment" spellcheck="true">// 爺爺，爸爸，兒子都在同一個範圍內</span>
-<span class="token comment" spellcheck="true">// 當我點擊兒子時，是否點擊了爸爸和爺爺 (血緣關係息息相關)</span>
-<span class="token comment" spellcheck="true">// -> yes</span>
-
-<span class="token comment" spellcheck="true">// 當我點擊兒子時，三個函數是否調用，</span>
-<span class="token comment" spellcheck="true">// -> yes 兒子，爸爸，爺爺。</span>
-<span class="token comment" spellcheck="true">// 在 addEventListener 第三參數：default false (由下到上[泡沫])，</span>
-<span class="token comment" spellcheck="true">// 但如果在第三參數設 true (由上到下[捕獲]) 誰先被執行。</span>
-<span class="token comment" spellcheck="true">// 主要是誰先執行問題</span>
-
-grand<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'爺爺'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-father<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'爸爸'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-child<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// stopPropagation 告訴不要告訴我爸爸和爺爺</span>
-  <span class="token comment" spellcheck="true">// 停止傳播，切斷關係</span>
-  <span class="token comment" spellcheck="true">// e.stopPropagation() </span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'兒子'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true">// 面試題</span>
-<span class="token comment" spellcheck="true">// -> 捕獲，泡沫</span>
-<span class="token comment" spellcheck="true">// 如是同一個元素，會進行先進先出(隊列)</span>
-child<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'兒子 捕獲'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
-
-child<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'兒子 泡沫'</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span>
-</code></pre>
+<h2 id="思路-題外"><a href="#思路-題外" class="headerlink" title="思路 (題外)"></a>思路 (題外)</h2><blockquote>
+<p>留言思路 -&gt; 從 MVC角度去思考。</p>
+</blockquote>
+<p><strong>第一步</strong></p>
+<ul>
+<li>一個最簡單留言功能有包含哪些：新增，修改，刪除，獲取 (CRUD)</li>
+<li>簡單 UI 呈現會有哪些：form 表單，顯示所有留言訊息。</li>
+</ul>
+<p><strong>第二步</strong></p>
+<ul>
+<li>Model: 數據操作有 getAll, create, edit/update, delete</li>
+<li>View: view 基本 UI 呈現</li>
+<li>Controller: 控制器用來處理邏輯這一塊。下面會簡單新增留言：<ol>
+<li>用戶和 V 進行交互。</li>
+<li>C 就會監聽，V 一旦事件 (submit) 被觸發，馬上通知 C</li>
+<li>C 會進行處理，調用 M 數據操作 save/create。</li>
+<li>M 會對 server 發出 request，等待 response。</li>
+<li>M response 給 C 進行處理。</li>
+<li>最後 C 會 V 相關數據更新或 UI 更新。</li>
+</ol>
+</li>
+</ul>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ul>
+<li><a href="https://zh.wikipedia.org/wiki/MVC" target="_blank" rel="noopener">mvc wiki</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/javascript-design-patterns/mvc.html" target="_blank" rel="noopener">mvc jikexueyuan</a></li>
+<li><a href="http://todomvc.com/" target="_blank" rel="noopener">todomvc</a></li>
+</ul>
 
       
     </div>
@@ -597,9 +522,9 @@ child<span class="token punctuation">.</span><span class="token function">addEve
         
         <div class="post-tags">
           
-            <a href="/tags/DOM/" rel="tag"># DOM</a>
+            <a href="/tags/架構/" rel="tag"># 架構</a>
           
-            <a href="/tags/DOM-Events/" rel="tag"># DOM Events</a>
+            <a href="/tags/設計模式/" rel="tag"># 設計模式</a>
           
         </div>
       
@@ -612,8 +537,8 @@ child<span class="token punctuation">.</span><span class="token function">addEve
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/07/cors/" rel="next" title="CORS 跨域">
-                <i class="fa fa-chevron-left"></i> CORS 跨域
+              <a href="/2019/08/09/poc-interactive-canvas/" rel="next" title="Interactive Canvas (POC)">
+                <i class="fa fa-chevron-left"></i> Interactive Canvas (POC)
               </a>
             
           </div>
@@ -621,10 +546,6 @@ child<span class="token punctuation">.</span><span class="token function">addEve
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/07/10/cors-ajax/" rel="prev" title="認識 Ajax">
-                認識 Ajax <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -847,7 +768,7 @@ child<span class="token punctuation">.</span><span class="token function">addEve
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#知識點："><span class="nav-number">1.</span> <span class="nav-text">知識點：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Document-Event"><span class="nav-number">2.</span> <span class="nav-text">Document Event</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC-是什麼"><span class="nav-number">1.</span> <span class="nav-text">MVC 是什麼</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爭議性"><span class="nav-number">2.</span> <span class="nav-text">爭議性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路-題外"><span class="nav-number">3.</span> <span class="nav-text">思路 (題外)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#參考"><span class="nav-number">4.</span> <span class="nav-text">參考</span></a></li></ol></div>
             
 
           </div>
