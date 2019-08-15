@@ -451,19 +451,57 @@
 
       
         
-          <h2 id="MVC-是什麼"><a href="#MVC-是什麼" class="headerlink" title="MVC 是什麼"></a>MVC 是什麼</h2><p><code>MVC</code> 是一種架構設計模式或是程式組織形式。我接觸 <code>mvc</code> 是在學 <code>ruby on rails</code> 的時候，這是讓我首次感受到 <code>MVC</code> 是什麼。</p>
+          
+            <h2 id="MVC-是什麼"><a href="#MVC-是什麼" class="headerlink" title="MVC 是什麼"></a>MVC 是什麼</h2><p><code>MVC</code> 是一種架構設計模式或是程式組織形式。我接觸 <code>mvc</code> 是在學 <code>ruby on rails</code> 的時候，這是讓我首次感受到 <code>MVC</code> 是什麼。</p>
 <blockquote>
 <p>在前端某個情境：用戶點擊 submit 會觸發 controller 一個事件，然後 controller 會調用 model 的操作。最後 controller 就會通知 view</p>
 </blockquote>
-          <!--noindex-->
+<p><strong>簡單來說 mvc 會分成三層</strong></p>
+<ul>
+<li>Model - 數據模型層和數據相關操作(crud)。數據變化是由 controller 來進行控制。</li>
+<li>View - View 只負責看得見東西，單純將數據輸出在畫面和使用者交互層。 View 向 model 註冊，view 會觀察 model 是否有數據更新 (觀察者模式)</li>
+<li>Controller - 把所有東西組合起來，可以簡單理解成中介人，當使用者和 view 進行交互時，會觸發事件處理 (業務邏輯層)，處理操作以及作出對 model 進行改變。</li>
+</ul>
+<h2 id="爭議性"><a href="#爭議性" class="headerlink" title="爭議性"></a>爭議性</h2><p>感覺前端和後端 MVC 有所不同。<br>我當初接觸 MVC 是 雙向的，M 和 V 是不能通訊。<br>V 發出請求時，在 C 裡找到匹配條件，然後對 M 改變狀態，M 就會返回給 C。最後 C 負責渲染數據給 V。<br>但不知是不是有前後端差異性，但本質上是沒有太大變化。因為 MVC 分別有各自職責，只不過通訊方式或許有所不同。</p>
+<p><strong>前端</strong></p>
+<ul>
+<li>單向 -  V -&gt; C -&gt; M -&gt; V</li>
+</ul>
+<p><strong>后端</strong></p>
+<ul>
+<li>雙向 - V -&gt; C -&gt; M -&gt; C -&gt; V</li>
+</ul>
+<h2 id="思路-題外"><a href="#思路-題外" class="headerlink" title="思路 (題外)"></a>思路 (題外)</h2><blockquote>
+<p>留言思路 -&gt; 從 MVC角度去思考。</p>
+</blockquote>
+<p><strong>第一步</strong></p>
+<ul>
+<li>一個最簡單留言功能有包含哪些：新增，修改，刪除，獲取 (CRUD)</li>
+<li>簡單 UI 呈現會有哪些：form 表單，顯示所有留言訊息。</li>
+</ul>
+<p><strong>第二步</strong></p>
+<ul>
+<li>Model: 數據操作有 getAll, create, edit/update, delete</li>
+<li>View: view 基本 UI 呈現</li>
+<li>Controller: 控制器用來處理邏輯這一塊。下面會簡單新增留言：<ol>
+<li>用戶和 V 進行交互。</li>
+<li>C 就會監聽，V 一旦事件 (submit) 被觸發，馬上通知 C</li>
+<li>C 會進行處理，調用 M 數據操作 save/create。</li>
+<li>M 會對 server 發出 request，等待 response。</li>
+<li>M response 給 C 進行處理。</li>
+<li>最後 C 會 V 相關數據更新或 UI 更新。</li>
+</ol>
+</li>
+</ul>
+<h2 id="JS-實現-MVC"><a href="#JS-實現-MVC" class="headerlink" title="JS 實現 MVC"></a>JS 實現 MVC</h2><p>最近我看了一篇關於 js mvc 實現文章，向他學習，<a href="https://www.cnblogs.com/front-end-ralph/p/5190442.html" target="_blank" rel="noopener">參考來源</a>。<br><a href="https://github.com/decadehew/frontend-notes/tree/master/javascript/js-mvc/demo-1" target="_blank" rel="noopener">可以點我</a></p>
+<h2 id="參考"><a href="#參考" class="headerlink" title="參考"></a>參考</h2><ul>
+<li><a href="https://zh.wikipedia.org/wiki/MVC" target="_blank" rel="noopener">mvc wiki</a></li>
+<li><a href="http://wiki.jikexueyuan.com/project/javascript-design-patterns/mvc.html" target="_blank" rel="noopener">mvc jikexueyuan</a></li>
+<li><a href="http://todomvc.com/" target="_blank" rel="noopener">todomvc</a></li>
+<li>jirengu</li>
+</ul>
+
           
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/08/15/mvc/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
