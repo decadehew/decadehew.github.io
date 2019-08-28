@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="平凡前端">
 <meta property="og:description" content="Constructor Function在JS裡所有事物都是對象，function也是對象。構造函數透過new operator 可以創建新的對象Object。不使用 new 和一般函數沒有區別。   在 js 裡， new 是用來創建一個對象 new 構造函數(參數) -&amp;gt; 實例對象   基本 new 實現 思路：  創建新的實例對象 實例對象proto 指向於 構造函數.prototyp">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-08-28T03:43:43.760Z">
+<meta property="og:updated_time" content="2019-08-28T05:18:14.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OOP">
 <meta name="twitter:description" content="Constructor Function在JS裡所有事物都是對象，function也是對象。構造函數透過new operator 可以創建新的對象Object。不使用 new 和一般函數沒有區別。   在 js 裡， new 是用來創建一個對象 new 構造函數(參數) -&amp;gt; 實例對象   基本 new 實現 思路：  創建新的實例對象 實例對象proto 指向於 構造函數.prototyp">
@@ -518,22 +518,28 @@ fn<span class="token punctuation">.</span>prototype<span class="token punctuatio
 <span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 obj<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> Object<span class="token punctuation">.</span>prototype <span class="token comment" spellcheck="true">// true</span>
 </code></pre>
-<h2 id="Prototype-amp-Prototype-Chain"><a href="#Prototype-amp-Prototype-Chain" class="headerlink" title="Prototype &amp; Prototype Chain"></a>Prototype &amp; Prototype Chain</h2><p>為了節省空間，我們會把<code>methods</code>添加到<code>prototype</code>裡。<br>全部對象都是由構造函數創建。<br>每個函數都會有<code>prototype</code>，當函數使用<code>new</code>時被作為構造函數使用，返回一個對象。<br>每個對象裡都有隱藏式的<code>__proto__</code>來指向構造函數的<code>prototype</code>。<br>每個<code>prototype</code>裡都有指向它自己<code>prototype</code>，這叫做 <code>prototype chain</code></p>
-<p>舉例子：</p>
-<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-Cat<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>meow <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Meow, Meow'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">const</span> bailey <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-bailey<span class="token punctuation">.</span><span class="token function">lives</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
+<h2 id="Prototype-amp-Prototype-Chain"><a href="#Prototype-amp-Prototype-Chain" class="headerlink" title="Prototype &amp; Prototype Chain"></a>Prototype &amp; Prototype Chain</h2><ul>
+<li>為了節省空間，我們會把 <code>methods</code> 添加到 <code>prototype</code> 裡。</li>
+<li>全部對象都是由構造函數創建。</li>
+<li>每個函數都會有 <code>prototype</code>，當函數使用<code>new</code>時被作為構造函數使用，返回一個對象。</li>
+<li>每個對象裡都有隱藏式的 <code>__proto__</code> 來指向構造函數的 <code>prototype</code>。</li>
+<li>每個 <code>prototype</code> 裡都有指向它自己 <code>prototype</code>，這叫做 <code>prototype chain</code></li>
+</ul>
 <h3 id="Prototype-chain-裡如何尋找您的-methods-or-properties？"><a href="#Prototype-chain-裡如何尋找您的-methods-or-properties？" class="headerlink" title="Prototype chain 裡如何尋找您的 methods or properties？"></a>Prototype chain 裡如何尋找您的 methods or properties？</h3><ol>
 <li><code>JavaScript engine</code> 會優先在對象裡找自有屬性</li>
 <li>如果沒有找不到，將會進入構造函數裡<code>prototype</code>裡尋找到匹配屬性名。</li>
-<li>屬性沒有在<code>prototype</code>裡，<code>JS engine</code> 會根據 <code>chain</code> 往下找。</li>
+<li>屬性沒有在 <code>prototype</code> 裡，<code>JS engine</code> 會根據 <code>chain</code> 往下找。</li>
 <li>直到 <code>chain</code> 結束，就是根 <code>Object</code>，會返回 <code>undefined</code></li>
 </ol>
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>Inheritance in JavaScript is when an object is based on another object. Inheritance allows us to reuse existing code, having objects take on properties of other objects.</p>
+<p>When a function is called as a constructor using the <code>new</code> operator, the function creates and returns a new object. This object is secretly linked to its constructor’s <code>prototype</code>, which is just another object. Using this secret link allows an object to access the <code>prototype&#39;s</code> properties and methods as if it were its own. If JavaScript does not find a particular property within an object, it will keep looking up the prototype chain, eventually reaching <code>Object()</code> (top-level parent) if necessary.</p>
+<p>We also looked at a few methods and properties that allow use to check the origins and references of objects and their prototypes, namely:</p>
+<ul>
+<li><code>hasOwnProperty()</code></li>
+<li><code>isPrototypeOf()</code></li>
+<li><code>Object.getPrototypeOf()</code></li>
+<li><code>.constructor</code></li>
+</ul>
 
       
     </div>
@@ -814,7 +820,7 @@ bailey<span class="token punctuation">.</span><span class="token function">lives
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Constructor-Function"><span class="nav-number">1.</span> <span class="nav-text">Constructor Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prototype-是什麼"><span class="nav-number">2.</span> <span class="nav-text">Prototype 是什麼</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prototype-Rules"><span class="nav-number">2.1.</span> <span class="nav-text">Prototype Rules</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#為何使用-Prototype-呢？"><span class="nav-number">3.</span> <span class="nav-text">為何使用 Prototype 呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prototype-chain"><span class="nav-number">4.</span> <span class="nav-text">Prototype chain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prototype-amp-Prototype-Chain"><span class="nav-number">5.</span> <span class="nav-text">Prototype &amp; Prototype Chain</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prototype-chain-裡如何尋找您的-methods-or-properties？"><span class="nav-number">5.1.</span> <span class="nav-text">Prototype chain 裡如何尋找您的 methods or properties？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Constructor-Function"><span class="nav-number">1.</span> <span class="nav-text">Constructor Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prototype-是什麼"><span class="nav-number">2.</span> <span class="nav-text">Prototype 是什麼</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prototype-Rules"><span class="nav-number">2.1.</span> <span class="nav-text">Prototype Rules</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#為何使用-Prototype-呢？"><span class="nav-number">3.</span> <span class="nav-text">為何使用 Prototype 呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prototype-chain"><span class="nav-number">4.</span> <span class="nav-text">Prototype chain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prototype-amp-Prototype-Chain"><span class="nav-number">5.</span> <span class="nav-text">Prototype &amp; Prototype Chain</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prototype-chain-裡如何尋找您的-methods-or-properties？"><span class="nav-number">5.1.</span> <span class="nav-text">Prototype chain 裡如何尋找您的 methods or properties？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#總結"><span class="nav-number">6.</span> <span class="nav-text">總結</span></a></li></ol></div>
             
 
           </div>
