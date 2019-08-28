@@ -98,22 +98,18 @@
 
 
 
-  <meta name="description" content="什么是HTTPHTTP(HyperText Transport Protocol 超文本传输协议) 是服务端和客户端之间通过请求模式传输超文本(例如html文件，js文件，图片…) 内容的协议。">
-<meta name="keywords" content="http,指令">
+  <meta name="description" content="Constructor Function在JS裡所有事物都是對象，function也是對象。構造函數透過new operator 可以創建新的對象Object。不使用 new 和一般函數沒有區別。   在 js 裡， new 是用來創建一個對象 new 構造函數(參數) -&amp;gt; 實例對象   基本 new 實現 思路：  創建新的實例對象 實例對象proto 指向於 構造函數.prototyp">
+<meta name="keywords" content="學習筆記,JavaScript,OOP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初見 HTTP">
-<meta property="og:url" content="http://yoursite.com/2018/10/06/HTTP/index.html">
+<meta property="og:title" content="OOP">
+<meta property="og:url" content="http://yoursite.com/2019/08/28/oop-1/index.html">
 <meta property="og:site_name" content="平凡前端">
-<meta property="og:description" content="什么是HTTPHTTP(HyperText Transport Protocol 超文本传输协议) 是服务端和客户端之间通过请求模式传输超文本(例如html文件，js文件，图片…) 内容的协议。">
+<meta property="og:description" content="Constructor Function在JS裡所有事物都是對象，function也是對象。構造函數透過new operator 可以創建新的對象Object。不使用 new 和一般函數沒有區別。   在 js 裡， new 是用來創建一個對象 new 構造函數(參數) -&amp;gt; 實例對象   基本 new 實現 思路：  創建新的實例對象 實例對象proto 指向於 構造函數.prototyp">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https://lh3.googleusercontent.com/Mp_n-ouVC_f0J_A8oixmH2nwviGDchlCj5_AS8vfqCKdPIM0nkMi2CZ8F85NNa2DBGMirmsMReAGr4LR6EQqorKvJtQ710WXhfVxapIOfeYhQ2m1rX3kFP3cMUWDGiWBpgr9VUY3H3mbhILSlgmJRSgl6AfImxo26cSMtMZyC6Va0tGAEyKa_k-M5uXc8pHLWTtk3pkxZiTaK_x7LRrH6AlndWHeijL0nd0F3n1i5I5u1J7AKSviERBfTYHEAI-KJ8hMU9KWaRTIrYrBKrtqMmzQod8SzRw0zq22z8UisngwZ_hkDxYxeYTPzcICY65S19E5TWQCDkBvlgZx44kfbpnifCXVYxWAaquoGtmr0t7yfelMYED1zZIgoJ27Xj0G3hT3EeTHo6hiRWVBHbHSdW6RzS4nR04Ae8vg9S64BuRZwMKrcf7g6e_rUcBxdsC5zVOpXHfXWJsmwEpOrWYw7TzvbMKGGQO4GoHYsASWOson58ziyOUjNgDFPf51OP8cqrN9vJSFWDZI45nZlizTvPT8NUsMbow9TLYAbKYFPOHGOB8dUc5_fnNYbPgjbC3-kshRFQGVkuKxVRc9dNA7zhg8JOZ4yx3tikMU7JyP6d1oODyOPK8UEzQhcdlCZoI=w955-h256-no">
-<meta property="og:image" content="https://lh3.googleusercontent.com/OahTQlNzGeXlKznVQwXSk79q89MBHhcThy1KFPo7HkMUFtwAE_OvUrM61nEPw07wP4DiH262TJdapnDDsy3PDAcjvSnU419h-GrRGLWlDIUOigf1zC7JfLlbpRsZE2rEET-nlSAd5zAOGa6B7hd4YGMwhoarKFYdU13GkWeHDihHfkXrxe1Pjt7ZS_O8GOCLuiOrPhpmOvt5o5nHyEuz-bqmlpXJKCzERvwO4erMo0G1oGFQN393SpI95MBTVH7bTiH3LI-Yl7DzimHnHxEkzj0Uplz7IejPmuGQVdh3DVMUHHrtXzBfd7wXtr7o5Zg4KN7bN0RIwAAyHngqEb-MwbB7IM-A_GyLiLKNdiP1WjBYgMzLQwb99TNGIC40Vd1KjsoZhV__HpYK5Igf2uUdEsLqpY8yWpiYaVyWO1vP2gEW52zcu9HIcFfsvlKWsBR3BkvBDzv5wK2FlevxnescyMqmkxFgby3HDQsyFxKxXTE_pxHjxr9B6bR2A53S7Vsfp699p5IkXWjixaZigQNfqc0SS-iYf1J0cMAfc4AeWPVNVnOggG_0ykfBClrW8LEy0FkajxUUQXnZrLXdQ9s5WSnzDRoZwU5PcQrApnDynypA07KM1jM4LshM5wKvb5I=w627-h440-no">
-<meta property="og:image" content="https://lh3.googleusercontent.com/4Ukl2rcmSuhee9lHzmtSAJjUnu1kK7DD3i00VZcj5q5JCpceeLPCmg_FoHynmK5opjbLulDIRXf7-XIh1w6zkCPRYyT5q5NlHOpCkZEhX7HAZgFt9RiWknDRwrRTjV3RSGgWgBAA9-VEl39UTwi9sB4cbFzYftUn09edp6aF6nFcSZiSnwWZCoHW5jlLiV4wrlZfdGj5oeLg1Wc1KDPoPZdg9-kW5EX1pa9sl0P7fLx5olUhH5EXSJERtbRwORgo-vcnS3EPhc3zf0VOf2nEh4iLBHNe9qYyGRy8exWvCro_Vpvf-WlZPVi9rjCshJf8rH_A_uSNnvhc58ESNZZpBIyeqgur0BQq05tQRt6xyjRsNEY5X4OHLJ_kVcN67rc7R5zvsqInIc7tE11ZIcCzY3LXYBk2dSUu1wmAvBIMPOonCe9sfUpxY2xCq1jruOHj_O0ZKV6WKyrLzKqvfQLEbsLtFHGRQJaGZlocc69BAmlTYAuUlulYJtvYeQKXORcHBXdfS62_r-RmfV3YEI4iTJluMbxdMlHc40s_IfMbvo4NWYUdCfUzu8j-OLyEl5TgOijeFzsM_ZgGODk7lukJBUhkDm8IqyTg2tJFeoZGbeGicRLGGn8kBYxLuZow8mw=w490-h241-no">
-<meta property="og:updated_time" content="2019-05-26T15:56:33.014Z">
+<meta property="og:updated_time" content="2019-08-28T03:43:43.760Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初見 HTTP">
-<meta name="twitter:description" content="什么是HTTPHTTP(HyperText Transport Protocol 超文本传输协议) 是服务端和客户端之间通过请求模式传输超文本(例如html文件，js文件，图片…) 内容的协议。">
-<meta name="twitter:image" content="https://lh3.googleusercontent.com/Mp_n-ouVC_f0J_A8oixmH2nwviGDchlCj5_AS8vfqCKdPIM0nkMi2CZ8F85NNa2DBGMirmsMReAGr4LR6EQqorKvJtQ710WXhfVxapIOfeYhQ2m1rX3kFP3cMUWDGiWBpgr9VUY3H3mbhILSlgmJRSgl6AfImxo26cSMtMZyC6Va0tGAEyKa_k-M5uXc8pHLWTtk3pkxZiTaK_x7LRrH6AlndWHeijL0nd0F3n1i5I5u1J7AKSviERBfTYHEAI-KJ8hMU9KWaRTIrYrBKrtqMmzQod8SzRw0zq22z8UisngwZ_hkDxYxeYTPzcICY65S19E5TWQCDkBvlgZx44kfbpnifCXVYxWAaquoGtmr0t7yfelMYED1zZIgoJ27Xj0G3hT3EeTHo6hiRWVBHbHSdW6RzS4nR04Ae8vg9S64BuRZwMKrcf7g6e_rUcBxdsC5zVOpXHfXWJsmwEpOrWYw7TzvbMKGGQO4GoHYsASWOson58ziyOUjNgDFPf51OP8cqrN9vJSFWDZI45nZlizTvPT8NUsMbow9TLYAbKYFPOHGOB8dUc5_fnNYbPgjbC3-kshRFQGVkuKxVRc9dNA7zhg8JOZ4yx3tikMU7JyP6d1oODyOPK8UEzQhcdlCZoI=w955-h256-no">
+<meta name="twitter:title" content="OOP">
+<meta name="twitter:description" content="Constructor Function在JS裡所有事物都是對象，function也是對象。構造函數透過new operator 可以創建新的對象Object。不使用 new 和一般函數沒有區別。   在 js 裡， new 是用來創建一個對象 new 構造函數(參數) -&amp;gt; 實例對象   基本 new 實現 思路：  創建新的實例對象 實例對象proto 指向於 構造函數.prototyp">
 
 
 
@@ -121,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2018/10/06/HTTP/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/08/28/oop-1/"/>
 
 
 
@@ -131,7 +127,7 @@
   };
 </script>
 
-  <title>初見 HTTP | 平凡前端</title>
+  <title>OOP | 平凡前端</title>
   
 
 
@@ -357,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/06/HTTP/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/oop-1/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="DecadeHew"/>
@@ -374,7 +370,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">初見 HTTP
+          <h1 class="post-title" itemprop="name headline">OOP
 
               
             
@@ -400,7 +396,7 @@
                 
               
 
-              <time title="Created: 2018-10-06 18:21:33" itemprop="dateCreated datePublished" datetime="2018-10-06T18:21:33+08:00">2018-10-06</time>
+              <time title="Created: 2019-08-28 11:06:53" itemprop="dateCreated datePublished" datetime="2019-08-28T11:06:53+08:00">2019-08-28</time>
             </span>
           
 
@@ -453,64 +449,91 @@
       
 
       
-        <h2 id="什么是HTTP"><a href="#什么是HTTP" class="headerlink" title="什么是HTTP"></a>什么是HTTP</h2><p>HTTP(HyperText Transport Protocol 超文本传输协议) 是服务端和客户端之间通过请求模式传输超文本(例如html文件，js文件，图片…) 内容的协议。</p>
-<a id="more"></a>
-<h2 id="HTTP-请求包括哪些部分"><a href="#HTTP-请求包括哪些部分" class="headerlink" title="HTTP 请求包括哪些部分"></a>HTTP 请求包括哪些部分</h2><p>请求报文由头部(首部)(Header)，空行，报文主体(内容)组成</p>
-<ol>
-<li><strong>请求Header格式结构</strong>：请求行 | 请求首部字段 | 通用首部字段 | 实体首部字段 | 其他</li>
-<li><strong>空行</strong> ：CR+LF 换行符</li>
-<li><strong>报文主体</strong>：可以带着browser请求内容发送数据</li>
-</ol>
-<pre><code>例子：
-GET /home.html HTTP/1.1
-Host: developer.mozilla.org
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate, br
-Referer: https://developer.mozilla.org/testpage.html
-Connection: keep-alive
-Upgrade-Insecure-Requests: 1
-If-Modified-Since: Mon, 18 Jul 2016 02:36:04 GMT
-If-None-Match: &quot;c561c68d0ba92bbeb8b0fff2a9199f722e3a621a&quot;
-Cache-Control: max-age=0
-</code></pre><p>在chrome开发者模式打开network点击网址查看Request Header 内容：<br><img src="https://lh3.googleusercontent.com/Mp_n-ouVC_f0J_A8oixmH2nwviGDchlCj5_AS8vfqCKdPIM0nkMi2CZ8F85NNa2DBGMirmsMReAGr4LR6EQqorKvJtQ710WXhfVxapIOfeYhQ2m1rX3kFP3cMUWDGiWBpgr9VUY3H3mbhILSlgmJRSgl6AfImxo26cSMtMZyC6Va0tGAEyKa_k-M5uXc8pHLWTtk3pkxZiTaK_x7LRrH6AlndWHeijL0nd0F3n1i5I5u1J7AKSviERBfTYHEAI-KJ8hMU9KWaRTIrYrBKrtqMmzQod8SzRw0zq22z8UisngwZ_hkDxYxeYTPzcICY65S19E5TWQCDkBvlgZx44kfbpnifCXVYxWAaquoGtmr0t7yfelMYED1zZIgoJ27Xj0G3hT3EeTHo6hiRWVBHbHSdW6RzS4nR04Ae8vg9S64BuRZwMKrcf7g6e_rUcBxdsC5zVOpXHfXWJsmwEpOrWYw7TzvbMKGGQO4GoHYsASWOson58ziyOUjNgDFPf51OP8cqrN9vJSFWDZI45nZlizTvPT8NUsMbow9TLYAbKYFPOHGOB8dUc5_fnNYbPgjbC3-kshRFQGVkuKxVRc9dNA7zhg8JOZ4yx3tikMU7JyP6d1oODyOPK8UEzQhcdlCZoI=w955-h256-no" alt=""></p>
-<h2 id="HTTP-响应包括哪些部分"><a href="#HTTP-响应包括哪些部分" class="headerlink" title="HTTP 响应包括哪些部分"></a>HTTP 响应包括哪些部分</h2><p>响应报文由头部(首部)(Header)，空行，报文主体(内容)组成</p>
-<ol>
-<li><strong>响应Header格式结构</strong>：状态行 | 请求首部字段 | 通用首部字段 | 实体首部字段 | 其他</li>
-<li><strong>空行</strong> ：CR+LF 换行符</li>
-<li><strong>报文主体</strong>：服务端返回给客户端信息</li>
-</ol>
-<pre><code>例子：
-200 OK
-Access-Control-Allow-Origin: *
-Connection: Keep-Alive
-Content-Encoding: gzip
-Content-Type: text/html; charset=utf-8
-Date: Mon, 18 Jul 2016 16:06:00 GMT
-Etag: &quot;c561c68d0ba92bbeb8b0f612a9199f722e3a621a&quot;
-Keep-Alive: timeout=5, max=997
-Last-Modified: Mon, 18 Jul 2016 02:36:04 GMT
-Server: Apache
-Set-Cookie: mykey=myvalue; expires=Mon, 17-Jul-2017 16:06:00 GMT; Max-Age=31449600; Path=/; secure
-Transfer-Encoding: chunked
-Vary: Cookie, Accept-Encoding
-X-Backend-Server: developer2.webapp.scl3.mozilla.com
-X-Cache-Info: not cacheable; meta data too large
-X-kuma-revision: 1085259
-x-frame-options: DENY
-</code></pre><p>在chrome开发者模式打开network点击网址查看General &amp;&amp; Response Header &amp;&amp; Preview &amp;&amp; Response 内容：<br><img src="https://lh3.googleusercontent.com/OahTQlNzGeXlKznVQwXSk79q89MBHhcThy1KFPo7HkMUFtwAE_OvUrM61nEPw07wP4DiH262TJdapnDDsy3PDAcjvSnU419h-GrRGLWlDIUOigf1zC7JfLlbpRsZE2rEET-nlSAd5zAOGa6B7hd4YGMwhoarKFYdU13GkWeHDihHfkXrxe1Pjt7ZS_O8GOCLuiOrPhpmOvt5o5nHyEuz-bqmlpXJKCzERvwO4erMo0G1oGFQN393SpI95MBTVH7bTiH3LI-Yl7DzimHnHxEkzj0Uplz7IejPmuGQVdh3DVMUHHrtXzBfd7wXtr7o5Zg4KN7bN0RIwAAyHngqEb-MwbB7IM-A_GyLiLKNdiP1WjBYgMzLQwb99TNGIC40Vd1KjsoZhV__HpYK5Igf2uUdEsLqpY8yWpiYaVyWO1vP2gEW52zcu9HIcFfsvlKWsBR3BkvBDzv5wK2FlevxnescyMqmkxFgby3HDQsyFxKxXTE_pxHjxr9B6bR2A53S7Vsfp699p5IkXWjixaZigQNfqc0SS-iYf1J0cMAfc4AeWPVNVnOggG_0ykfBClrW8LEy0FkajxUUQXnZrLXdQ9s5WSnzDRoZwU5PcQrApnDynypA07KM1jM4LshM5wKvb5I=w627-h440-no" alt=""></p>
-<h2 id="如何使用-curl-命令"><a href="#如何使用-curl-命令" class="headerlink" title="如何使用 curl 命令"></a>如何使用 curl 命令</h2><p>打开terminal，输入curl -s -v -H “Hello: xxx” – “<a href="https://www.google.com&quot;" target="_blank" rel="noopener">https://www.google.com&quot;</a> 。<br>请求google首页页面，然后得到响应结果</p>
+        <h2 id="Constructor-Function"><a href="#Constructor-Function" class="headerlink" title="Constructor Function"></a>Constructor Function</h2><p>在<code>JS</code>裡所有事物都是對象，<code>function</code>也是對象。<br>構造函數透過<code>new</code> operator 可以創建新的對象<code>Object</code>。不使用 <code>new</code> 和一般函數沒有區別。</p>
 <blockquote>
-<p>使用curl做一个请求动作，以及得到响应结果。</p>
-</blockquote>
-<p>如图下<br><img src="https://lh3.googleusercontent.com/4Ukl2rcmSuhee9lHzmtSAJjUnu1kK7DD3i00VZcj5q5JCpceeLPCmg_FoHynmK5opjbLulDIRXf7-XIh1w6zkCPRYyT5q5NlHOpCkZEhX7HAZgFt9RiWknDRwrRTjV3RSGgWgBAA9-VEl39UTwi9sB4cbFzYftUn09edp6aF6nFcSZiSnwWZCoHW5jlLiV4wrlZfdGj5oeLg1Wc1KDPoPZdg9-kW5EX1pa9sl0P7fLx5olUhH5EXSJERtbRwORgo-vcnS3EPhc3zf0VOf2nEh4iLBHNe9qYyGRy8exWvCro_Vpvf-WlZPVi9rjCshJf8rH_A_uSNnvhc58ESNZZpBIyeqgur0BQq05tQRt6xyjRsNEY5X4OHLJ_kVcN67rc7R5zvsqInIc7tE11ZIcCzY3LXYBk2dSUu1wmAvBIMPOonCe9sfUpxY2xCq1jruOHj_O0ZKV6WKyrLzKqvfQLEbsLtFHGRQJaGZlocc69BAmlTYAuUlulYJtvYeQKXORcHBXdfS62_r-RmfV3YEI4iTJluMbxdMlHc40s_IfMbvo4NWYUdCfUzu8j-OLyEl5TgOijeFzsM_ZgGODk7lukJBUhkDm8IqyTg2tJFeoZGbeGicRLGGn8kBYxLuZow8mw=w490-h241-no" alt=""></p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>后续会增加深入理解http原理</p>
 <ul>
-<li>MDN http</li>
-<li>图解http</li>
-<li>其他文章</li>
+<li>在 <code>js</code> 裡， <code>new</code> 是用來創建一個對象</li>
+<li><code>new</code> 構造函數(參數) -&gt; 實例對象</li>
 </ul>
+</blockquote>
+<p><strong>基本 <code>new</code> 實現 思路</strong>：</p>
+<ol>
+<li>創建新的實例對象</li>
+<li>實例對象<strong>proto</strong> 指向於 構造函數.prototype</li>
+<li>構造函數裡 this 指向實例對象</li>
+<li>返回實例對象</li>
+</ol>
+<p>可以參考 ☞ <a href="https://github.com/decadehew/frontend-notes/blob/master/javascript/js-new/app.js" target="_blank" rel="noopener">我寫了一個實現 new</a></p>
+<a id="more"></a>
+<h2 id="Prototype-是什麼"><a href="#Prototype-是什麼" class="headerlink" title="Prototype 是什麼"></a>Prototype 是什麼</h2><blockquote>
+<p>JavaScript 基於 原型。<br>我們可以使用 <code>prototype</code> 來添加屬性/方法給所有有關實例對象都能共享。</p>
+</blockquote>
+<h3 id="Prototype-Rules"><a href="#Prototype-Rules" class="headerlink" title="Prototype Rules"></a>Prototype Rules</h3><blockquote>
+<p>必須牢記在心這些規則是在了解 <code>prototype chain</code> 基礎上</p>
+<ul>
+<li>每個函數都有 <code>prototype</code> 屬性</li>
+<li>每個對象內部屬性都有隱式 <code>__proto__</code></li>
+<li>每個實例的 <code>__proto__</code>指向創建它的構造函數的 <code>prototype</code></li>
+<li>每個函數是由 <code>Function</code> 所創建的。</li>
+<li><code>Function.prototype</code> === <code>一般函數.__proto__</code></li>
+<li><code>一般函數.prototype.__proto__</code> === <code>Object.prototype</code> </li>
+</ul>
+</blockquote>
+<h2 id="為何使用-Prototype-呢？"><a href="#為何使用-Prototype-呢？" class="headerlink" title="為何使用 Prototype 呢？"></a>為何使用 Prototype 呢？</h2><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Cat</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span>lives <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+
+ <span class="token keyword">this</span><span class="token punctuation">.</span>sayName <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Meow! My name is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> c1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token string">'cat1'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> c2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token string">'cat2'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+c2<span class="token punctuation">.</span>sayName <span class="token operator">=</span> <span class="token string">'haha'</span><span class="token punctuation">;</span>
+c1<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Meow! My name is cat1</span>
+c2<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// haha</span>
+</code></pre>
+<p>根據以上程式來講解，我把 <code>c2.sayName</code> 屬性值原函數改成字串haha。當 <code>c1.sayName</code> 還是一樣是函數。因為 <code>c1</code> 和 <code>c2</code> 對象是不相等的，當然你改變某個對象的屬性是不會影響到另一個對象。如果你想要是這樣，其實是沒問題。</p>
+<p>問題來了，我想要在我改某一個對象的屬性值時，另一個對象也需要立即得到反映。<strong>在這前提下，兩個對象必須是由 Cat構造函數所創建對象，如 <code>c1</code> 和 <code>c2</code>。</strong>再回來這個問題 <code>sayName</code> 屬性的變更，如何共享其他對象了。</p>
+<p>就是把 <code>sayName</code> 屬性存在 <code>prototype</code> 對象裡，這樣一來可以<strong>節省空間</strong>也可以讓所有實例對象共享(享用) <code>prototype</code> 對象所保存的屬性和方法，只要 <code>prototype</code> 對象裡屬性修改，可以立即在所有實例得到反映。稍微講解為何使用 <code>prototype</code> 可以節省空間呢。可以想像下，透過 <code>new</code> 來創建多個對象，多個對象裡屬性是一樣，這樣會<strong>佔用內存</strong>。<br>當然我們可以分類哪個需要放在構造函數哪個需要放在 <code>prototype</code>。</p>
+<ul>
+<li>具體某個對象的特定屬性，通常放在構造函數裡。例如 <code>name</code>, <code>age</code>等等，因為每個對象 <code>name</code>, <code>age</code> 有所不同，僅僅只有特定屬於某個對象。</li>
+<li>所有對象都可以共享屬性和方法，通常放在 <code>prototype</code> 對象裡。 例如 <code>sayName</code> 等等，因為所有對象可以共同訪問當前 <code>sayName</code> 的值，指是所有對象一個共同動作。</li>
+</ul>
+<h2 id="Prototype-chain"><a href="#Prototype-chain" class="headerlink" title="Prototype chain"></a>Prototype chain</h2><blockquote>
+<ul>
+<li><code>Prototype chain</code> 主要實現了繼承方法。</li>
+<li>每個<code>prototype</code>裡都有指向它自己<code>prototype</code>，這叫做 <code>prototype chain</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>每個構造函數都有一個屬性 <code>prototype</code> 對象，那麼 <code>prototype</code> 對象都包含一個 <code>__proto__</code> 並指向創建它構造函數的 <code>prototype</code> (<code>Object.prototype</code>)。</li>
+<li>每個實例對象都有一個屬性 <code>__proto__</code> 對象指向 <code>prototype</code> 對象(<code>Object.prototype</code>)。</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+fn<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> Object<span class="token punctuation">.</span>prototype <span class="token comment" spellcheck="true">// true</span>
+
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+obj<span class="token punctuation">.</span>__proto__ <span class="token operator">===</span> Object<span class="token punctuation">.</span>prototype <span class="token comment" spellcheck="true">// true</span>
+</code></pre>
+<h2 id="Prototype-amp-Prototype-Chain"><a href="#Prototype-amp-Prototype-Chain" class="headerlink" title="Prototype &amp; Prototype Chain"></a>Prototype &amp; Prototype Chain</h2><p>為了節省空間，我們會把<code>methods</code>添加到<code>prototype</code>裡。<br>全部對象都是由構造函數創建。<br>每個函數都會有<code>prototype</code>，當函數使用<code>new</code>時被作為構造函數使用，返回一個對象。<br>每個對象裡都有隱藏式的<code>__proto__</code>來指向構造函數的<code>prototype</code>。<br>每個<code>prototype</code>裡都有指向它自己<code>prototype</code>，這叫做 <code>prototype chain</code></p>
+<p>舉例子：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+Cat<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>meow <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Meow, Meow'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> bailey <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+bailey<span class="token punctuation">.</span><span class="token function">lives</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="Prototype-chain-裡如何尋找您的-methods-or-properties？"><a href="#Prototype-chain-裡如何尋找您的-methods-or-properties？" class="headerlink" title="Prototype chain 裡如何尋找您的 methods or properties？"></a>Prototype chain 裡如何尋找您的 methods or properties？</h3><ol>
+<li><code>JavaScript engine</code> 會優先在對象裡找自有屬性</li>
+<li>如果沒有找不到，將會進入構造函數裡<code>prototype</code>裡尋找到匹配屬性名。</li>
+<li>屬性沒有在<code>prototype</code>裡，<code>JS engine</code> 會根據 <code>chain</code> 往下找。</li>
+<li>直到 <code>chain</code> 結束，就是根 <code>Object</code>，會返回 <code>undefined</code></li>
+</ol>
 
       
     </div>
@@ -537,9 +560,11 @@ x-frame-options: DENY
         
         <div class="post-tags">
           
-            <a href="/tags/http/" rel="tag"># http</a>
+            <a href="/tags/學習筆記/" rel="tag"># 學習筆記</a>
           
-            <a href="/tags/指令/" rel="tag"># 指令</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/OOP/" rel="tag"># OOP</a>
           
         </div>
       
@@ -552,8 +577,8 @@ x-frame-options: DENY
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/10/git基本命令/" rel="next" title="git基本命令">
-                <i class="fa fa-chevron-left"></i> git基本命令
+              <a href="/2019/08/19/基本類型依然可以使用引用類型屬性/" rel="next" title="基本類型依然可以使用引用類型屬性">
+                <i class="fa fa-chevron-left"></i> 基本類型依然可以使用引用類型屬性
               </a>
             
           </div>
@@ -562,8 +587,8 @@ x-frame-options: DENY
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/13/html常用標籤/" rel="prev" title="html常用標籤">
-                html常用標籤 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/28/oop-2/" rel="prev" title="OOP - 繼承">
+                OOP - 繼承 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -789,7 +814,7 @@ x-frame-options: DENY
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是HTTP"><span class="nav-number">1.</span> <span class="nav-text">什么是HTTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-请求包括哪些部分"><span class="nav-number">2.</span> <span class="nav-text">HTTP 请求包括哪些部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-响应包括哪些部分"><span class="nav-number">3.</span> <span class="nav-text">HTTP 响应包括哪些部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用-curl-命令"><span class="nav-number">4.</span> <span class="nav-text">如何使用 curl 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Constructor-Function"><span class="nav-number">1.</span> <span class="nav-text">Constructor Function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prototype-是什麼"><span class="nav-number">2.</span> <span class="nav-text">Prototype 是什麼</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prototype-Rules"><span class="nav-number">2.1.</span> <span class="nav-text">Prototype Rules</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#為何使用-Prototype-呢？"><span class="nav-number">3.</span> <span class="nav-text">為何使用 Prototype 呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prototype-chain"><span class="nav-number">4.</span> <span class="nav-text">Prototype chain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prototype-amp-Prototype-Chain"><span class="nav-number">5.</span> <span class="nav-text">Prototype &amp; Prototype Chain</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prototype-chain-裡如何尋找您的-methods-or-properties？"><span class="nav-number">5.1.</span> <span class="nav-text">Prototype chain 裡如何尋找您的 methods or properties？</span></a></li></ol></li></ol></div>
             
 
           </div>

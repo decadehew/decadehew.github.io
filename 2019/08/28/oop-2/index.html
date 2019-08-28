@@ -98,22 +98,18 @@
 
 
 
-  <meta name="description" content="什么是HTTPHTTP(HyperText Transport Protocol 超文本传输协议) 是服务端和客户端之间通过请求模式传输超文本(例如html文件，js文件，图片…) 内容的协议。">
-<meta name="keywords" content="http,指令">
+  <meta name="description" content="繼承技巧 在 JavaScript 中繼承是指一個對象基於另一個對象 JavaScript 是利用 prototype 來實現繼承以及來管理繼承。 prototype 對象用途是所有實例共享的屬性。 所有對象默認繼承來自 Object.prototype">
+<meta name="keywords" content="學習筆記,JavaScript,OOP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初見 HTTP">
-<meta property="og:url" content="http://yoursite.com/2018/10/06/HTTP/index.html">
+<meta property="og:title" content="OOP - 繼承">
+<meta property="og:url" content="http://yoursite.com/2019/08/28/oop-2/index.html">
 <meta property="og:site_name" content="平凡前端">
-<meta property="og:description" content="什么是HTTPHTTP(HyperText Transport Protocol 超文本传输协议) 是服务端和客户端之间通过请求模式传输超文本(例如html文件，js文件，图片…) 内容的协议。">
+<meta property="og:description" content="繼承技巧 在 JavaScript 中繼承是指一個對象基於另一個對象 JavaScript 是利用 prototype 來實現繼承以及來管理繼承。 prototype 對象用途是所有實例共享的屬性。 所有對象默認繼承來自 Object.prototype">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https://lh3.googleusercontent.com/Mp_n-ouVC_f0J_A8oixmH2nwviGDchlCj5_AS8vfqCKdPIM0nkMi2CZ8F85NNa2DBGMirmsMReAGr4LR6EQqorKvJtQ710WXhfVxapIOfeYhQ2m1rX3kFP3cMUWDGiWBpgr9VUY3H3mbhILSlgmJRSgl6AfImxo26cSMtMZyC6Va0tGAEyKa_k-M5uXc8pHLWTtk3pkxZiTaK_x7LRrH6AlndWHeijL0nd0F3n1i5I5u1J7AKSviERBfTYHEAI-KJ8hMU9KWaRTIrYrBKrtqMmzQod8SzRw0zq22z8UisngwZ_hkDxYxeYTPzcICY65S19E5TWQCDkBvlgZx44kfbpnifCXVYxWAaquoGtmr0t7yfelMYED1zZIgoJ27Xj0G3hT3EeTHo6hiRWVBHbHSdW6RzS4nR04Ae8vg9S64BuRZwMKrcf7g6e_rUcBxdsC5zVOpXHfXWJsmwEpOrWYw7TzvbMKGGQO4GoHYsASWOson58ziyOUjNgDFPf51OP8cqrN9vJSFWDZI45nZlizTvPT8NUsMbow9TLYAbKYFPOHGOB8dUc5_fnNYbPgjbC3-kshRFQGVkuKxVRc9dNA7zhg8JOZ4yx3tikMU7JyP6d1oODyOPK8UEzQhcdlCZoI=w955-h256-no">
-<meta property="og:image" content="https://lh3.googleusercontent.com/OahTQlNzGeXlKznVQwXSk79q89MBHhcThy1KFPo7HkMUFtwAE_OvUrM61nEPw07wP4DiH262TJdapnDDsy3PDAcjvSnU419h-GrRGLWlDIUOigf1zC7JfLlbpRsZE2rEET-nlSAd5zAOGa6B7hd4YGMwhoarKFYdU13GkWeHDihHfkXrxe1Pjt7ZS_O8GOCLuiOrPhpmOvt5o5nHyEuz-bqmlpXJKCzERvwO4erMo0G1oGFQN393SpI95MBTVH7bTiH3LI-Yl7DzimHnHxEkzj0Uplz7IejPmuGQVdh3DVMUHHrtXzBfd7wXtr7o5Zg4KN7bN0RIwAAyHngqEb-MwbB7IM-A_GyLiLKNdiP1WjBYgMzLQwb99TNGIC40Vd1KjsoZhV__HpYK5Igf2uUdEsLqpY8yWpiYaVyWO1vP2gEW52zcu9HIcFfsvlKWsBR3BkvBDzv5wK2FlevxnescyMqmkxFgby3HDQsyFxKxXTE_pxHjxr9B6bR2A53S7Vsfp699p5IkXWjixaZigQNfqc0SS-iYf1J0cMAfc4AeWPVNVnOggG_0ykfBClrW8LEy0FkajxUUQXnZrLXdQ9s5WSnzDRoZwU5PcQrApnDynypA07KM1jM4LshM5wKvb5I=w627-h440-no">
-<meta property="og:image" content="https://lh3.googleusercontent.com/4Ukl2rcmSuhee9lHzmtSAJjUnu1kK7DD3i00VZcj5q5JCpceeLPCmg_FoHynmK5opjbLulDIRXf7-XIh1w6zkCPRYyT5q5NlHOpCkZEhX7HAZgFt9RiWknDRwrRTjV3RSGgWgBAA9-VEl39UTwi9sB4cbFzYftUn09edp6aF6nFcSZiSnwWZCoHW5jlLiV4wrlZfdGj5oeLg1Wc1KDPoPZdg9-kW5EX1pa9sl0P7fLx5olUhH5EXSJERtbRwORgo-vcnS3EPhc3zf0VOf2nEh4iLBHNe9qYyGRy8exWvCro_Vpvf-WlZPVi9rjCshJf8rH_A_uSNnvhc58ESNZZpBIyeqgur0BQq05tQRt6xyjRsNEY5X4OHLJ_kVcN67rc7R5zvsqInIc7tE11ZIcCzY3LXYBk2dSUu1wmAvBIMPOonCe9sfUpxY2xCq1jruOHj_O0ZKV6WKyrLzKqvfQLEbsLtFHGRQJaGZlocc69BAmlTYAuUlulYJtvYeQKXORcHBXdfS62_r-RmfV3YEI4iTJluMbxdMlHc40s_IfMbvo4NWYUdCfUzu8j-OLyEl5TgOijeFzsM_ZgGODk7lukJBUhkDm8IqyTg2tJFeoZGbeGicRLGGn8kBYxLuZow8mw=w490-h241-no">
-<meta property="og:updated_time" content="2019-05-26T15:56:33.014Z">
+<meta property="og:updated_time" content="2019-08-28T03:43:33.614Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初見 HTTP">
-<meta name="twitter:description" content="什么是HTTPHTTP(HyperText Transport Protocol 超文本传输协议) 是服务端和客户端之间通过请求模式传输超文本(例如html文件，js文件，图片…) 内容的协议。">
-<meta name="twitter:image" content="https://lh3.googleusercontent.com/Mp_n-ouVC_f0J_A8oixmH2nwviGDchlCj5_AS8vfqCKdPIM0nkMi2CZ8F85NNa2DBGMirmsMReAGr4LR6EQqorKvJtQ710WXhfVxapIOfeYhQ2m1rX3kFP3cMUWDGiWBpgr9VUY3H3mbhILSlgmJRSgl6AfImxo26cSMtMZyC6Va0tGAEyKa_k-M5uXc8pHLWTtk3pkxZiTaK_x7LRrH6AlndWHeijL0nd0F3n1i5I5u1J7AKSviERBfTYHEAI-KJ8hMU9KWaRTIrYrBKrtqMmzQod8SzRw0zq22z8UisngwZ_hkDxYxeYTPzcICY65S19E5TWQCDkBvlgZx44kfbpnifCXVYxWAaquoGtmr0t7yfelMYED1zZIgoJ27Xj0G3hT3EeTHo6hiRWVBHbHSdW6RzS4nR04Ae8vg9S64BuRZwMKrcf7g6e_rUcBxdsC5zVOpXHfXWJsmwEpOrWYw7TzvbMKGGQO4GoHYsASWOson58ziyOUjNgDFPf51OP8cqrN9vJSFWDZI45nZlizTvPT8NUsMbow9TLYAbKYFPOHGOB8dUc5_fnNYbPgjbC3-kshRFQGVkuKxVRc9dNA7zhg8JOZ4yx3tikMU7JyP6d1oODyOPK8UEzQhcdlCZoI=w955-h256-no">
+<meta name="twitter:title" content="OOP - 繼承">
+<meta name="twitter:description" content="繼承技巧 在 JavaScript 中繼承是指一個對象基於另一個對象 JavaScript 是利用 prototype 來實現繼承以及來管理繼承。 prototype 對象用途是所有實例共享的屬性。 所有對象默認繼承來自 Object.prototype">
 
 
 
@@ -121,7 +117,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2018/10/06/HTTP/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/08/28/oop-2/"/>
 
 
 
@@ -131,7 +127,7 @@
   };
 </script>
 
-  <title>初見 HTTP | 平凡前端</title>
+  <title>OOP - 繼承 | 平凡前端</title>
   
 
 
@@ -357,7 +353,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/06/HTTP/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/28/oop-2/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="DecadeHew"/>
@@ -374,7 +370,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">初見 HTTP
+          <h1 class="post-title" itemprop="name headline">OOP - 繼承
 
               
             
@@ -400,7 +396,7 @@
                 
               
 
-              <time title="Created: 2018-10-06 18:21:33" itemprop="dateCreated datePublished" datetime="2018-10-06T18:21:33+08:00">2018-10-06</time>
+              <time title="Created: 2019-08-28 11:09:27" itemprop="dateCreated datePublished" datetime="2019-08-28T11:09:27+08:00">2019-08-28</time>
             </span>
           
 
@@ -453,65 +449,115 @@
       
 
       
-        <h2 id="什么是HTTP"><a href="#什么是HTTP" class="headerlink" title="什么是HTTP"></a>什么是HTTP</h2><p>HTTP(HyperText Transport Protocol 超文本传输协议) 是服务端和客户端之间通过请求模式传输超文本(例如html文件，js文件，图片…) 内容的协议。</p>
-<a id="more"></a>
-<h2 id="HTTP-请求包括哪些部分"><a href="#HTTP-请求包括哪些部分" class="headerlink" title="HTTP 请求包括哪些部分"></a>HTTP 请求包括哪些部分</h2><p>请求报文由头部(首部)(Header)，空行，报文主体(内容)组成</p>
-<ol>
-<li><strong>请求Header格式结构</strong>：请求行 | 请求首部字段 | 通用首部字段 | 实体首部字段 | 其他</li>
-<li><strong>空行</strong> ：CR+LF 换行符</li>
-<li><strong>报文主体</strong>：可以带着browser请求内容发送数据</li>
-</ol>
-<pre><code>例子：
-GET /home.html HTTP/1.1
-Host: developer.mozilla.org
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
-Accept-Language: en-US,en;q=0.5
-Accept-Encoding: gzip, deflate, br
-Referer: https://developer.mozilla.org/testpage.html
-Connection: keep-alive
-Upgrade-Insecure-Requests: 1
-If-Modified-Since: Mon, 18 Jul 2016 02:36:04 GMT
-If-None-Match: &quot;c561c68d0ba92bbeb8b0fff2a9199f722e3a621a&quot;
-Cache-Control: max-age=0
-</code></pre><p>在chrome开发者模式打开network点击网址查看Request Header 内容：<br><img src="https://lh3.googleusercontent.com/Mp_n-ouVC_f0J_A8oixmH2nwviGDchlCj5_AS8vfqCKdPIM0nkMi2CZ8F85NNa2DBGMirmsMReAGr4LR6EQqorKvJtQ710WXhfVxapIOfeYhQ2m1rX3kFP3cMUWDGiWBpgr9VUY3H3mbhILSlgmJRSgl6AfImxo26cSMtMZyC6Va0tGAEyKa_k-M5uXc8pHLWTtk3pkxZiTaK_x7LRrH6AlndWHeijL0nd0F3n1i5I5u1J7AKSviERBfTYHEAI-KJ8hMU9KWaRTIrYrBKrtqMmzQod8SzRw0zq22z8UisngwZ_hkDxYxeYTPzcICY65S19E5TWQCDkBvlgZx44kfbpnifCXVYxWAaquoGtmr0t7yfelMYED1zZIgoJ27Xj0G3hT3EeTHo6hiRWVBHbHSdW6RzS4nR04Ae8vg9S64BuRZwMKrcf7g6e_rUcBxdsC5zVOpXHfXWJsmwEpOrWYw7TzvbMKGGQO4GoHYsASWOson58ziyOUjNgDFPf51OP8cqrN9vJSFWDZI45nZlizTvPT8NUsMbow9TLYAbKYFPOHGOB8dUc5_fnNYbPgjbC3-kshRFQGVkuKxVRc9dNA7zhg8JOZ4yx3tikMU7JyP6d1oODyOPK8UEzQhcdlCZoI=w955-h256-no" alt=""></p>
-<h2 id="HTTP-响应包括哪些部分"><a href="#HTTP-响应包括哪些部分" class="headerlink" title="HTTP 响应包括哪些部分"></a>HTTP 响应包括哪些部分</h2><p>响应报文由头部(首部)(Header)，空行，报文主体(内容)组成</p>
-<ol>
-<li><strong>响应Header格式结构</strong>：状态行 | 请求首部字段 | 通用首部字段 | 实体首部字段 | 其他</li>
-<li><strong>空行</strong> ：CR+LF 换行符</li>
-<li><strong>报文主体</strong>：服务端返回给客户端信息</li>
-</ol>
-<pre><code>例子：
-200 OK
-Access-Control-Allow-Origin: *
-Connection: Keep-Alive
-Content-Encoding: gzip
-Content-Type: text/html; charset=utf-8
-Date: Mon, 18 Jul 2016 16:06:00 GMT
-Etag: &quot;c561c68d0ba92bbeb8b0f612a9199f722e3a621a&quot;
-Keep-Alive: timeout=5, max=997
-Last-Modified: Mon, 18 Jul 2016 02:36:04 GMT
-Server: Apache
-Set-Cookie: mykey=myvalue; expires=Mon, 17-Jul-2017 16:06:00 GMT; Max-Age=31449600; Path=/; secure
-Transfer-Encoding: chunked
-Vary: Cookie, Accept-Encoding
-X-Backend-Server: developer2.webapp.scl3.mozilla.com
-X-Cache-Info: not cacheable; meta data too large
-X-kuma-revision: 1085259
-x-frame-options: DENY
-</code></pre><p>在chrome开发者模式打开network点击网址查看General &amp;&amp; Response Header &amp;&amp; Preview &amp;&amp; Response 内容：<br><img src="https://lh3.googleusercontent.com/OahTQlNzGeXlKznVQwXSk79q89MBHhcThy1KFPo7HkMUFtwAE_OvUrM61nEPw07wP4DiH262TJdapnDDsy3PDAcjvSnU419h-GrRGLWlDIUOigf1zC7JfLlbpRsZE2rEET-nlSAd5zAOGa6B7hd4YGMwhoarKFYdU13GkWeHDihHfkXrxe1Pjt7ZS_O8GOCLuiOrPhpmOvt5o5nHyEuz-bqmlpXJKCzERvwO4erMo0G1oGFQN393SpI95MBTVH7bTiH3LI-Yl7DzimHnHxEkzj0Uplz7IejPmuGQVdh3DVMUHHrtXzBfd7wXtr7o5Zg4KN7bN0RIwAAyHngqEb-MwbB7IM-A_GyLiLKNdiP1WjBYgMzLQwb99TNGIC40Vd1KjsoZhV__HpYK5Igf2uUdEsLqpY8yWpiYaVyWO1vP2gEW52zcu9HIcFfsvlKWsBR3BkvBDzv5wK2FlevxnescyMqmkxFgby3HDQsyFxKxXTE_pxHjxr9B6bR2A53S7Vsfp699p5IkXWjixaZigQNfqc0SS-iYf1J0cMAfc4AeWPVNVnOggG_0ykfBClrW8LEy0FkajxUUQXnZrLXdQ9s5WSnzDRoZwU5PcQrApnDynypA07KM1jM4LshM5wKvb5I=w627-h440-no" alt=""></p>
-<h2 id="如何使用-curl-命令"><a href="#如何使用-curl-命令" class="headerlink" title="如何使用 curl 命令"></a>如何使用 curl 命令</h2><p>打开terminal，输入curl -s -v -H “Hello: xxx” – “<a href="https://www.google.com&quot;" target="_blank" rel="noopener">https://www.google.com&quot;</a> 。<br>请求google首页页面，然后得到响应结果</p>
-<blockquote>
-<p>使用curl做一个请求动作，以及得到响应结果。</p>
-</blockquote>
-<p>如图下<br><img src="https://lh3.googleusercontent.com/4Ukl2rcmSuhee9lHzmtSAJjUnu1kK7DD3i00VZcj5q5JCpceeLPCmg_FoHynmK5opjbLulDIRXf7-XIh1w6zkCPRYyT5q5NlHOpCkZEhX7HAZgFt9RiWknDRwrRTjV3RSGgWgBAA9-VEl39UTwi9sB4cbFzYftUn09edp6aF6nFcSZiSnwWZCoHW5jlLiV4wrlZfdGj5oeLg1Wc1KDPoPZdg9-kW5EX1pa9sl0P7fLx5olUhH5EXSJERtbRwORgo-vcnS3EPhc3zf0VOf2nEh4iLBHNe9qYyGRy8exWvCro_Vpvf-WlZPVi9rjCshJf8rH_A_uSNnvhc58ESNZZpBIyeqgur0BQq05tQRt6xyjRsNEY5X4OHLJ_kVcN67rc7R5zvsqInIc7tE11ZIcCzY3LXYBk2dSUu1wmAvBIMPOonCe9sfUpxY2xCq1jruOHj_O0ZKV6WKyrLzKqvfQLEbsLtFHGRQJaGZlocc69BAmlTYAuUlulYJtvYeQKXORcHBXdfS62_r-RmfV3YEI4iTJluMbxdMlHc40s_IfMbvo4NWYUdCfUzu8j-OLyEl5TgOijeFzsM_ZgGODk7lukJBUhkDm8IqyTg2tJFeoZGbeGicRLGGn8kBYxLuZow8mw=w490-h241-no" alt=""></p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>后续会增加深入理解http原理</p>
-<ul>
-<li>MDN http</li>
-<li>图解http</li>
-<li>其他文章</li>
+        <h2 id="繼承技巧"><a href="#繼承技巧" class="headerlink" title="繼承技巧"></a>繼承技巧</h2><ul>
+<li>在 <code>JavaScript</code> 中繼承是指一個對象基於另一個對象</li>
+<li><code>JavaScript</code> 是利用 <code>prototype</code> 來實現繼承以及來管理繼承。</li>
+<li><code>prototype</code> 對象用途是所有實例共享的屬性。</li>
+<li>所有對象默認繼承來自 <code>Object.prototype</code></li>
 </ul>
+<a id="more"></a>
+<h3 id="構造函數竊取繼承"><a href="#構造函數竊取繼承" class="headerlink" title="構造函數竊取繼承"></a>構造函數竊取繼承</h3><p>我利用竊取方式來實現繼承，也就是在子類構造來竊取父類構造函數。</p>
+<ul>
+<li><code>call</code> / <code>apply</code> 來調用父類構造函數，需要把 <code>this</code> 指向調用者。</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> Person <span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">,</span> role<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>role <span class="token operator">=</span> role<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
+Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>sayName <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Hello, My name is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>role <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`I'm a </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>role<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> Student <span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">,</span> role<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  Person<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">,</span> role<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 使用 Object.create 會 return {} (如下)</span>
+<span class="token comment" spellcheck="true">// { constructor: Student } -> 對象.__proto__ 指向 Person.prototype</span>
+Student<span class="token punctuation">.</span>prototype <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>Person<span class="token punctuation">.</span>prototype<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  constructor<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    configurable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    enumerable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    value<span class="token punctuation">:</span> Student<span class="token punctuation">,</span>
+    writable<span class="token punctuation">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> s <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Student</span><span class="token punctuation">(</span><span class="token string">'DecadeHew'</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token string">'FrontEnd'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+s<span class="token punctuation">.</span>name <span class="token comment" spellcheck="true">// DecadeHew</span>
+s<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// Hello, My name is DecadeHew</span>
+</code></pre>
+<h3 id="Object-繼承"><a href="#Object-繼承" class="headerlink" title="Object 繼承"></a>Object 繼承</h3><ul>
+<li>Object.create(prototype, defineProperty)<br><code>`</code>javascript<br>const person = {<br>type: ‘Human’,<br>walk: true<br>}<br>const me = Object.create(person, { name: { value: ‘DecadeHew’ } });</li>
+</ul>
+<p>// me 繼承了 person 裡所有屬性，也可以說 me 享有 person 權利。<br>// me 也繼承了 Object.prototype</p>
+<p>me.name // DecadeHew 自有屬性<br>me.type // Human</p>
+<p>// 以下會列出 prototype 關係圖<br>me.<strong>proto</strong> === person<br>me.<strong>proto</strong>.<strong>proto</strong> === Object.prototype<br>me.<strong>proto</strong>.<strong>proto</strong>.<strong>proto</strong> === null // 完畢</p>
+<pre><code>### Prototype chain 繼承
+- 每個函數都有 prototype 屬性。
+- 每創建函數，就會同時創建它的 `prototype` 對象，`prototype` 對象也會自動有 `constructor` 屬性。
+- `prototype` 對象也是一個對象，它也有自己的 `prototype` 對象並繼承其屬性，這就是 `Prototype chain`。(依上面程式：`me` 對象繼承了 `Object.prototype`，享有 `Object` 屬性和方法 `toString`, `keys`...)
+
+```javascript
+function Person (name, age, role) {
+  this.name = name;
+  this.age = age;
+  this.role = role;
+}
+
+Person.prototype.sayName = function () {
+  console.log(`Hello, My name is ${this.name}`);
+}
+
+Person.prototype.role = function () {
+  console.log(`I&#39;m a ${this.role}`);
+}
+
+function Student (name, age, role) {
+  this.name = name;
+  this.age = age;
+  this.role = role;
+}
+// 為什麼我不寫 Student.prototype = Person.prototype;
+// 因為 兩個構造函數的 prototype 都會指向同一個對象，
+// 萬一我修改其中一個函數(Student)的 prototype，會影響另一個函數(Person)
+
+Student.prototype = new Person();
+Student.prototype.constructor = Student;
+Student.prototype.role = function () {
+  console.log(`I&#39;m a ${this.role}`);
+}
+
+const me = new Student(&#39;DecadeHew, 18)
+me.name // DecadeHew
+me.sayName() // Hello, My name is DecadeHew
+
+// 以下會列出 prototype 關係圖
+me.__proto__ === Student.prototype
+me.__proto__.__proto__ === Person.prototype
+me.__proto.__proto__.proto__ === Object.prototype
+me.__proto.__proto__.proto__.__proto__ === null // 完畢
+Object.prototype.__proto__ === null // 完畢
+
+Student.prototype.__proto__ === Person.prototype
+Person.prototype.__proto__ === Object.prototype
+Object.prototype.__proto__ === null // 完畢
+
+// Function
+Function.prototype.__proto__ === Object.prototype
+Function.__proto__ === Function.prototype
+Object.__proto__ === Function.prototype
+Student.__proto__ === Function.prototype
+Student.__proto__.__proto__ === Object.prototype
+Student.__proto__.__proto__.__proto__ === null // 完畢
+Object.prototype.__proto__ === null // 完畢
+</code></pre>
       
     </div>
 
@@ -537,9 +583,11 @@ x-frame-options: DENY
         
         <div class="post-tags">
           
-            <a href="/tags/http/" rel="tag"># http</a>
+            <a href="/tags/學習筆記/" rel="tag"># 學習筆記</a>
           
-            <a href="/tags/指令/" rel="tag"># 指令</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/OOP/" rel="tag"># OOP</a>
           
         </div>
       
@@ -552,8 +600,8 @@ x-frame-options: DENY
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/10/git基本命令/" rel="next" title="git基本命令">
-                <i class="fa fa-chevron-left"></i> git基本命令
+              <a href="/2019/08/28/oop-1/" rel="next" title="OOP">
+                <i class="fa fa-chevron-left"></i> OOP
               </a>
             
           </div>
@@ -561,10 +609,6 @@ x-frame-options: DENY
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/13/html常用標籤/" rel="prev" title="html常用標籤">
-                html常用標籤 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -789,7 +833,7 @@ x-frame-options: DENY
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是HTTP"><span class="nav-number">1.</span> <span class="nav-text">什么是HTTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-请求包括哪些部分"><span class="nav-number">2.</span> <span class="nav-text">HTTP 请求包括哪些部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-响应包括哪些部分"><span class="nav-number">3.</span> <span class="nav-text">HTTP 响应包括哪些部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何使用-curl-命令"><span class="nav-number">4.</span> <span class="nav-text">如何使用 curl 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#繼承技巧"><span class="nav-number">1.</span> <span class="nav-text">繼承技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#構造函數竊取繼承"><span class="nav-number">1.1.</span> <span class="nav-text">構造函數竊取繼承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-繼承"><span class="nav-number">1.2.</span> <span class="nav-text">Object 繼承</span></a></li></ol></li></ol></div>
             
 
           </div>
