@@ -98,18 +98,18 @@
 
 
 
-  <meta name="description" content="Constructor Function在JS裡所有事物都是對象，function也是對象。構造函數透過new operator 可以創建新的對象Object。不使用 new 和一般函數沒有區別。   在 js 裡， new 是用來創建一個對象 new 構造函數(參數) -&amp;gt; 實例對象   基本 new 實現 思路：  創建新的實例對象 實例對象proto 指向於 構造函數.prototyp">
+  <meta name="description" content="Constructor Function在JS裡所有事物都是對象，function也是對象。構造函數透過new operator 可以創建新的對象Object。如不使用 new 和一般函數沒有區別。   在 js 裡， new 是用來創建一個對象 new 構造函數(參數) -&amp;gt; 實例對象   基本 new 實現 思路：  創建新的實例對象 實例對象proto 指向於 構造函數.prototy">
 <meta name="keywords" content="學習筆記,JavaScript,OOP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OOP">
 <meta property="og:url" content="http://yoursite.com/2019/08/28/oop-1/index.html">
 <meta property="og:site_name" content="平凡前端">
-<meta property="og:description" content="Constructor Function在JS裡所有事物都是對象，function也是對象。構造函數透過new operator 可以創建新的對象Object。不使用 new 和一般函數沒有區別。   在 js 裡， new 是用來創建一個對象 new 構造函數(參數) -&amp;gt; 實例對象   基本 new 實現 思路：  創建新的實例對象 實例對象proto 指向於 構造函數.prototyp">
+<meta property="og:description" content="Constructor Function在JS裡所有事物都是對象，function也是對象。構造函數透過new operator 可以創建新的對象Object。如不使用 new 和一般函數沒有區別。   在 js 裡， new 是用來創建一個對象 new 構造函數(參數) -&amp;gt; 實例對象   基本 new 實現 思路：  創建新的實例對象 實例對象proto 指向於 構造函數.prototy">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-08-28T05:18:14.039Z">
+<meta property="og:updated_time" content="2019-08-28T13:51:44.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OOP">
-<meta name="twitter:description" content="Constructor Function在JS裡所有事物都是對象，function也是對象。構造函數透過new operator 可以創建新的對象Object。不使用 new 和一般函數沒有區別。   在 js 裡， new 是用來創建一個對象 new 構造函數(參數) -&amp;gt; 實例對象   基本 new 實現 思路：  創建新的實例對象 實例對象proto 指向於 構造函數.prototyp">
+<meta name="twitter:description" content="Constructor Function在JS裡所有事物都是對象，function也是對象。構造函數透過new operator 可以創建新的對象Object。如不使用 new 和一般函數沒有區別。   在 js 裡， new 是用來創建一個對象 new 構造函數(參數) -&amp;gt; 實例對象   基本 new 實現 思路：  創建新的實例對象 實例對象proto 指向於 構造函數.prototy">
 
 
 
@@ -449,7 +449,7 @@
       
 
       
-        <h2 id="Constructor-Function"><a href="#Constructor-Function" class="headerlink" title="Constructor Function"></a>Constructor Function</h2><p>在<code>JS</code>裡所有事物都是對象，<code>function</code>也是對象。<br>構造函數透過<code>new</code> operator 可以創建新的對象<code>Object</code>。不使用 <code>new</code> 和一般函數沒有區別。</p>
+        <h2 id="Constructor-Function"><a href="#Constructor-Function" class="headerlink" title="Constructor Function"></a>Constructor Function</h2><p>在<code>JS</code>裡所有事物都是對象，<code>function</code>也是對象。<br>構造函數透過<code>new</code> operator 可以創建新的對象<code>Object</code>。如不使用 <code>new</code> 和一般函數沒有區別。</p>
 <blockquote>
 <ul>
 <li>在 <code>js</code> 裡， <code>new</code> 是用來創建一個對象</li>
@@ -496,7 +496,7 @@ c1<span class="token punctuation">.</span><span class="token function">sayName</
 c2<span class="token punctuation">.</span><span class="token function">sayName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// haha</span>
 </code></pre>
 <p>根據以上程式來講解，我把 <code>c2.sayName</code> 屬性值原函數改成字串haha。當 <code>c1.sayName</code> 還是一樣是函數。因為 <code>c1</code> 和 <code>c2</code> 對象是不相等的，當然你改變某個對象的屬性是不會影響到另一個對象。如果你想要是這樣，其實是沒問題。</p>
-<p>問題來了，我想要在我改某一個對象的屬性值時，另一個對象也需要立即得到反映。<strong>在這前提下，兩個對象必須是由 Cat構造函數所創建對象，如 <code>c1</code> 和 <code>c2</code>。</strong>再回來這個問題 <code>sayName</code> 屬性的變更，如何共享其他對象了。</p>
+<p>問題來了，我想要在我改某一個對象的屬性值時，另一個對象也需要立即得到反映。<strong>在這前提下，兩個對象必須是由 Cat構造函數所創建對象，如 <code>c1</code> 和 <code>c2</code>。</strong> 再回來這個問題 <code>sayName</code> 屬性的變更，如何共享其他對象了。</p>
 <p>就是把 <code>sayName</code> 屬性存在 <code>prototype</code> 對象裡，這樣一來可以<strong>節省空間</strong>也可以讓所有實例對象共享(享用) <code>prototype</code> 對象所保存的屬性和方法，只要 <code>prototype</code> 對象裡屬性修改，可以立即在所有實例得到反映。稍微講解為何使用 <code>prototype</code> 可以節省空間呢。可以想像下，透過 <code>new</code> 來創建多個對象，多個對象裡屬性是一樣，這樣會<strong>佔用內存</strong>。<br>當然我們可以分類哪個需要放在構造函數哪個需要放在 <code>prototype</code>。</p>
 <ul>
 <li>具體某個對象的特定屬性，通常放在構造函數裡。例如 <code>name</code>, <code>age</code>等等，因為每個對象 <code>name</code>, <code>age</code> 有所不同，僅僅只有特定屬於某個對象。</li>
@@ -529,6 +529,7 @@ obj<span class="token punctuation">.</span>__proto__ <span class="token operator
 <li><code>JavaScript engine</code> 會優先在對象裡找自有屬性</li>
 <li>如果沒有找不到，將會進入構造函數裡<code>prototype</code>裡尋找到匹配屬性名。</li>
 <li>屬性沒有在 <code>prototype</code> 裡，<code>JS engine</code> 會根據 <code>chain</code> 往下找。</li>
+<li>通過 <code>prototype chain</code> 實現繼承情況下，尋找過程就會沿著 <code>prototype chain</code> 繼續找。</li>
 <li>直到 <code>chain</code> 結束，就是根 <code>Object</code>，會返回 <code>undefined</code></li>
 </ol>
 <h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>Inheritance in JavaScript is when an object is based on another object. Inheritance allows us to reuse existing code, having objects take on properties of other objects.</p>

@@ -106,7 +106,7 @@
 <meta property="og:site_name" content="平凡前端">
 <meta property="og:description" content="繼承技巧 在 JavaScript 中繼承是指一個對象基於另一個對象 JavaScript 是利用 prototype 來實現繼承以及來管理繼承。 prototype 對象用途是所有實例共享的屬性。 所有對象默認繼承來自 Object.prototype">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-08-28T03:53:32.449Z">
+<meta property="og:updated_time" content="2019-08-28T15:16:00.213Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OOP - 繼承">
 <meta name="twitter:description" content="繼承技巧 在 JavaScript 中繼承是指一個對象基於另一個對象 JavaScript 是利用 prototype 來實現繼承以及來管理繼承。 prototype 對象用途是所有實例共享的屬性。 所有對象默認繼承來自 Object.prototype">
@@ -453,7 +453,7 @@
 <li>在 <code>JavaScript</code> 中繼承是指一個對象基於另一個對象</li>
 <li><code>JavaScript</code> 是利用 <code>prototype</code> 來實現繼承以及來管理繼承。</li>
 <li><code>prototype</code> 對象用途是所有實例共享的屬性。</li>
-<li>所有對象默認繼承來自 <code>Object.prototype</code></li>
+<li>所有對象<strong>默認</strong>繼承來自 <code>Object.prototype</code></li>
 </ul>
 <a id="more"></a>
 <h3 id="構造函數竊取繼承"><a href="#構造函數竊取繼承" class="headerlink" title="構造函數竊取繼承"></a>構造函數竊取繼承</h3><p>我利用竊取方式來實現繼承，也就是在子類構造來竊取父類構造函數。</p>
@@ -495,6 +495,7 @@ s<span class="token punctuation">.</span><span class="token function">sayName</s
 </code></pre>
 <h3 id="Object-繼承"><a href="#Object-繼承" class="headerlink" title="Object 繼承"></a>Object 繼承</h3><ul>
 <li>Object.create(prototype, defineProperty)</li>
+<li>帶給我們最簡潔建立 <code>prototypal inheritance</code></li>
 </ul>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token punctuation">{</span>
   type<span class="token punctuation">:</span> <span class="token string">'Human'</span><span class="token punctuation">,</span>
